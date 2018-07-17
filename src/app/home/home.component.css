@@ -1,0 +1,116 @@
+.header-image{
+    height:300px;
+    background-image:url('../../assets/log-Reg.jpg');
+    background-repeat:no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.header-content{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+.overlay{
+    position: absolute;
+    width: 100%;
+    height:100%;
+    background:linear-gradient(to bottom left,rgba(236,123,94,0.9),rgba(235,73,84,0.9));
+}
+.title{
+    color:white;
+    font-weight: lighter;
+    font-family: 'Oxygen', sans-serif;
+}
+.title-border{
+    border: 6px solid #fff;
+    padding:10px 25px 10px 25px; 
+}
+ 
+.filter-section{
+    background-color:#fff;
+}
+.card-section{
+    background-color:#fff;
+}
+.wrapper{
+    margin-top:15px;
+    padding:10px;
+   
+}
+.body-section h3{
+    font-size:19px !important;
+    font-family: 'Oxygen', sans-serif;
+    font-weight:bold;
+    padding-top:10px;
+}
+.hr{
+    color:#707070;
+}
+.pills-active{
+    background:linear-gradient(to bottom left,rgba(236,123,94,0.9),rgba(235,73,84,0.9));
+    border: 0;
+    padding: 3px 28px 3px 28px;
+    color:white; 
+    border-radius: 50px;
+    margin-right:5px;
+}
+.pills{
+    background:white;
+    border: 1px solid #EB4954 ;
+    padding: 3px 28px 3px 28px;
+    color: #EB4954;
+    border-radius: 50px;
+    margin-right:5px;
+}
+.main-body-wrapper h3{
+    font-size:19px !important;
+    font-family: 'Oxygen', sans-serif;
+    font-weight:bold;
+    padding-top:10px;
+}
+.card-outter{
+    overflow:scroll;
+    overflow-y:hidden; 
+    padding:20px;
+}
+.card-outter::-webkit-scrollbar-thumb{
+    background-color:transparent;
+    transition: background-color 10s ease-in;
+}
+.card-outter:hover::-webkit-scrollbar-thumb{
+    background-color:rgba(201, 196, 196, 0.705);
+}
+.card-container{
+    display: inline-flex;
+}
+.mycard{
+    border: 1px solid #707070;
+    border-radius: 5px;
+    height: 280px;
+    width: 230px;
+    box-shadow: 0 3px 24px #70707047;
+    margin-right:15px;
+}
+.card-image{
+    height:40%;
+    background:url(../../assets/cardimage.jpg);
+    padding:0;
+    margin:0;
+    border-radius:5px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.card-save{
+    height:18%;
+    background:linear-gradient(to left,rgba(236,123,94,0.9),rgba(235,73,84,0.9));
+}
+.card-title{
+    color:white;
+    padding-left:25px;
+}
+@media only screen and (max-width: 990px) {
+    .title{
+            font-size: 30px;
+    }  
+}

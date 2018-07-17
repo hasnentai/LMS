@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Oxygen:300,400,700%7CVarela+Round');
+body{
+    font-family: 'Oxygen', sans-serif;
+    color: #707070; 
+    background-color: #f0f0f0;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Varela Round', sans-serif;
+}
+::-webkit-scrollbar{
+    height:10px;
+}
+::-webkit-scrollbar-track{
+    background-color:transparent;
+    border-radius:10px;
+}
+::-webkit-scrollbar-thumb{
+    background-color:rgba(201, 196, 196, 0.705);
+    border-radius:10px;
+
+}
+/* #EC7B5E-gradient
+#EB4954-gradient-orange
+#box-shadow:0 3px 10px #000; --cards and buttons
+cards-border--#707070 
+cards-gradient--1st field-trans 2nd rgba(0,0,0,0.84)
+hover layer color-- rgba(36,33,33,0.69)
+height background img-300px;*/
