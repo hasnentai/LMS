@@ -6,10 +6,12 @@ import { HomeComponent } from './home/home.component';
 import { Routes, RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-export const routes: Routes=[
-  {path:'home', component:HomeComponent}
-]
+export const routes: Routes = [
+  {path: 'home', component: HomeComponent},
+  {path: 'profilepage' , component: ProfilePageComponent}
+];
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ export const routes: Routes=[
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
