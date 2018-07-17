@@ -14,6 +14,40 @@
         <div class="body-section">
           <h3>Filter here</h3>
           <hr>
+          <div class="filter-measures">
+            <ul>
+              <li>
+                <button class="filter-pills-active">
+                  <i class=" filter-icons-active large material-icons pl-3">account_balance</i>
+                  <a class="filter-names">School/PU Students</a>
+                </button>
+              </li>
+              <li>
+                <button class="filter-pills">
+                  <i class=" filter-icons large material-icons pl-3">computer</i>
+                  <a class="filter-names">Engineering Students</a>
+                </button>
+              </li>
+              <li>
+                <button class="filter-pills">
+                  <i class=" filter-icons large material-icons pl-3">equalizer</i>
+                  <a class="filter-names">Management Students</a>
+                </button>
+              </li>
+              <li>
+                <button class="filter-pills">
+                  <i class=" filter-icons large material-icons pl-3">school</i>
+                  <a class="filter-names">Post Graduates</a>
+                </button>
+              </li>
+              <li>
+                <button class="filter-pills">
+                  <i class=" filter-icons large material-icons pl-3">business</i>
+                  <a class="filter-names">Corporate</a>
+                </button>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -40,164 +74,53 @@
             <hr>
             <div class="card-outter">
               <div class="card-container">
-                <div class="mycard">
+                <div *ngFor="let card of cards" class="mycard">
+                  <div class="overlaywholecard">
+                    <div class="title-icon-div">
+                      <i class=" title-icons large material-icons pl-3">book</i>
+                      <i class=" title-icons large material-icons pl-3">share</i>
+                    </div>
+                    <button class="overlaywholecard-pills-active">View</button>
+                  </div>
                   <div class="card-image">
+                    <div class="overlaycard"></div>
                   </div>
                   <div class="card-save">
                     <div class="card-title">
-                      <h3>Title Here</h3>
+                      <h3 class="title-class">Title Here</h3>
+                    </div>
+                    <div class="card-description">
+                      this is card body and the description is as follows
                     </div>
                   </div>
-                  <div class="card-disc">
-                    this is card body
-                  </div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
-                  </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
-                  </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
-                  </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
-                  </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
-                  </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
                 </div>
               </div>
             </div>
           </div>
           <div class="main-body-wrapper">
-            <h3>Quizes</h3>
+            <h3>Quiz</h3>
             <hr>
             <div class="card-outter">
               <div class="card-container">
-                <div class="mycard">
+                <div *ngFor="let card of cards" class="mycard">
+                  <div class="overlaywholecard">
+                    <div class="title-icon-div">
+                      <i class=" title-icons large material-icons pl-3">book</i>
+                      <i class=" title-icons large material-icons pl-3">share</i>
+                    </div>
+                    <button class="overlaywholecard-pills-active">View</button>
+                  </div>
                   <div class="card-image">
-
+                    <div class="overlaycard"></div>
                   </div>
                   <div class="card-save">
                     <div class="card-title">
-                      <h3>Title Here</h3>
+                      <h3 class="title-class">Title Here</h3>
+                    </div>
+                    <div class="card-description">
+                      this is card body and the description is as follows
                     </div>
                   </div>
-                  <div class="card-disc">
-                    this is card body
-                  </div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
-                  </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
-                  </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
-                  </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
-                  </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
-                  </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="main-body-wrapper">
-            <h3>Hackathon</h3>
-            <hr>
-            <div class="card-outter">
-              <div class="card-container">
-                <div class="mycard">
-                  <div class="card-image">
-
-                  </div>
-                  <div class="card-save">
-                    <div class="card-title">
-                      <h3>Title Here</h3>
-                    </div>
-                  </div>
-                  <div class="card-disc">
-                    this is card body
-                  </div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
-                  </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
-                  </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
-                  </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
-                  </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
-                  </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
                 </div>
               </div>
             </div>
@@ -207,52 +130,53 @@
             <hr>
             <div class="card-outter">
               <div class="card-container">
-                <div class="mycard">
+                <div *ngFor="let card of cards" class="mycard">
+                  <div class="overlaywholecard">
+                    <div class="title-icon-div">
+                      <i class=" title-icons large material-icons pl-3">book</i>
+                      <i class=" title-icons large material-icons pl-3">share</i>
+                    </div>
+                    <button class="overlaywholecard-pills-active">View</button>
+                  </div>
                   <div class="card-image">
+                    <div class="overlaycard"></div>
                   </div>
                   <div class="card-save">
                     <div class="card-title">
-                      <h3>Title Here</h3>
+                      <h3 class="title-class">Title Here</h3>
+                    </div>
+                    <div class="card-description">
+                      this is card body and the description is as follows
                     </div>
                   </div>
-                  <div class="card-disc">
-                    this is card body
-                  </div>
                 </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
+              </div>
+            </div>
+          </div>
+          <div class="main-body-wrapper">
+            <h3>Hackathon</h3>
+            <hr>
+            <div class="card-outter">
+              <div class="card-container">
+                <div *ngFor="let card of cards" class="mycard">
+                  <div class="overlaywholecard">
+                    <div class="title-icon-div">
+                      <i class=" title-icons large material-icons pl-3">book</i>
+                      <i class=" title-icons large material-icons pl-3">share</i>
+                    </div>
+                    <button class="overlaywholecard-pills-active">View</button>
                   </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
+                  <div class="card-image">
+                    <div class="overlaycard"></div>
                   </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
+                  <div class="card-save">
+                    <div class="card-title">
+                      <h3 class="title-class">Title Here</h3>
+                    </div>
+                    <div class="card-description">
+                      this is card body and the description is as follows
+                    </div>
                   </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
-                  </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
-                  </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
                 </div>
               </div>
             </div>

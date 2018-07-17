@@ -8,7 +8,41 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   constructor() { }
-
+  card_image;
+  card_title;
+  card_description;
+  cards=[
+    {
+      card_image:"",
+      card_title:"",
+      card_description:""
+    },
+    {
+      card_image:"",
+      card_title:"",
+      card_description:""
+    },
+    {
+      card_image:"",
+      card_title:"",
+      card_description:""
+    },
+    {
+      card_image:"",
+      card_title:"",
+      card_description:""
+    },
+    {
+      card_image:"",
+      card_title:"",
+      card_description:""
+    },
+    {
+      card_image:"",
+      card_title:"",
+      card_description:""
+    }
+  ]
   ngOnInit() {
   }
 
