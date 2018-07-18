@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light">
+<nav class="navbar navbar-expand-lg navbar-light navbar-fixed-top" style="background-color:#fff">
   <div class="container">
     <h1 class="navbar-brand header-font">
         <img style=" height:60px;" src="../../assets/logo.png" alt="">
@@ -32,8 +32,8 @@
         </div>
         <div class="menu-contianer " >
           <ul>
-            <li *ngFor="let item of myitem; let i=index" (click)="select(i)" [ngClass]="{'active': selectedIndex == i}">
-              {{item.menu}}
+            <li *ngFor="let item of myitem; let i=index" [routerLinkActive]="['active']">
+              <p [routerLink]=item.link>{{item.menu}}</p>
               <hr>
             </li>
             

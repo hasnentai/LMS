@@ -1,0 +1,128 @@
+<section>
+  <div class="background-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="logo-wrapper text-center mt-5">
+            <img src="../../assets/logo.png">
+          </div>
+          <div class="col-sm-12">
+            <div class="login-card-wrapper">
+              <form (ngSubmit)="data(allformdata)" #allformdata="ngForm">
+                <div class="login-form-wrapper">
+                  <div class="form p-5">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label for="fname">First Name</label>
+                            <input type="text" class="form-control mytxt" id="fname" aria-describedby="emailHelp" placeholder="Your First Name " name="fname" ngModel>
+                          </div>
+                          <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="Email" class="form-control mytxt" id="email" aria-describedby="emailHelp" placeholder="Example@gmail.com " name="email" ngModel>
+                          </div>
+                          <div class="form-group">
+                            <label for="re-pass">Re -Type Password</label>
+                            <input type="password" class="form-control mytxt" id="re-pass" aria-describedby="emailHelp" placeholder="************ "name="re-password" ngModel>
+                          </div>
+                          <div class="form-group">
+                            <label for="sate">State</label>
+                            <select class="form-control mytxt" id="state" name="state" ngModel>
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <label for="sem">Sem</label>
+                            <select class="form-control mytxt" id="sem" name="sem" ngModel>
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <label for="phno">Phone No</label>
+                            <input type="phone" class="form-control mytxt" id="phno" aria-describedby="emailHelp" placeholder="+919898123456" name="phno" ngModel>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label for="lname">Last Name</label>
+                            <input type="text" class="form-control mytxt" id="lname" aria-describedby="emailHelp" placeholder="Your Last Name" name="lname" ngModel>
+                          </div>
+                          <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control mytxt" id="password" aria-describedby="emailHelp" placeholder="************* " name="password" ngModel>
+                          </div>
+                          <div class="form-group">
+                            <label for="city">City</label>
+                            <select class="form-control mytxt" id="city" name="city" ngModel>
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <label for="college">College</label>
+                            <select class="form-control mytxt" id="college" name="College" ngModel>
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <label for="course">Course</label>
+                            <select class="form-control mytxt" id="course" name="course" ngModel>
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <label for="dob">Date of Birth</label>
+                            <input type="text" class="form-control mytxt" id="dob" aria-describedby="emailHelp" placeholder="12-12-1995">
+                          </div>
+                        </div>
+                        <div class="col-lg-12">
+                          <div class="text-center">
+                            <button type="submit" class="login">Register</button>
+                          </div>
+                        </div>
+                        <div class="col-lg-12">
+                          <div class="text-center mt-3">
+                            <p>Allready Have An Account ?
+                              <b>
+                                <a style="color:#707070" routerLink="/login">Login Here</a>
+                              </b>
+                            </p>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

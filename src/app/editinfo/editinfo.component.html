@@ -1,0 +1,105 @@
+<app-header></app-header>
+<section>
+  <div class="banner-wrapper">
+    <div class="overlay">
+      <div class="container">
+        <h4 class="heading">Edit Info</h4>
+      </div>
+    </div>
+    <div class="banner"></div>
+  </div>
+  <div class="container">
+    <div class="body-wrapper mt-4">
+      <div class="filter wrapper rounded filter-section">
+        <div class="body-section">
+          <h3>Update Yor Personal Information Here</h3>
+          <hr>
+          <div class="edit-form p-5">
+            <form (ngSubmit)="Data(allformdata);" #allformdata="ngForm">
+              <div class="row">
+                <div class="col-lg-6 col-sm-12">
+                  <div class="form-group">
+                    <label for="fname">First Name</label>
+                    <input type="text" class="form-control mytxt" id="fname" aria-describedby="emailHelp" placeholder="First Name" ngModel name="firstname">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control mytxt" id="email" aria-describedby="emailHelp" placeholder="Email" disabled="true" ngModel name="email">
+                  </div>
+                  <div class="form-group">
+                    <label for="city">City</label>
+                    <select class="form-control mytxt" id="city" ngModel name="city">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                      <label for="sem">Sem</label>
+                      <select class="form-control mytxt" id="sem" ngModel name="sem">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                  <div class="form-group">
+                    <label for="lname">Last Name</label>
+                    <input type="email" class="form-control mytxt" id="lname" aria-describedby="emailHelp" placeholder="Last Name" ngModel name="lastname"> 
+                  </div>
+                  <div class="form-group">
+                    <label for="state">State</label>
+                    <select class="form-control mytxt" id="state" ngModel name="state">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="college">College</label>
+                    <select class="form-control mytxt" id="college" ngModel name="college">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                      <label for="course">Course</label>
+                      <select class="form-control mytxt" id="course" ngModel name="course">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="dob">Date Of Birth</label>
+                        <input type="text" class="form-control mytxt" id="course" aria-describedby="emailHelp" placeholder="12-9-1995" ngModel name="dob">
+                      </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="mybutton-wrapper mt-5 text-center">
+                        <input type="submit" class="mysubmit-btn" value="save">
+                      </div>
+                </div>
+                
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

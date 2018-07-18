@@ -19,6 +19,25 @@ h1,h2,h3,h4,h5,h6{
     border-radius:10px;
 
 }
+textarea:hover, 
+input:hover, 
+textarea:active, 
+input:active, 
+textarea:focus, 
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active,
+.form-control:focus,
+select:focus
+{
+    outline:0px !important;
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0)!important;
+    -webkit-appearance:none!important;
+}
 /* #EC7B5E-gradient
 #EB4954-gradient-orange
 #box-shadow:0 3px 10px #000; --cards and buttons

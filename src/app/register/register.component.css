@@ -1,0 +1,50 @@
+.logo-wrapper img{
+    width: 290px;
+}
+.background-wrapper{
+    background-image: url('../../assets/Symbol.png');
+    background-size: cover;
+
+}
+
+.google{
+    border-radius: 50px;
+    padding-top:9px;
+    padding-bottom:9px;
+    padding-right: 30px;
+    padding-left: 30px;
+    border:none;
+    color: white;
+    background: rgb(226, 48, 57);
+    box-shadow: 0 6px 14px #70707077;
+    margin-top:60px
+}
+.login-card-wrapper{
+    border:1px solid #70707077;
+    margin:20%;
+    margin-top:20px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+.login{
+    border-radius: 50px;
+    padding-top:9px;
+    padding-bottom:9px;
+    padding-right: 30px;
+    padding-left: 30px;
+    border:none;
+    color: white;
+    background:linear-gradient(to bottom left,rgba(236,123,94,1),rgba(235,73,84,1));
+    box-shadow: 0 6px 14px #70707077;
+    
+}
+.mytxt{
+    border: none;
+    border-bottom: 2px solid #b4b4b4;
+    border-radius: 0;
+}
+
+
+
+
+
