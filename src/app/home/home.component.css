@@ -91,6 +91,7 @@ ul{
 .hr{
     color:#707070;
 }
+
 .pills-active{
     background:linear-gradient(to bottom left,rgba(236,123,94,0.9),rgba(235,73,84,0.9));
     border: 0;
@@ -98,6 +99,7 @@ ul{
     color:white; 
     border-radius: 50px;
     margin-right:5px;
+    transition: 0.5s all ease-in;
 }
 .pills{
     background:white;
@@ -106,6 +108,7 @@ ul{
     color: #EB4954;
     border-radius: 50px;
     margin-right:5px;
+    /* transition: 0.5s all ease-in; */
 }
 .main-body-wrapper h3{
     font-size:19px !important;
@@ -211,8 +214,45 @@ ul{
     left:50%;
     transform:translate(-50%,-50%);
 }
+.filter-button-div{
+    display:none;
+}
 @media only screen and (max-width: 990px) {
     .title{
             font-size: 30px;
+    }
+    .pills-scroll{
+        overflow:scroll;
+        overflow-y:hidden; 
+        padding: 20px;
+    }
+    .filter-section{
+        display:none;
+    }
+    .pills-scroll::-webkit-scrollbar-thumb{
+        background-color:transparent;
+        transition: background-color 10s ease-in;
+    }
+    .pills-scroll:hover::-webkit-scrollbar-thumb{
+        background-color:rgba(201, 196, 196, 0.705);
+    }
+    .pills-container{
+        display: inline-flex;
     }  
+    .filter-button-div{
+        display: block;
+        position: fixed;
+        bottom:12px;
+        right:25px;
+    }
+    .filter-button{
+        border:0;
+        border-radius:50px;
+        height:60px;
+        width:60px;
+        color:white;
+        background:linear-gradient(to left,rgba(236,123,94,1),rgba(235,73,84,1));
+        box-shadow: 0 3px 14px #707070cc;
+
+    }
 }
