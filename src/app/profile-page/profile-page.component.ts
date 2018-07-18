@@ -5,11 +5,40 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './profile-page.component.html',
   styleUrls: ['./profile-page.component.css']
 })
-export class ProfilePageComponent implements OnInit {
-
+export class ProfilePageComponent {
   constructor() { }
-
-  ngOnInit() {
-  }
-
+  items = [
+    {
+      cardimg : '../../assets/cardimage.jpg',
+      title : 'Title Here',
+    },
+    {
+      cardimg : '../../assets/cardimage.jpg',
+      title : 'Title Here',
+    },
+    {
+      cardimg : '../../assets/cardimage.jpg',
+      title : 'Title Here',
+    },
+    {
+      cardimg : '../../assets/cardimage.jpg',
+      title : 'Title Here',
+    },
+    {
+      cardimg : '../../assets/cardimage.jpg',
+      title : 'Title Here',
+    },
+    {
+      cardimg : '../../assets/cardimage.jpg',
+      title : 'Title Here',
+    },
+    {
+      cardimg : '../../assets/cardimage.jpg',
+      title : 'Title Here',
+    },
+    {
+      cardimg : '../../assets/cardimage.jpg',
+      title : 'Title Here',
+    },
+  ];
 }

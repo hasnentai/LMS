@@ -1,0 +1,197 @@
+.body-section{
+    padding: 20px;
+}
+.banner-wrapper{
+    position: relative;
+}
+
+.banner{
+    background-image: url('../../assets/log-Reg.jpg');
+    height: 100px;
+    width: 100%;
+}
+.overlay{
+    position: absolute;
+    width: 100%;
+    height:100%;
+    background:linear-gradient(to bottom left,rgba(236,123,94,0.9),rgba(235,73,84,0.9));
+}
+.heading{
+    padding-top:40px;
+    color: #fff;
+    font-family: 'Oxygen',sans-serif!important;
+}
+.filter-section{
+    background-color:#fff;
+}
+
+.hr{
+    color:#707070;
+}
+wrapper{
+    margin-top:15px;
+    padding:10px;
+   
+}
+.body-section h3{
+    font-size:19px !important;
+    font-family: 'Oxygen', sans-serif;
+    font-weight:bold;
+    padding:10px;
+}
+.hr{
+    color:#707070;
+}
+.mycard{
+    height: 175px;
+    width: 200px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border:1px solid #707070;
+    overflow: hidden;
+    margin: 10px
+    
+}
+.card-body-wrapper{
+    overflow-x: auto;
+    overflow-y: hidden;
+
+}
+.card-body-wrapper::-webkit-scrollbar-thumb{
+    background-color: transparent;
+}
+.card-body-wrapper:hover::-webkit-scrollbar-thumb{
+    background-color: rgba(0, 0, 0, 0.151);
+}
+.card-container{
+    display: inline-flex;
+}
+.card-img{
+    position: relative;
+}
+.overlayt{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to bottom ,rgba(255, 255, 255, 0),rgba(0, 0, 0, 0.72));
+}
+.card-img img{
+    height: 130px;
+    width: 100%;
+    object-fit: cover;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.card-body-wrapper{
+    padding: 20px;
+}
+.card-title{
+    background: linear-gradient(to  left,rgba(236,123,94,0.9),rgba(235,73,84,0.9));
+    color: white;
+    position: relative;
+}
+.card-title p{
+    color: white;
+    
+    display: inline-block;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+.myicons{
+   position: absolute;
+   right: 0;
+   display: inline;
+   top:9px
+}
+.book{
+    position: absolute;
+    right: 35px;
+}
+.share{
+    position: absolute;
+    right: 6px;
+}
+.user-avater .book-user{
+    color: #EB4954;
+    font-size:130px;
+    display: inline-block;
+}
+.user-avater{
+    position: relative;
+}
+.user-avater h4{
+    position: absolute;
+    top: 10px;
+    left: 140px;
+    font-size: 25px;
+    font-family: 'Oxygen' ,sans-serif;
+    font-weight: bold;
+}
+.percent{
+    top:50px!important;
+    font-size: 45px!important;
+    font-weight: lighter!important;
+
+}
+.list-user-avater .user-avater .book-user{
+    color: #EB4954;
+    font-size:70px;
+    display: inline-block;
+}
+
+.list-user-avater .user-avater h4{
+    position: absolute;
+    top: 10px;
+    left: 80px;
+    font-size: 20px;
+    font-family: 'Oxygen' ,sans-serif;
+    font-weight: bold;
+}
+.list-user-avater .percent{
+    top:35px!important;
+    font-size: 25px!important;
+    font-weight: lighter!important;
+}
+
+.view-btn{
+    background: linear-gradient(to  left,rgba(236,123,94,0.9) 1%,rgba(235,73,84,0.9));
+    color: white;
+    border-radius: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top:10px;
+    padding-bottom: 10px;
+    margin-top:50px;
+    border:none;
+    box-shadow: 0 10px 39px rgba(0, 0, 0, 0.151)
+}
+
+@media only screen and (max-width: 990px) {
+    .user-avater[_ngcontent-c1] .book-user[_ngcontent-c1] {
+        color: #EB4954;
+        font-size: 75px;
+        display: inline-block;
+    }
+    .user-avater[_ngcontent-c1] h4[_ngcontent-c1] {
+        position: absolute;
+        top: 10px;
+        left: 90px;
+        font-size: 20px;
+        font-family: 'Oxygen' ,sans-serif;
+        font-weight: bold;
+    }
+    .percent[_ngcontent-c1] {
+        top: 35px!important;
+        font-size: 32px!important;
+        font-weight: lighter!important;
+    }
+    .card-body-wrapper[_ngcontent-c1] {
+        padding: 3px;
+    }
+    /* Styles */
+}
+@media only screen and (min-width: 990px) {
+    /* Styles */
+}
