@@ -1,4 +1,3 @@
-import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -12,5 +11,10 @@ export class ServerserviceService {
     console.log(formdata);
     return this.http.post(this._rootUrl + '/api/client/register', formdata);
 
+  }
+  // tslint:disable-next-line:member-ordering
+  CourseDetailsUrl = 'http://192.168.0.11:3000/api/client/get-courses';
+  getcoursecarddetails() {
+    return this.http.get(this.CourseDetailsUrl);
   }
 }

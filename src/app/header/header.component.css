@@ -2,7 +2,9 @@
     color:#EB4954;
     font-size: 1.7em;    
 }
-
+.navbar-toggler{
+    border:none;
+}
 .header-icons{
     color:#EB4954;
 }
@@ -21,6 +23,7 @@
     top:0;
     width: 30%;
     box-shadow: 2px 0 20px #7070704f;
+    background-image:url('../../assets/Symbol.png')
 }
 .logo-container img{
     height: 60px;
@@ -53,10 +56,23 @@
 .menu-container ul  .active {
     color:#EB4954;
 }
-
 @media only screen and (max-width: 990px) {
 
     /* Styles */
+    .menu-container{
+        width:90%;
+    }
+    .user-name{
+        top:65px;
+        left:135px;
+    }
+    .user-name h4{
+        font-size: 1.2rem;
+    }
+    .user-avater-icon{
+        font-size:80px;
+    }
+  
 }
 @media only screen and (min-width: 990px) {
     .side-search-mobile {
@@ -65,5 +81,6 @@
     .filter{
         display: none;
     }
+
     /* Styles */
 }
