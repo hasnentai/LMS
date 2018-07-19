@@ -7,6 +7,8 @@ import {
   transition
 } from '@angular/animations';
 import { HostListener } from '@angular/core';
+import { ServerserviceService } from '../serverservice.service';
+import { element } from 'protractor';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -22,18 +24,22 @@ import { HostListener } from '@angular/core';
         transform: 'translateX(0px)',
 
       })),
-      transition('inactive => active', animate('600ms ease-in')),
-      transition('active => inactive', animate('600ms ease-out'))
+      transition('inactive => active', animate('300ms ease-out')),
+      transition('active => inactive', animate('300ms ease-out'))
     ])
   ]
 })
-export class HeaderComponent {
+export class HeaderComponent  implements OnInit {
 
   public anistate = 'inactive';
   content: any;
   selectedIndex = 0;
+  userToken = localStorage.getItem('userToken');
+  userName = '';
+  email = '';
+  login;
 
-  constructor(public el: ElementRef, public renderer: Renderer2) {}
+  constructor(public el: ElementRef, public renderer: Renderer2, public serverservice: ServerserviceService) {}
 
   myitem = [
     {
@@ -56,10 +62,6 @@ export class HeaderComponent {
       menu : 'Edit Info',
       link : '/edit'
     },
-    {
-      menu : 'Log Out',
-      link : '/you'
-    },
   ];
 
 
@@ -74,9 +76,28 @@ export class HeaderComponent {
     }
   }
 
+  ngOnInit() {
+    if (localStorage.getItem('userToken') !== null) {
+      this.login = true;
+    } else {
+      this.login = false;
+    }
+    console.log(this.login);
+    this.serverservice.getEditData().subscribe((response) => {
+      // for (const test of response) {
+
+      // }
+      this.userName = response[0].fname + ' ' + response[0].lname;
+      this.email = response[0].email;
+      // console.log(response);
+    });
+  }
 
   select(index: number) {
       this.selectedIndex = index;
+  }
+  logout() {
+      localStorage.removeItem('userToken');
   }
 
   toggleState() {

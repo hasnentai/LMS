@@ -20,15 +20,15 @@
                 <div class="col-lg-6 col-sm-12">
                   <div class="form-group">
                     <label for="fname">First Name</label>
-                    <input type="text" class="form-control mytxt" id="fname" aria-describedby="emailHelp" placeholder="First Name" ngModel name="firstname">
+                    <input type="text" class="form-control mytxt" id="fname" aria-describedby="emailHelp" placeholder="First Name" [(ngModel)] = "fname"  name="fname">
                   </div>
                   <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control mytxt" id="email" aria-describedby="emailHelp" placeholder="Email" disabled="true" ngModel name="email">
+                    <input type="email" class="form-control mytxt" id="email" aria-describedby="emailHelp" placeholder="Email" readonly [(ngModel)] = "email" name="email">
                   </div>
                   <div class="form-group">
                     <label for="city">City</label>
-                    <select class="form-control mytxt" id="city" ngModel name="city">
+                    <select class="form-control mytxt" id="city" [(ngModel)] = "city" name="city">
                       <option>1</option>
                       <option>2</option>
                       <option>3</option>
@@ -38,7 +38,7 @@
                   </div>
                   <div class="form-group">
                       <label for="sem">Sem</label>
-                      <select class="form-control mytxt" id="sem" ngModel name="sem">
+                      <select class="form-control mytxt" id="sem" [(ngModel)] = "sem" name="sem">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -50,11 +50,11 @@
                 <div class="col-lg-6 col-sm-12">
                   <div class="form-group">
                     <label for="lname">Last Name</label>
-                    <input type="email" class="form-control mytxt" id="lname" aria-describedby="emailHelp" placeholder="Last Name" ngModel name="lastname"> 
+                    <input type="email" class="form-control mytxt" id="lname" aria-describedby="emailHelp" placeholder="Last Name" [(ngModel)] = "lname" name="lname"> 
                   </div>
                   <div class="form-group">
                     <label for="state">State</label>
-                    <select class="form-control mytxt" id="state" ngModel name="state">
+                    <select class="form-control mytxt" id="state" [(ngModel)] = "state" name="state">
                       <option>1</option>
                       <option>2</option>
                       <option>3</option>
@@ -64,7 +64,7 @@
                   </div>
                   <div class="form-group">
                     <label for="college">College</label>
-                    <select class="form-control mytxt" id="college" ngModel name="college">
+                    <select class="form-control mytxt" id="college" [(ngModel)] = "college" name="college">
                       <option>1</option>
                       <option>2</option>
                       <option>3</option>
@@ -74,7 +74,7 @@
                   </div>
                   <div class="form-group">
                       <label for="course">Course</label>
-                      <select class="form-control mytxt" id="course" ngModel name="course">
+                      <select class="form-control mytxt" id="course" [(ngModel)] = "course" name="course">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -86,11 +86,12 @@
                 <div class="col-sm-12">
                     <div class="form-group">
                         <label for="dob">Date Of Birth</label>
-                        <input type="text" class="form-control mytxt" id="course" aria-describedby="emailHelp" placeholder="12-9-1995" ngModel name="dob">
+                        <input type="text" class="form-control mytxt" id="course" aria-describedby="emailHelp" placeholder="12-9-1995" [(ngModel)] = "dob" name="dob">
                       </div>
                 </div>
                 <div class="col-sm-12">
                     <div class="mybutton-wrapper mt-5 text-center">
+                      <input type="hidden" [(ngModel)] = "token" name="token">
                         <input type="submit" class="mysubmit-btn" value="save">
                       </div>
                 </div>

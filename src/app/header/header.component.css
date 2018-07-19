@@ -3,6 +3,12 @@
     font-size: 1.7em;    
 }
 
+.login-button{
+    border: none;
+    padding-left: 20px;
+    color: #EB4954;
+    font-size: 20px;
+}
 .header-icons{
     color:#EB4954;
 }
@@ -36,7 +42,7 @@
 }
 .user-name{
     position: absolute;
-    top:85px;
+    top:70px;
     left: 150px;
 }
 .menu-container ul{

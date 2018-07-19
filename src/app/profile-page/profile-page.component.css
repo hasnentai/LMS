@@ -14,7 +14,7 @@
     position: absolute;
     width: 100%;
     height:100%;
-    background:linear-gradient(to bottom left,rgba(236,123,94,0.9),rgba(235,73,84,0.9));
+    background:linear-gradient(to bottom left,rgba(236, 122, 94, 0.945),rgba(235, 73, 84, 0.986));
 }
 .heading{
     padding-top:40px;
@@ -92,12 +92,15 @@ wrapper{
 }
 .card-title p{
     color: white;
-    
-    display: inline-block;
+    display: block;
     font-weight: bold;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 10px;
+    width: 140px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .myicons{
    position: absolute;

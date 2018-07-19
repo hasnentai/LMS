@@ -21,10 +21,14 @@
 }
 .login-card-wrapper{
     border:1px solid #70707077;
-    margin:20%;
+    margin:10%;
     margin-top:20px;
     border-radius: 5px;
     background-color: #fff;
+    box-shadow: 0 2px 8px #707070;
+}
+.form{
+    padding:20px;
 }
 .login{
     border-radius: 50px;
@@ -40,8 +44,14 @@
 }
 .mytxt{
     border: none;
-    border-bottom: 2px solid #b4b4b4;
-    border-radius: 0;
+    border-bottom: 1px solid #ec5455;
+}
+
+
+@media only screen and (max-width: 990px) {
+    .login-card-wrapper {
+        margin: 0;
+    }
 }
 
 
