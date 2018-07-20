@@ -1,59 +1,68 @@
 import { Component, OnInit, ElementRef, Renderer, Renderer2 } from '@angular/core';
 import { ServerserviceService } from '../serverservice.service';
 
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+
+
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+@Injectable()
 export class HomeComponent implements OnInit {
 
+
   constructor(public el: ElementRef, public renderer: Renderer2, private serverservice: ServerserviceService) { }
-  card_image;
-  card_title;
-  card_description;
-  cards = [];
-  categorywisefilters = [
-    {
-      catname: 'No Filter',
-      icon: 'filter_none'
-    },
-    {
-      catname: 'School/PU Students',
-      icon: 'account_balance'
-    },
-    {
-      catname: 'Engineering Students',
-      icon: 'computer'
-    },
-    {
-      catname: 'Management Students',
-      icon: 'equalizer'
-    },
-    {
-      catname: 'Post Graduates',
-      icon: 'school'
-    },
-    {
-      catname: 'Corporate',
-      icon: 'business'
-    }
-  ];
-  sectionwisefilters = [
-    {
-      menu: 'All'
-    },
-    {
-      menu: 'Quiz'
-    },
-    {
-      menu: 'Competition'
-    },
-    {
-      menu: 'Hackathon'
-    }
-  ];
-  filterwindow: any;
+      card_image;
+      card_title;
+      card_description;
+      cards = [];
+      categorywisefilters = [
+        {
+          catname: 'No Filter',
+          icon: 'filter_none'
+        },
+        {
+          catname: 'School/PU Students',
+          icon: 'account_balance'
+        },
+        {
+          catname: 'Engineering Students',
+          icon: 'computer'
+        },
+        {
+          catname: 'Management Students',
+          icon: 'equalizer'
+        },
+        {
+          catname: 'Post Graduates',
+          icon: 'school'
+        },
+        {
+          catname: 'Corporate',
+          icon: 'business'
+        }
+      ];
+      sectionwisefilters = [
+        {
+          menu: 'All'
+        },
+        {
+          menu: 'Quiz'
+        },
+        {
+          menu: 'Competition'
+        },
+        {
+          menu: 'Hackathon'
+        }
+      ];
+      filterwindow: any;
+      userToken = localStorage.getItem('userToken');
+      scrollTraget: String;
   conten: any;
   allbutn: any;
   currentBtn: any;
@@ -74,10 +83,14 @@ export class HomeComponent implements OnInit {
     this.renderer.addClass(this.conten, 'pills-active');
   }
   clickf(index) {
-    this.conten = this.el.nativeElement.getElementsByClassName('filter-pills-button')[index];
-    this.allbutn = this.el.nativeElement.getElementsByClassName('filter-pills-button');
+    this.conten = this.el.nativeElement.getElementsByClassName(
+      'filter-pills-button'
+    )[index];
+    this.allbutn = this.el.nativeElement.getElementsByClassName(
+      'filter-pills-button'
+    );
     console.log(this.allbutn);
-    for (let i = 0 ; i < this.allbutn.length; i++) {
+    for (let i = 0; i < this.allbutn.length; i++) {
       if (i !== index) {
         // this.renderer.removeClass(this.el.nativeElement.getElementsByClassName('pills-button')[i],'pills-active')
         console.log(this.allbutn[i]);
@@ -129,5 +142,4 @@ export class HomeComponent implements OnInit {
       console.log('cards' + this.cards);
     }) ;
   }
-
 }

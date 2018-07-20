@@ -63,6 +63,7 @@ ul{
     margin-bottom:12px;
     width:100%;
     position: relative;
+    transition: 0.5s all ease-in;
 }
 .filter-pills{
     background:white;
@@ -120,7 +121,7 @@ ul{
 .card-outter{
     overflow:scroll;
     overflow-y:hidden; 
-    padding:20px;
+    padding-bottom: 5px;
 }
 .card-outter::-webkit-scrollbar-thumb{
     background-color:transparent;
@@ -197,6 +198,9 @@ ul{
 .overlaywholecard button{
     position: absolute;
     bottom: 10px;
+    transform: translateY(100px);
+    transition: 0.2s all ease-in;
+    transition-delay: 0.1s;
 }
 .overlaywholecard-pills-active{
     background:linear-gradient(to left,rgba(236,123,94,0.9),rgba(235,73,84,0.9));
@@ -211,6 +215,9 @@ ul{
 }
 .mycard:hover .overlaywholecard{
     opacity:1;
+}
+.mycard:hover .overlaywholecard button{
+    transform: translateY(0);
 }
 .mycard:hover .title-icons{
     z-index:300;
@@ -232,6 +239,7 @@ ul{
     box-shadow: 0 3px 24px #70707047;
 }
 @media only screen and (max-width: 990px) {
+
     .title{
             font-size: 30px;
     }

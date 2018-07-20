@@ -42,8 +42,7 @@ export const routes: Routes = [
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    HttpModule
-
+    HttpModule,
   ],
   providers: [
     ServerserviceService,
