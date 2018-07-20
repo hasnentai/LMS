@@ -232,11 +232,28 @@ ul{
 .filter-button-div{
     display:none;
 }
+
 .filter-section-mobile{
     display:none;
 }
 .close-filter-button{
     box-shadow: 0 3px 24px #70707047;
+}
+.fixed-side-filter{
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    width: 23%;
+    transform: translateY(0);
+    transition: 0.5s all ease-in;
+}
+.fixed-side-filter-close {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    width: 23%;
+    transform: translateY(-100%);
+    transition: 0.5s all ease-in;
 }
 @media only screen and (max-width: 990px) {
 

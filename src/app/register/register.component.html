@@ -16,95 +16,133 @@
                         <div class="col-lg-6">
                           <div class="form-group">
                             <label for="fname">First Name</label>
-                            <input type="text" class="form-control mytxt" id="fname" aria-describedby="emailHelp" placeholder="Your First Name " name="fname" ngModel>
-                            <small id="fname" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            <input type="text" class="form-control mytxt" id="fname" aria-describedby="emailHelp" placeholder="Your First Name " name="fname"
+                              #fname="ngModel" ngModel required autocomplete="off">
+                            <div *ngIf="fname.touched && !fname.valid">
+                              <small id="fname" class="form-text text-danger" *ngIf="fname.errors.required">First Name is required</small>
+                            </div>
                           </div>
                           <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="Email" class="form-control mytxt" id="email" aria-describedby="emailHelp" placeholder="Example@gmail.com " name="email" ngModel>
-                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            <input type="Email" class="form-control mytxt" id="email" aria-describedby="emailHelp" placeholder="Example@gmail.com " name="email"
+                              #email="ngModel" ngModel required autocomplete="off" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+                            <div *ngIf="email.touched && !email.valid" >
+                              <small id="email" class="form-text text-danger" *ngIf="email.errors.required">Email is required</small>
+                              <small id="email" class="form-text text-danger" *ngIf="email.errors.pattern">Email is Invalid</small>
+                            </div>
                           </div>
                           <div class="form-group">
                             <label for="re-pass">Re-Type Password</label>
-                            <input type="password" class="form-control mytxt" id="re-pass" aria-describedby="emailHelp" placeholder="************ "name="re-password" ngModel>
-                            <small id="re-pass" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            <input type="password" class="form-control mytxt" id="re-pass" aria-describedby="emailHelp" placeholder="************ " name="repassword"
+                              #repassword="ngModel" ngModel required autocomplete="off" validateEqual="password" (keyup)="validatepassword(repassword.value,password.value);">
+                            <div *ngIf="repassword.touched && !repassword.valid">
+                              <small id="repassword" class="form-text text-danger" *ngIf="repassword.errors.required">Re-Type Password is required</small>
+                            </div>
+                            <small id="re-password" class="form-text text-danger" *ngIf="!passwordValid">Password Match Falid (Please Enter the same Password)</small>
+                            
                           </div>
                           <div class="form-group">
                             <label for="sate">State</label>
-                            <select class="form-control mytxt" id="state" name="state" ngModel>
+                            <select class="form-control mytxt" id="mystate" name="mystate" ngModel  #mystate="ngModel" required autocomplete="off">
                               <option>1</option>
                               <option>2</option>
                               <option>3</option>
                               <option>4</option>
                               <option>5</option>
                             </select>
-                            <small id="state" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            <div *ngIf="mystate.touched && !mystate.valid">
+                                <small id="state" class="form-text text-danger" *ngIf="mystate.errors.required">Please Select the State</small>
+                                <!-- <small id="re-password" class="form-text text-danger" *ngIf="email.errors.pattern">Email is Invalid</small> -->
+                              </div>
                           </div>
                           <div class="form-group">
                             <label for="sem">Sem</label>
-                            <select class="form-control mytxt" id="sem" name="sem" ngModel>
+                            <select class="form-control mytxt" id="sem" name="sem" ngModel #sem="ngModel" required autocomplete="off">
                               <option>1</option>
                               <option>2</option>
                               <option>3</option>
                               <option>4</option>
                               <option>5</option>
                             </select>
-                            <small id="sem" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            <div *ngIf="sem.touched && !sem.valid">
+                                <small id="re-password" class="form-text text-danger" *ngIf="sem.errors.required">Please Select the Sem</small>
+                                <!-- <small id="re-password" class="form-text text-danger" *ngIf="email.errors.pattern">Email is Invalid</small> -->
+                              </div>
                           </div>
                           <div class="form-group">
                             <label for="phno">Phone No</label>
-                            <input type="phone" class="form-control mytxt" id="phno" aria-describedby="emailHelp" placeholder="+919898123456" name="phone" ngModel>
-                            <small id="phno" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            <input type="text" class="form-control mytxt" id="phno" aria-describedby="emailHelp" placeholder="+919898123456" name="myphone"
+                              ngModel #myphone="ngModel" required autocomplete="off" minlength="10" maxlength="10">
+                              <div *ngIf="myphone.touched && !myphone.valid">
+                                  <small id="phone" class="form-text text-danger" *ngIf="myphone.errors.required">Phone Number is Required</small>
+                                  <small id="phone" class="form-text text-danger" *ngIf="myphone.errors.minlength">Mobile Number should be 10 digit long</small>
+                                  <small id="phone" class="form-text text-danger" *ngIf="myphone.errors.maxlength">Mobile Number should be 10 digit long</small>
+                                </div>
                           </div>
                         </div>
                         <div class="col-lg-6">
                           <div class="form-group">
                             <label for="lname">Last Name</label>
-                            <input type="text" class="form-control mytxt" id="lname" aria-describedby="emailHelp" placeholder="Your Last Name" name="lname" ngModel>
-                            <small id="lname" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            <input type="text" class="form-control mytxt" id="lname" aria-describedby="emailHelp" placeholder="Your Last Name" name="lname"
+                              ngModel #lname="ngModel" required autocomplete="off">
+                              <div *ngIf="lname.touched && !lname.valid">
+                                  <small id="lname" class="form-text text-danger" *ngIf="lname.errors.required">Last Name is Required</small>
+                              </div>
                           </div>
                           <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" class="form-control mytxt" id="password" aria-describedby="emailHelp" placeholder="************* " name="password" ngModel>
-                            <small id="password" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            <input type="password" class="form-control mytxt" id="password" aria-describedby="emailHelp" placeholder="************* "
+                              name="password" ngModel #password="ngModel" required autocomplete="off" minlength="6" maxlength="16" >
+                              <div *ngIf="password.touched && !password.valid">
+                                  <small id="password" class="form-text text-danger" *ngIf="password.errors.required">Password is Required</small>
+                                  <small id="password" class="form-text text-danger" *ngIf="password.errors.minlength">Password Minimum Length should be 6 Characters</small>
+                                  <small id="password" class="form-text text-danger" *ngIf="password.errors.maxlength">Password Maximum Length should be 16 Characters</small>
+                              </div>
                           </div>
                           <div class="form-group">
                             <label for="city">City</label>
-                            <select class="form-control mytxt" id="city" name="city" ngModel>
+                            <select class="form-control mytxt" id="city" name="city" ngModel #city="ngModel" required autocomplete="off">
                               <option>1</option>
                               <option>2</option>
                               <option>3</option>
                               <option>4</option>
                               <option>5</option>
                             </select>
-                            <small id="city" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            <div *ngIf="city.touched && !city.valid">
+                                <small id="password" class="form-text text-danger" *ngIf="city.errors.required">Please Select the City</small>
+                              </div>
                           </div>
                           <div class="form-group">
                             <label for="college">College</label>
-                            <select class="form-control mytxt" id="college" name="college" ngModel>
+                            <select class="form-control mytxt" id="college" name="college" ngModel #college="ngModel" required autocomplete="off">
                               <option>1</option>
                               <option>2</option>
                               <option>3</option>
                               <option>4</option>
                               <option>5</option>
                             </select>
-                            <small id="college" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            <div *ngIf="college.touched && !college.valid">
+                                <small id="college" class="form-text text-danger" *ngIf="college.errors.required">Please Select the College</small>
+                              </div>
                           </div>
                           <div class="form-group">
                             <label for="course">Course</label>
-                            <select class="form-control mytxt" id="course" name="course" ngModel>
+                            <select class="form-control mytxt" id="course" name="course" ngModel #course="ngModel" autocomplete="off" required>
                               <option>1</option>
                               <option>2</option>
                               <option>3</option>
                               <option>4</option>
                               <option>5</option>
                             </select>
-                            <small id="course" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            <div *ngIf="course.touched && !course.valid">
+                                <small id="course" class="form-text text-danger" *ngIf="course.errors.required">Please Select the Course</small>
+                              </div>
                           </div>
                           <div class="form-group">
                             <label for="dob">Date of Birth</label>
-                            <input type="text" class="form-control mytxt" id="dob" aria-describedby="emailHelp" placeholder="12-12-1995" name="dob" ngModel>
-                            <small id="dob" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                            <input type="text" class="form-control mytxt" id="dob" aria-describedby="emailHelp" placeholder="12-12-1995" name="dob" ngModel ">
+                           
+                           
                           </div>
                         </div>
                         <div class="col-lg-12">

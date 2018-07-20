@@ -1,7 +1,9 @@
 import { ServerserviceService } from '../serverservice.service';
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+
+
 
 
 @Component({
@@ -11,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
   userToken = localStorage.getItem('userToken');
+  passwordValid = true;
   constructor(private serverservice: ServerserviceService, private router: Router) { }
   ngOnInit() {
     if (this.userToken === null) {
@@ -19,6 +22,15 @@ export class RegisterComponent implements OnInit {
       this.router.navigateByUrl('/profilepage');
     }
   }
+  validatepassword(repass, pass) {
+    console.log(repass, pass);
+    if (repass === pass) {
+      this.passwordValid = true;
+    } else { 
+      this.passwordValid = false;
+    }   
+    console.log(this.passwordValid );
+  } 
   data(form: NgForm) {
    const data = form.value;
    this.serverservice.postRegisterData(data).subscribe((response: any) => {
