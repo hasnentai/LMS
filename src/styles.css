@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Oxygen:300,400,700%7CVarela+Round');
 body{
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Oxygen', sans-serif!important;
     color: #707070; 
     background-color: #f0f0f0;
 }
@@ -27,7 +27,7 @@ textarea:focus,
 input:focus,
 button:focus,
 button:active,
-button:hover,
+
 label:focus,
 .btn:active,
 .btn.active,

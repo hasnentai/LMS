@@ -3,7 +3,8 @@ import {
   OnInit,
   ElementRef,
   Renderer,
-  Renderer2
+  Renderer2,
+  HostListener
 } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
@@ -17,6 +18,7 @@ import { Router } from '@angular/router';
 })
 @Injectable()
 export class HomeComponent implements OnInit {
+  content: any;
   userToken = localStorage.getItem('userToken');
   scrollTraget: String;
   constructor(public el: ElementRef, public renderer: Renderer2, private router: Router ) {}
@@ -94,6 +96,19 @@ export class HomeComponent implements OnInit {
   conten: any;
   allbutn: any;
   currentBtn: any;
+
+
+
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll($event) {
+    if (window.pageYOffset >= 400) {
+      this.content = this.el.nativeElement.getElementsByClassName('filter-section')[0];
+      this.renderer.addClass(this.content, 'fixed-side-filter');
+      console.log(this.content);
+    }  else {
+      this.renderer.removeClass(this.content, 'fixed-side-filter');
+        }
+  }
   clickp(index) {
     this.conten = this.el.nativeElement.getElementsByClassName('pills-button')[
       index
