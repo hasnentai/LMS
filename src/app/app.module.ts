@@ -13,6 +13,9 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
 import { ServerserviceService } from './serverservice.service';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 
 
@@ -26,6 +29,8 @@ export const routes: Routes = [
   {path: 'register' , component: RegisterComponent}
 ];
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +39,8 @@ export const routes: Routes = [
     ProfilePageComponent,
     EditinfoComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -43,6 +49,8 @@ export const routes: Routes = [
     FormsModule,
     HttpClientModule,
     HttpModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     ServerserviceService,

@@ -32,6 +32,6 @@ export class ServerserviceService {
     return this.http.get(this._rootUrl + '/api/client/get-score/' + localStorage.getItem('userToken'));
   }
   getCourses() {
-    // return this.http.get(this._rootUrl + '/api')
+     return this.http.get(this._rootUrl + '/api/client/get-courses');
   }
 }
