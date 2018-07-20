@@ -54,7 +54,8 @@ ul{
 }
 .filter-pills-active{
     background:linear-gradient(to left,rgba(236,123,94,0.9),rgba(235,73,84,0.9));
-    border: 0;
+    border: 1px  solid #EB4954;
+
     padding: 13px 50px 13px 50px;
     color:white; 
     border-radius: 50px;
@@ -95,7 +96,7 @@ ul{
 
 .pills-active{
     background:linear-gradient(to bottom left,rgba(236,123,94,0.9),rgba(235,73,84,0.9));
-    border: 0;
+    border: 1px  solid #EB4954;
     padding: 3px 28px 3px 28px;
     color:white; 
     border-radius: 50px;
@@ -143,7 +144,7 @@ ul{
 }
 .card-image{
     height:40%;
-    background:url(../../assets/cardimage.jpg);
+    /* background:url(../../assets/cardimage.jpg); */
     padding:0;
     margin:0;
     border-radius:5px;
@@ -152,17 +153,22 @@ ul{
     position: relative;
     background-position-y: -154px;
 }
+.card-image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
 .card-save{
-    height:18%;
+    /* height:18%; */
     background:linear-gradient(to left,rgba(236,123,94,0.9),rgba(235,73,84,0.9));
 }
 .card-title{
     color:white;
-    padding-left:25px;
 }
 .title-class{
-    display: inline-block;
-    margin-right: 26px;
+    text-transform: capitalize;
+    padding:10px;
+    font-weight: bolder
 }
 .title-icons{
     padding: top 18px;
@@ -170,7 +176,9 @@ ul{
     font-size: 35px;
 }
 .card-description{
-    padding:10px;
+    padding-right:10px;
+    padding-left: 10px;
+    font-weight: bold;
 }
 .overlaycard{
     position: absolute;
@@ -196,7 +204,7 @@ ul{
 }
 .overlaywholecard-pills-active{
     background:linear-gradient(to left,rgba(236,123,94,0.9),rgba(235,73,84,0.9));
-    border: 0;
+    border: 1px  solid #EB4954;
     padding: 13px 50px 13px 50px;
     color:white; 
     border-radius: 50px;
@@ -223,6 +231,13 @@ ul{
 }
 .filter-button-div{
     display:none;
+}
+
+.filter-section-mobile{
+    display:none;
+}
+.close-filter-button{
+    box-shadow: 0 3px 24px #70707047;
 }
 .fixed-side-filter{
     position: fixed;
@@ -253,6 +268,24 @@ ul{
     .filter-section{
         display:none;
     }
+    .filter-section-mobile-close{
+        transform:translateY(100%);
+        transition: 0.5s all ease-in;
+    }
+    .filter-section-mobile-ani{
+        transform:translateY(0);
+        transition: 0.5s all ease-in;  
+    }
+    .filter-section-mobile{
+        display:block;
+        position: fixed;
+        top:0;
+        z-index: 4;
+        margin:0;
+        padding:10px;
+        background: #fff;
+        height:100%;
+    }
     .pills-scroll::-webkit-scrollbar-thumb{
         background-color:transparent;
         transition: background-color 10s ease-in;
@@ -268,6 +301,8 @@ ul{
         position: fixed;
         bottom:12px;
         right:25px;
+        z-index: 3;
+
     }
     .filter-button{
         border:0;
@@ -277,6 +312,5 @@ ul{
         color:white;
         background:linear-gradient(to left,rgba(236,123,94,1),rgba(235,73,84,1));
         box-shadow: 0 3px 14px #707070cc;
-
     }
 }

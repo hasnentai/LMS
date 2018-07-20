@@ -13,6 +13,12 @@ export class ServerserviceService {
     return this.http.post(this._rootUrl + '/api/client/register', formdata);
 
   }
+
+  // tslint:disable-next-line:member-ordering
+  CourseDetailsUrl = 'http://192.168.0.11:3000/api/client/get-courses';
+  getcoursecarddetails() {
+    return this.http.get(this.CourseDetailsUrl);
+  }
   postLoginData(formdata) {
     console.log(formdata);
     return this.http.post(this._rootUrl + '/api/client/login', formdata);

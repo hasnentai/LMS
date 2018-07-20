@@ -1,3 +1,5 @@
+import { ServerserviceService } from '../serverservice.service';
+
 import {
   Component,
   OnInit,
@@ -18,6 +20,57 @@ import { Router } from '@angular/router';
 })
 @Injectable()
 export class HomeComponent implements OnInit {
+
+
+
+  constructor(public el: ElementRef, public renderer: Renderer2, private serverservice: ServerserviceService) { }
+      card_image;
+      card_title;
+      card_description;
+      cards = [];
+      categorywisefilters = [
+        {
+          catname: 'No Filter',
+          icon: 'filter_none'
+        },
+        {
+          catname: 'School/PU Students',
+          icon: 'account_balance'
+        },
+        {
+          catname: 'Engineering Students',
+          icon: 'computer'
+        },
+        {
+          catname: 'Management Students',
+          icon: 'equalizer'
+        },
+        {
+          catname: 'Post Graduates',
+          icon: 'school'
+        },
+        {
+          catname: 'Corporate',
+          icon: 'business'
+        }
+      ];
+      sectionwisefilters = [
+        {
+          menu: 'All'
+        },
+        {
+          menu: 'Quiz'
+        },
+        {
+          menu: 'Competition'
+        },
+        {
+          menu: 'Hackathon'
+        }
+      ];
+      filterwindow: any;
+      userToken = localStorage.getItem('userToken');
+      scrollTraget: String;
   content: any;
   userToken = localStorage.getItem('userToken');
   scrollTraget: String;
@@ -110,13 +163,11 @@ export class HomeComponent implements OnInit {
         }
   }
   clickp(index) {
-    this.conten = this.el.nativeElement.getElementsByClassName('pills-button')[
-      index
-    ];
+    this.conten = this.el.nativeElement.getElementsByClassName('pills-button')[index];
     this.allbutn = this.el.nativeElement.getElementsByClassName('pills-button');
     console.log(this.allbutn);
-    for (let i = 0; i < this.allbutn.length; i++) {
-      if ( i !== index) {
+    for (let i = 0 ; i < this.allbutn.length; i++) {
+      if (i !== index) {
         // this.renderer.removeClass(this.el.nativeElement.getElementsByClassName('pills-button')[i],'pills-active')
         console.log(this.allbutn[i]);
         this.currentBtn = this.allbutn[i];
@@ -152,6 +203,39 @@ export class HomeComponent implements OnInit {
   select(index: number) {
     this.selectedIndex = index;
   }
+  openfilter() {
+    this.filterwindow = this.el.nativeElement.getElementsByClassName('filter-section-mobile')[0];
+    this.renderer.removeClass(this.filterwindow, 'filter-section-mobile-close');
+    this.renderer.addClass(this.filterwindow, 'filter-section-mobile-ani');
+  }
+  closefilter() {
+    this.filterwindow = this.el.nativeElement.getElementsByClassName('filter-section-mobile')[0];
+    this.renderer.addClass(this.filterwindow, 'filter-section-mobile-close');
+    this.renderer.removeClass(this.filterwindow, 'filter-section-mobile-ani');
+  }
+  clickm(index) {
+    this.conten = this.el.nativeElement.getElementsByClassName('filter-pills-button-mobile')[index];
+    this.allbutn = this.el.nativeElement.getElementsByClassName('filter-pills-button-mobile');
+    console.log(this.allbutn);
+    for (let i = 0 ; i < this.allbutn.length; i++) {
+      if (i !== index) {
+        // this.renderer.removeClass(this.el.nativeElement.getElementsByClassName('pills-button')[i],'pills-active')
+        console.log(this.allbutn[i]);
+        this.currentBtn = this.allbutn[i];
+        this.renderer.removeClass(this.currentBtn, 'filter-pills-active');
+        this.renderer.addClass(this.currentBtn, 'filter-pills');
+      }
+    }
+    this.renderer.removeClass(this.conten, 'filter-pills');
+    this.renderer.addClass(this.conten, 'filter-pills-active');
+  }
   ngOnInit() {
+    this.serverservice.getcoursecarddetails().subscribe((response: any) => {
+      for (const course of response) {
+        this.cards.push(course);
+      }
+      console.log(this.cards[0].courseName);
+      console.log('cards' + this.cards);
+    }) ;
   }
 }

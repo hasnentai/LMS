@@ -22,30 +22,6 @@
                   <a class="filter-names">{{item.catname}}</a>
                 </button>
               </li>
-              <!-- <li>
-                <button class="filter-pills">
-                  <i class=" filter-icons large material-icons pl-3">computer</i>
-                  <a class="filter-names">Engineering Students</a>
-                </button>
-              </li>
-              <li>
-                <button class="filter-pills">
-                  <i class=" filter-icons large material-icons pl-3">equalizer</i>
-                  <a class="filter-names">Management Students</a>
-                </button>
-              </li>
-              <li>
-                <button class="filter-pills">
-                  <i class=" filter-icons large material-icons pl-3">school</i>
-                  <a class="filter-names">Post Graduates</a>
-                </button>
-              </li>
-              <li>
-                <button class="filter-pills">
-                  <i class=" filter-icons large material-icons pl-3">business</i>
-                  <a class="filter-names">Corporate</a>
-                </button>
-              </li> -->
             </ul>
           </div>
         </div>
@@ -78,16 +54,19 @@
                     <button class="overlaywholecard-pills-active">View</button>
                   </div>
                   <div class="card-image">
-                    <div class="overlaycard"></div>
+                      <div class="overlaycard"></div>
+                    <img [src]="card.imageURL" />
+                    
                   </div>
                   <div class="card-save">
                     <div class="card-title">
-                      <h3 class="title-class">Title Here</h3>
+                      <p class="title-class">{{card.courseName}}</p>
                     </div>
-                    <div class="card-description">
-                      this is card body and the description is as follows
-                    </div>
+                    
                   </div>
+                  <div class="card-description">
+                      {{card.description}}
+                    </div>
                 </div>
               </div>
             </div>
@@ -107,14 +86,16 @@
                   </div>
                   <div class="card-image">
                     <div class="overlaycard"></div>
+                    <img [src]="card.imageURL" />
                   </div>
                   <div class="card-save">
                     <div class="card-title">
-                      <h3 class="title-class">Title Here</h3>
+                      <p class="title-class">{{card.courseName}}</p>
                     </div>
-                    <div class="card-description">
-                      this is card body and the description is as follows
-                    </div>
+                    
+                  </div>
+                  <div class="card-description">
+                      {{card.description}}
                   </div>
                 </div>
               </div>
@@ -135,15 +116,16 @@
                   </div>
                   <div class="card-image">
                     <div class="overlaycard"></div>
+                    <img [src]="card.imageURL" />
                   </div>
                   <div class="card-save">
                     <div class="card-title">
-                      <h3 class="title-class">Title Here</h3>
-                    </div>
-                    <div class="card-description">
-                      this is card body and the description is as follows
+                      <p class="title-class">{{card.courseName}}</p>
                     </div>
                   </div>
+                  <div class="card-description">
+                      {{card.description}}
+                    </div>
                 </div>
               </div>
             </div>
@@ -163,14 +145,16 @@
                   </div>
                   <div class="card-image">
                     <div class="overlaycard"></div>
+                    <img [src]="card.imageURL" />
                   </div>
                   <div class="card-save">
                     <div class="card-title">
-                      <h3 class="title-class">Title Here</h3>
+                      <p class="title-class">{{card.courseName}}</p>
                     </div>
-                    <div class="card-description">
-                      this is card body and the description is as follows
-                    </div>
+                    
+                  </div>
+                  <div class="card-description">
+                      {{card.description}}
                   </div>
                 </div>
               </div>
@@ -182,5 +166,22 @@
   </div>
 </div>
 <div class="filter-button-div">
-  <button class="filter-button">Filter</button>
+  <button (click)="openfilter()" class="filter-button">Filter</button>
 </div>
+<div class="filter wrapper rounded filter-section-mobile filter-section-mobile-close">
+    <div class="body-section">
+      <h3 style="display: inline">Filter here</h3>
+      <button (click)="closefilter()" class="pills-active close-filter-button" style="right:2px;position:absolute"> X </button>
+      <hr>
+      <div class="filter-measures">
+        <ul>
+          <li>
+            <button class="filter-pills filter-pills-button-mobile" (click)="clickm(i);" *ngFor="let item of categorywisefilters; let i=index">
+              <i class=" filter-icons-active large material-icons pl-3">{{item.icon}}</i>
+              <a class="filter-names">{{item.catname}}</a>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
