@@ -21,3 +21,16 @@
     border: 1px solid;
     display: block;
 }
+.logoimage{
+    height:90px;
+}
+@media only screen and (max-width: 990px) {
+    .logoimage{
+        height: 62px;
+        width: 210px;
+    }
+    .privacy-wrapper{
+        padding:0px;
+    }
+
+}

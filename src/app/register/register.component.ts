@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  minDate = {year: 1990, month: 1, day: 1};
+  maxDate = {year: 2010, month: 12, day: 31};
   userToken = localStorage.getItem('userToken');
   passwordValid = true;
   constructor(private serverservice: ServerserviceService, private router: Router) { }
@@ -22,6 +24,7 @@ export class RegisterComponent implements OnInit {
       this.router.navigateByUrl('/profilepage');
     }
   }
+
   validatepassword(repass, pass) {
     console.log(repass, pass);
     if (repass === pass) {
@@ -34,6 +37,7 @@ export class RegisterComponent implements OnInit {
   data(form: NgForm) {
    if ( this.passwordValid)  {
     const data = form.value;
+    console.log(form.value.dob);
     this.serverservice.postRegisterData(data).subscribe((response: any) => {
       localStorage.setItem('userToken', response.access_token);
       console.log(response);
@@ -48,4 +52,7 @@ export class RegisterComponent implements OnInit {
    }
 
   }
+}
+export class NgbdDatepickerPopup {
+  model;
 }
