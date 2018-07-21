@@ -6,7 +6,7 @@ import {map} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ServerserviceService {
-  readonly _rootUrl = 'http://192.168.0.11:3000';
+  readonly _rootUrl = 'http://192.168.0.8:3000';
   constructor(private http: HttpClient) { }
   postRegisterData(formdata) {
     console.log(formdata);
@@ -15,7 +15,7 @@ export class ServerserviceService {
   }
 
   // tslint:disable-next-line:member-ordering
-  CourseDetailsUrl = 'http://192.168.0.11:3000/api/client/get-courses';
+  CourseDetailsUrl = 'http://192.168.0.8:3000/api/client/get-courses';
   getcoursecarddetails() {
     return this.http.get(this.CourseDetailsUrl);
   }

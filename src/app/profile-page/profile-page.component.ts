@@ -54,7 +54,7 @@ export class ProfilePageComponent  implements OnInit {
       this.router.navigateByUrl('/login');
     } else {
       this.serverservice.getScore().subscribe((response) => {
-      //  console.log(response);
+        console.log(response);
         this.userName = response[0].fname + ' ' + response[0].lname;
         this.score = response[0].totalScore;
         this.courseName = response[0].courseName;
@@ -62,7 +62,7 @@ export class ProfilePageComponent  implements OnInit {
       this.serverservice.getEditData().subscribe((response) => {
       // console.log(response[0].course);
       this.enrollments = response[0].course;
-      console.log(this.enrollments[0].courseName);
+      // console.log(this.enrollments[0].courseName);
       });
       this.serverservice.getCourses().subscribe((response) => {
        // console.log(response);

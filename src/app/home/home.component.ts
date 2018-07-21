@@ -81,13 +81,13 @@ export class HomeComponent implements OnInit {
   @HostListener('window:scroll', ['$event'])
   onWindowScroll($event) {
     const max = document.documentElement.scrollHeight;
+    const windowHeight = document.documentElement.clientHeight;
     const pageoffsetsize = max - 1200;
+    console.log(windowHeight);
     if (window.pageYOffset >= 400 &&  window.pageYOffset <= pageoffsetsize) {
       this.content = this.el.nativeElement.getElementsByClassName('filter-section')[0];
       this.renderer.addClass(this.content, 'fixed-side-filter');
-      console.log(this.content);
     }  else {
-
       this.renderer.removeClass(this.content, 'fixed-side-filter');
         }
   }
