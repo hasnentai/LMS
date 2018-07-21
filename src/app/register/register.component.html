@@ -43,7 +43,7 @@
                           </div>
                           <div class="form-group">
                             <label for="sate">State</label>
-                            <select class="form-control mytxt" id="mystate" name="mystate" ngModel  #mystate="ngModel" required autocomplete="off">
+                            <select class="form-control mytxt" id="mystate" name="state" ngModel  #mystate="ngModel" required autocomplete="off">
                               <option>1</option>
                               <option>2</option>
                               <option>3</option>
@@ -71,12 +71,12 @@
                           </div>
                           <div class="form-group">
                             <label for="phno">Phone No</label>
-                            <input type="text" class="form-control mytxt" id="phno" aria-describedby="emailHelp" placeholder="+919898123456" name="myphone"
-                              ngModel #myphone="ngModel" required autocomplete="off" minlength="10" maxlength="10">
-                              <div *ngIf="myphone.touched && !myphone.valid">
-                                  <small id="phone" class="form-text text-danger" *ngIf="myphone.errors.required">Phone Number is Required</small>
-                                  <small id="phone" class="form-text text-danger" *ngIf="myphone.errors.minlength">Mobile Number should be 10 digit long</small>
-                                  <small id="phone" class="form-text text-danger" *ngIf="myphone.errors.maxlength">Mobile Number should be 10 digit long</small>
+                            <input type="text" class="form-control mytxt" id="phno" aria-describedby="emailHelp" placeholder="+919898123456" name="phone"
+                              ngModel #phone="ngModel" required autocomplete="off" minlength="10" maxlength="10">
+                              <div *ngIf="phone.touched && !myphone.valid">
+                                  <small id="phone" class="form-text text-danger" *ngIf="phone.errors.required">Phone Number is Required</small>
+                                  <small id="phone" class="form-text text-danger" *ngIf="phone.errors.minlength">Mobile Number should be 10 digit long</small>
+                                  <small id="phone" class="form-text text-danger" *ngIf="phone.errors.maxlength">Mobile Number should be 10 digit long</small>
                                 </div>
                           </div>
                         </div>

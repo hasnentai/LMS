@@ -35,10 +35,8 @@ export class RegisterComponent implements OnInit {
    if ( this.passwordValid)  {
     const data = form.value;
     this.serverservice.postRegisterData(data).subscribe((response: any) => {
-      localStorage.setItem('userToken', response.access_token);
-      console.log(response);
       if (response.token) {
-       localStorage.setItem('userToken', response);
+       localStorage.setItem('userToken', response.token);
        console.log(localStorage.getItem('userToken'));
        this.router.navigateByUrl('/home');
       } else {
