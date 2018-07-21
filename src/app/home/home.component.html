@@ -27,7 +27,7 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-9 col-sm-1">
+    <div class="col-lg-9 col-sm-12">
       <div class="filter wrapper rounded card-section">
         <div class="body-section text-center">
           <div class="pills-scroll">
@@ -65,7 +65,7 @@
                     
                   </div>
                   <div class="card-description">
-                      {{card.description}}
+                      {{card.description |  slice:0:100}}...
                     </div>
                 </div>
               </div>
@@ -95,7 +95,7 @@
                     
                   </div>
                   <div class="card-description">
-                      {{card.description}}
+                      {{card.description | slice:0:100}}...
                   </div>
                 </div>
               </div>
@@ -124,7 +124,7 @@
                     </div>
                   </div>
                   <div class="card-description">
-                      {{card.description}}
+                      {{card.description | slice:0:100}}...
                     </div>
                 </div>
               </div>
@@ -154,7 +154,7 @@
                     
                   </div>
                   <div class="card-description">
-                      {{card.description}}
+                      {{card.description | slice:0:100}}...
                   </div>
                 </div>
               </div>
@@ -185,3 +185,4 @@
       </div>
     </div>
   </div>
+  <app-footer></app-footer>

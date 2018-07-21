@@ -11,6 +11,18 @@
     left:50%;
     transform: translate(-50%,-50%);
 }
+.card-title p{
+    color: white;
+    display: block;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    width: 140px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
 .overlay{
     position: absolute;
     width: 100%;

@@ -26,24 +26,26 @@ export class RegisterComponent implements OnInit {
     console.log(repass, pass);
     if (repass === pass) {
       this.passwordValid = true;
-    } else { 
+    } else {
       this.passwordValid = false;
-    }   
+    }
     console.log(this.passwordValid );
-  } 
+  }
   data(form: NgForm) {
-   const data = form.value;
-   this.serverservice.postRegisterData(data).subscribe((response: any) => {
-     localStorage.setItem('userToken', response.access_token);
-     console.log(response);
-     if (response.token) {
-      localStorage.setItem('userToken', response);
-      console.log(localStorage.getItem('userToken'));
-      this.router.navigateByUrl('/home');
-     } else {
-       console.log('Error' + response);
-     }
-   });
+   if ( this.passwordValid)  {
+    const data = form.value;
+    this.serverservice.postRegisterData(data).subscribe((response: any) => {
+      localStorage.setItem('userToken', response.access_token);
+      console.log(response);
+      if (response.token) {
+       localStorage.setItem('userToken', response);
+       console.log(localStorage.getItem('userToken'));
+       this.router.navigateByUrl('/home');
+      } else {
+        console.log('Error' + response);
+      }
+    });
+   }
 
   }
 }

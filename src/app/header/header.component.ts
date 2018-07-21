@@ -62,18 +62,6 @@ export class HeaderComponent  implements OnInit {
     },
   ];
 
-
-  @HostListener('window:scroll', ['$event'])
-  onWindowScroll($event) {
-    if (window.pageYOffset >= 100) {
-      this.content = this.el.nativeElement.getElementsByTagName('nav')[0];
-      this.renderer.addClass(this.content, 'after-scroll-header');
-      console.log(this.content);
-    }  else {
-      this.renderer.removeClass(this.content, 'after-scroll-header');
-    }
-  }
-
   ngOnInit() {
     if (localStorage.getItem('userToken') !== null) {
       this.login = true;
@@ -85,9 +73,9 @@ export class HeaderComponent  implements OnInit {
       // for (const test of response) {
 
       // }
-      this.userName = response[0].fname + ' ' + response[0].lname;
-      this.email = response[0].email;
-      // console.log(response);
+    this.userName = response[0].userInfo[0].fname + ' ' + response[0].userInfo[0].lname;
+     this.email = response[0].userInfo[0].email;
+     console.log(response[1].course);
     });
   }
 

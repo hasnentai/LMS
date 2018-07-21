@@ -13,18 +13,25 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
 import { ServerserviceService } from './serverservice.service';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { FooterComponent } from './footer/footer.component';
+
 
 
 
 
 
 export const routes: Routes = [
+  {path: '' , component: HomeComponent},
   {path: 'home', component: HomeComponent},
   {path: 'profilepage' , component: ProfilePageComponent},
   {path: 'edit' , component: EditinfoComponent},
   {path: 'login' , component: LoginComponent},
   {path: 'register' , component: RegisterComponent}
 ];
+
+
 
 @NgModule({
   declarations: [
@@ -34,7 +41,9 @@ export const routes: Routes = [
     ProfilePageComponent,
     EditinfoComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    FooterComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -43,6 +52,8 @@ export const routes: Routes = [
     FormsModule,
     HttpClientModule,
     HttpModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     ServerserviceService,

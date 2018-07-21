@@ -70,80 +70,6 @@ export class HomeComponent implements OnInit {
       userToken = localStorage.getItem('userToken');
       scrollTraget: String;
   content: any;
-  userToken = localStorage.getItem('userToken');
-  scrollTraget: String;
-  constructor(public el: ElementRef, public renderer: Renderer2, private router: Router ) {}
-  card_image;
-  card_title;
-  card_description;
-  cards = [
-    {
-      card_image: '',
-      card_title: '',
-      card_description: ''
-    },
-    {
-      card_image: '',
-      card_title: '',
-      card_description: ''
-    },
-    {
-      card_image: '',
-      card_title: '',
-      card_description: ''
-    },
-    {
-      card_image: '',
-      card_title: '',
-      card_description: ''
-    },
-    {
-      card_image: '',
-      card_title: '',
-      card_description: ''
-    },
-    {
-      card_image: '',
-      card_title: '',
-      card_description: ''
-    }
-  ];
-  categorywisefilters = [
-    {
-      catname: 'School/PU Students',
-      icon: 'account_balance'
-    },
-    {
-      catname: 'Engineering Students',
-      icon: 'computer'
-    },
-    {
-      catname: 'Management Students',
-      icon: 'equalizer'
-    },
-    {
-      catname: 'Post Graduates',
-      icon: 'school'
-    },
-    {
-      catname: 'Corporate',
-      icon: 'business'
-    }
-  ];
-  sectionwisefilters = [
-    {
-      menu: 'All'
-    },
-    {
-      menu: 'Quiz'
-    },
-    {
-      menu: 'Competition'
-    },
-    {
-      menu: 'Hackathon'
-    }
-  ];
   conten: any;
   allbutn: any;
   currentBtn: any;
@@ -152,10 +78,13 @@ export class HomeComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll($event) {
-    if (window.pageYOffset >= 400) {
+    const max = document.documentElement.scrollHeight;
+    const windowHeight = document.documentElement.clientHeight;
+    const pageoffsetsize = max - 1200;
+    console.log(windowHeight);
+    if (window.pageYOffset >= 400 &&  window.pageYOffset <= pageoffsetsize) {
       this.content = this.el.nativeElement.getElementsByClassName('filter-section')[0];
       this.renderer.addClass(this.content, 'fixed-side-filter');
-      console.log(this.content);
     }  else {
       this.renderer.removeClass(this.content, 'fixed-side-filter');
         }
