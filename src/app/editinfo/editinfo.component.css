@@ -56,3 +56,31 @@ wrapper{
     border: none;
     border-bottom: 1px solid #ec5455;
 }
+.message-continer{
+    padding:20px;
+    color: #fff;
+    background-color: #707070;
+    box-shadow: 0 6px 44px #00000061;
+    border-radius: 2px;
+    text-transform: capitalize;
+}
+.message-open{
+    position: fixed;
+    top: 115px;
+    width: auto;
+    border: 0;
+    left: 40px;
+    transform: rotateX(0deg);
+
+    transition: 0.2s all ease-in;
+}
+.message-close{
+    position: fixed;
+    top: 100px;
+    width: auto;
+    border: 0;
+    left: 40px;
+    transform: rotateX(90deg);
+
+    transition: 0.2s all ease-in;
+}

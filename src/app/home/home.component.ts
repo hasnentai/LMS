@@ -146,7 +146,6 @@ export class HomeComponent implements OnInit {
     console.log(this.allbutn);
     for (let i = 0 ; i < this.allbutn.length; i++) {
       if (i !== index) {
-        // this.renderer.removeClass(this.el.nativeElement.getElementsByClassName('pills-button')[i],'pills-active')
         console.log(this.allbutn[i]);
         this.currentBtn = this.allbutn[i];
         this.renderer.removeClass(this.currentBtn, 'filter-pills-active');

@@ -8,64 +8,40 @@ import { ServerserviceService } from '../serverservice.service';
   styleUrls: ['./profile-page.component.css']
 })
 export class ProfilePageComponent  implements OnInit {
-  userName ;
-  score;
+  scores = [];
+  toppers = [];
   courseName;
+  items = [];
   userToken = localStorage.getItem('userToken');
   enrollments = [];
   getCourses = [];
+  i = 0;
+  j: any;
   constructor(public router: Router, public serverservice: ServerserviceService) { }
-  items = [
-    {
-      cardimg : '../../assets/cardimage.jpg',
-      title : 'Title Here',
-    },
-    {
-      cardimg : '../../assets/cardimage.jpg',
-      title : 'Title Here',
-    },
-    {
-      cardimg : '../../assets/cardimage.jpg',
-      title : 'Title Here',
-    },
-    {
-      cardimg : '../../assets/cardimage.jpg',
-      title : 'Title Here',
-    },
-    {
-      cardimg : '../../assets/cardimage.jpg',
-      title : 'Title Here',
-    },
-    {
-      cardimg : '../../assets/cardimage.jpg',
-      title : 'Title Here',
-    },
-    {
-      cardimg : '../../assets/cardimage.jpg',
-      title : 'Title Here',
-    },
-    {
-      cardimg : '../../assets/cardimage.jpg',
-      title : 'Title Here',
-    },
-  ];
   ngOnInit() {
     if (this.userToken === null) {
       this.router.navigateByUrl('/login');
     } else {
       this.serverservice.getScore().subscribe((response) => {
-        console.log(response);
-        this.userName = response[0].fname + ' ' + response[0].lname;
-        this.score = response[0].totalScore;
-        this.courseName = response[0].courseName;
+        this.scores = response[0].scores;
+        this.toppers = response[0].toppers;
+        console.log(this.scores);
+       // console.log(response);
+        // this.userName = response[0].fname + ' ' + response[0].lname;
+        // this.score = response[0].totalScore;
+        // this.courseName = response[0].courseName;
       });
-      this.serverservice.getEditData().subscribe((response) => {
-      // console.log(response[0].course);
-      this.enrollments = response[0].course;
+      this.serverservice.getEditData().subscribe((response: any) => {
+      console.log(response[0].course);
+      this.j = response[0].course;
+
+      // this.enrollments = response[0].course[0];
       // console.log(this.enrollments[0].courseName);
       });
-      this.serverservice.getCourses().subscribe((response) => {
-       // console.log(response);
+      this.serverservice.getcoursecarddetails().subscribe((response: any) => {
+        for (const course of response) {
+          this.items.push(course);
+        }
       });
     }
     }
