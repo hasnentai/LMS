@@ -60,11 +60,12 @@ export class ProfilePageComponent  implements OnInit {
         this.courseName = response[0].courseName;
       });
       this.serverservice.getEditData().subscribe((response) => {
-       this.enrollments = response[0].enrolments;
-      // console.log(this.enrollments);
+      // console.log(response[0].course);
+      this.enrollments = response[0].course;
+      console.log(this.enrollments[0].courseName);
       });
       this.serverservice.getCourses().subscribe((response) => {
-       console.log(response);
+       // console.log(response);
       });
     }
     }

@@ -73,9 +73,9 @@ export class HeaderComponent  implements OnInit {
       // for (const test of response) {
 
       // }
-    this.userName = response[0].fname + ' ' + response[0].lname;
-     this.email = response[0].email;
-     console.log(response);
+    this.userName = response[0].userInfo[0].fname + ' ' + response[0].userInfo[0].lname;
+     this.email = response[0].userInfo[0].email;
+     console.log(response[1].course);
     });
   }
 

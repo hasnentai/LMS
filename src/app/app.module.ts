@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { ServerserviceService } from './serverservice.service';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -22,6 +23,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 
 
 export const routes: Routes = [
+  {path: '' , component: HomeComponent},
   {path: 'home', component: HomeComponent},
   {path: 'profilepage' , component: ProfilePageComponent},
   {path: 'edit' , component: EditinfoComponent},
@@ -40,6 +42,7 @@ export const routes: Routes = [
     EditinfoComponent,
     LoginComponent,
     RegisterComponent,
+    FooterComponent,
 
   ],
   imports: [
