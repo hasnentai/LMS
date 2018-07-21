@@ -16,11 +16,9 @@ import { element } from 'protractor';
   animations: [
     trigger('heroState', [
       state('inactive', style({
-        zIndex: '9999',
         transform: 'translateX(-100%)',
       })),
       state('active',   style({
-        zIndex: '9999',
         transform: 'translateX(0px)',
 
       })),

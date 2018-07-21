@@ -1,6 +1,13 @@
-import { Component, OnInit, ElementRef, Renderer, Renderer2 } from '@angular/core';
 import { ServerserviceService } from '../serverservice.service';
 
+import {
+  Component,
+  OnInit,
+  ElementRef,
+  Renderer,
+  Renderer2,
+  HostListener
+} from '@angular/core';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -11,6 +18,7 @@ import { Router } from '@angular/router';
 })
 @Injectable()
 export class HomeComponent implements OnInit {
+
 
 
   constructor(public el: ElementRef, public renderer: Renderer2, private serverservice: ServerserviceService) { }
@@ -61,9 +69,97 @@ export class HomeComponent implements OnInit {
       filterwindow: any;
       userToken = localStorage.getItem('userToken');
       scrollTraget: String;
+  content: any;
+  userToken = localStorage.getItem('userToken');
+  scrollTraget: String;
+  constructor(public el: ElementRef, public renderer: Renderer2, private router: Router ) {}
+  card_image;
+  card_title;
+  card_description;
+  cards = [
+    {
+      card_image: '',
+      card_title: '',
+      card_description: ''
+    },
+    {
+      card_image: '',
+      card_title: '',
+      card_description: ''
+    },
+    {
+      card_image: '',
+      card_title: '',
+      card_description: ''
+    },
+    {
+      card_image: '',
+      card_title: '',
+      card_description: ''
+    },
+    {
+      card_image: '',
+      card_title: '',
+      card_description: ''
+    },
+    {
+      card_image: '',
+      card_title: '',
+      card_description: ''
+    }
+  ];
+  categorywisefilters = [
+    {
+      catname: 'School/PU Students',
+      icon: 'account_balance'
+    },
+    {
+      catname: 'Engineering Students',
+      icon: 'computer'
+    },
+    {
+      catname: 'Management Students',
+      icon: 'equalizer'
+    },
+    {
+      catname: 'Post Graduates',
+      icon: 'school'
+    },
+    {
+      catname: 'Corporate',
+      icon: 'business'
+    }
+  ];
+  sectionwisefilters = [
+    {
+      menu: 'All'
+    },
+    {
+      menu: 'Quiz'
+    },
+    {
+      menu: 'Competition'
+    },
+    {
+      menu: 'Hackathon'
+    }
+  ];
   conten: any;
   allbutn: any;
   currentBtn: any;
+
+
+
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll($event) {
+    if (window.pageYOffset >= 400) {
+      this.content = this.el.nativeElement.getElementsByClassName('filter-section')[0];
+      this.renderer.addClass(this.content, 'fixed-side-filter');
+      console.log(this.content);
+    }  else {
+      this.renderer.removeClass(this.content, 'fixed-side-filter');
+        }
+  }
   clickp(index) {
     this.conten = this.el.nativeElement.getElementsByClassName('pills-button')[index];
     this.allbutn = this.el.nativeElement.getElementsByClassName('pills-button');

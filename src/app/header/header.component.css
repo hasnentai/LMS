@@ -20,6 +20,7 @@
     top: 0;
     width: 100%;
     height: 100%;
+    z-index: 9999;
 }
 .menu-container{
     overflow-y: scroll;
@@ -30,6 +31,9 @@
     width: 30%;
     box-shadow: 2px 0 20px #7070704f;
     background-image:url('../../assets/Symbol.png')
+
+    
+
 }
 .logo-container img{
     height: 60px;
