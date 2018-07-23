@@ -16,6 +16,7 @@ import { ServerserviceService } from './serverservice.service';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FooterComponent } from './footer/footer.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -43,7 +44,6 @@ export const routes: Routes = [
     LoginComponent,
     RegisterComponent,
     FooterComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -53,7 +53,8 @@ export const routes: Routes = [
     HttpClientModule,
     HttpModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    NgbModule.forRoot(),
   ],
   providers: [
     ServerserviceService,
