@@ -16,13 +16,10 @@ import { ServerserviceService } from './serverservice.service';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FooterComponent } from './footer/footer.component';
-<<<<<<< HEAD
 import { DetailpageComponent } from './detailpage/detailpage.component';
-=======
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
->>>>>>> 18c99e94ae9837faedf251fd4e6547bb004d074a
 
 
 
@@ -49,11 +46,8 @@ export const routes: Routes = [
     LoginComponent,
     RegisterComponent,
     FooterComponent,
-<<<<<<< HEAD
     DetailpageComponent,
 
-=======
->>>>>>> 18c99e94ae9837faedf251fd4e6547bb004d074a
   ],
   imports: [
     BrowserModule,
