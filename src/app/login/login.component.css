@@ -45,7 +45,7 @@
     border-radius: 0;
 }
 .mainclass{
-    padding:200px;
+    padding:20px;
 }
 @media only screen and (max-width: 990px) {
     .login-card-wrapper{
