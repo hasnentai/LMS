@@ -30,7 +30,7 @@ export class EditinfoComponent implements OnInit {
 
   ngOnInit() {
     if (this.userToken === null) {
-      this.router.navigateByUrl('/login');
+      // this.router.navigateByUrl('/login');
     } else {
       this.serverservice.getEditData().subscribe((response) => {
         this.editInfo = response;

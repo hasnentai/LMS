@@ -16,8 +16,7 @@ import { ServerserviceService } from './serverservice.service';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FooterComponent } from './footer/footer.component';
-
-
+import { DetailpageComponent } from './detailpage/detailpage.component';
 
 
 
@@ -28,7 +27,8 @@ export const routes: Routes = [
   {path: 'profilepage' , component: ProfilePageComponent},
   {path: 'edit' , component: EditinfoComponent},
   {path: 'login' , component: LoginComponent},
-  {path: 'register' , component: RegisterComponent}
+  {path: 'register' , component: RegisterComponent},
+  {path: 'detailpage' , component: DetailpageComponent}
 ];
 
 
@@ -43,6 +43,7 @@ export const routes: Routes = [
     LoginComponent,
     RegisterComponent,
     FooterComponent,
+    DetailpageComponent,
 
   ],
   imports: [

@@ -59,28 +59,26 @@ wrapper{
 .message-continer{
     padding:20px;
     color: #fff;
-    background-color: #707070;
+    background-color: #181818;
     box-shadow: 0 6px 44px #00000061;
-    border-radius: 2px;
     text-transform: capitalize;
 }
 .message-open{
     position: fixed;
-    top: 115px;
-    width: auto;
+    top: 0;
+    width: 100%;
     border: 0;
-    left: 40px;
-    transform: rotateX(0deg);
-
-    transition: 0.2s all ease-in;
+    transform: translateY(0);
+    opacity: 1;
+    transition: 0.3s all ease-in-out;
 }
 .message-close{
     position: fixed;
-    top: 100px;
-    width: auto;
+    top: 0;
+    width: 100%;
     border: 0;
-    left: 40px;
-    transform: rotateX(90deg);
-
-    transition: 0.2s all ease-in;
+    transform:  translateY(-100%);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s all ease-in;
 }
