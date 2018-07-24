@@ -44,6 +44,32 @@
     border-bottom: 2px solid #b4b4b4;
     border-radius: 0;
 }
+.message-continer{
+    padding:20px;
+    color: #fff;
+    background-color: #181818;
+    box-shadow: 0 6px 44px #00000061;
+    text-transform: capitalize;
+}
+.message-open{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    border: 0;
+    transform: translateY(0);
+    opacity: 1;
+    transition: 0.3s all ease-in-out;
+}
+.message-close{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    border: 0;
+    transform:  translateY(-100%);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s all ease-in;
+}
 .mainclass{
     padding:20px;
 }
