@@ -10,6 +10,7 @@
     padding-left: 20px;
     color: #EB4954;
     font-size: 20px;
+    background:none;
 }
 .header-icons{
     color:#EB4954;
@@ -31,9 +32,9 @@
     width: 30%;
     box-shadow: 2px 0 20px #7070704f;
     background-image:url('../../assets/Symbol.png')
-
-    
-
+}
+.menu-container ul li p:focus{
+    outline:none;
 }
 .logo-container img{
     height: 60px;

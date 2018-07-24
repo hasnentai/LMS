@@ -286,6 +286,7 @@ ul{
     .filter-section-mobile-close{
         transform:translateY(100%);
         transition: 0.5s all ease-in;
+        visibility: hidden;
     }
     .filter-section-mobile-ani{
         transform:translateY(0);
