@@ -12,6 +12,8 @@ import { userInfo } from 'os';
   styleUrls: ['./editinfo.component.css']
 })
 export class EditinfoComponent implements OnInit {
+  minDate = { year: 1990, month: 1, day: 1 };
+  maxDate = { year: 2010, month: 12, day: 31 };
   userToken = localStorage.getItem('userToken');
   editResponse ;
   editInfo;

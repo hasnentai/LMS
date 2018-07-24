@@ -82,3 +82,15 @@ wrapper{
     opacity: 0;
     transition: 0.5s all ease-in;
 }
+.dobclass button{
+    border:none;
+    border-bottom:1px solid #ec5455;
+    padding:4.4px;
+}
+.dobclass button:hover{
+    border:none;
+    background:none;
+    color:#707070;
+    border-bottom:1px solid #ec5455;
+    padding:4.6px;
+}
