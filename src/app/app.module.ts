@@ -18,6 +18,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { FooterComponent } from './footer/footer.component';
 import { DetailpageComponent } from './detailpage/detailpage.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ModuleintroComponent } from './moduleintro/moduleintro.component';
 
 
 
@@ -31,7 +32,8 @@ export const routes: Routes = [
   {path: 'edit' , component: EditinfoComponent},
   {path: 'login' , component: LoginComponent},
   {path: 'register' , component: RegisterComponent},
-  {path: 'detailpage' , component: DetailpageComponent}
+  {path: 'detailpage' , component: DetailpageComponent},
+  {path: 'moduleintro' , component: ModuleintroComponent}
 ];
 
 
@@ -47,6 +49,7 @@ export const routes: Routes = [
     RegisterComponent,
     FooterComponent,
     DetailpageComponent,
+    ModuleintroComponent,
 
   ],
   imports: [
