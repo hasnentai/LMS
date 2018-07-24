@@ -28,7 +28,7 @@ import { ModuleintroComponent } from './moduleintro/moduleintro.component';
 export const routes: Routes = [
   {path: '' , component: HomeComponent},
   {path: 'home', component: HomeComponent},
-  {path: 'profilepage' , component: ProfilePageComponent},
+  {path: 'profilepage/:id' , component: ProfilePageComponent},
   {path: 'edit' , component: EditinfoComponent},
   {path: 'login' , component: LoginComponent},
   {path: 'register' , component: RegisterComponent},

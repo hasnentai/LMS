@@ -153,6 +153,7 @@ ul{
     box-shadow: 0 3px 24px #70707047;
     margin-right:15px;
     position: relative;
+    overflow: hidden;
 }
 .card-image{
     height:40%;
@@ -190,7 +191,8 @@ ul{
 .card-description{
     padding-right:10px;
     padding-left: 10px;
-    font-weight: bold;
+    font-weight: normal;
+    line-height: 20px;
 }
 .overlaycard{
     position: absolute;
@@ -267,6 +269,7 @@ ul{
     transform: translateY(-100%);
     transition: 0.5s all ease-in;
 }
+
 @media only screen and (max-width: 990px) {
 
     .title{

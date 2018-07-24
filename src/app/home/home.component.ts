@@ -1,5 +1,6 @@
 import { ServerserviceService } from '../serverservice.service';
 
+
 import {
   Component,
   OnInit,
@@ -21,7 +22,7 @@ export class HomeComponent implements OnInit {
 
 
 
-  constructor(public el: ElementRef, public renderer: Renderer2, private serverservice: ServerserviceService) { }
+  constructor(public el: ElementRef, public renderer: Renderer2, private serverservice: ServerserviceService, public router: Router) { }
       card_image;
       card_title;
       card_description;
@@ -163,5 +164,9 @@ export class HomeComponent implements OnInit {
       console.log(this.cards[0].courseName);
       console.log('cards' + this.cards);
     }) ;
+  }
+  selectedCourse(intro) {
+     this.router.navigate(['/detailpage', { id: intro, }]);
+    console.log(intro);
   }
 }

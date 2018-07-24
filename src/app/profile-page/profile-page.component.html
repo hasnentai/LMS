@@ -28,14 +28,14 @@
                 <div class="col-sm-12 col-lg-6">
                   <h3># Top 3 {{item.courseName}}</h3>
                   <hr>
-                  <div class="list-user-avater"  *ngFor="let item of toppers">
+                  <div class="list-user-avater" *ngFor="let item of toppers">
                     <div class="user-avater">
                       <i class="material-icons  book-user text-left">account_circle</i>
                       <h4 style="text-transform:capitalize">{{item.fname}}</h4>
                       <h4 class="percent" style="text-transform:capitalize">{{item.totalScore}}%</h4>
                     </div>
                   </div>
-                  
+
                 </div>
                 <div class="col-sm-12">
                   <div class="button-wrapper text-center">
@@ -72,28 +72,28 @@
           </div>
         </div>
         <div class="body-section">
-            <h3>Recomended Courses</h3>
-            <hr>
-            <div class="card-body-wrapper">
-              <div class="card-container">
-                <div class="mycard" *ngFor="let item of items">
-                  <div class="card-img">
-                    <div class="overlayt"></div>
-                    <img [src]="item.imageURL">
-                  </div>
-                  <div class="card-title">
-                    <p>{{item.courseName}}</p>
-                    <i class="material-icons myicons book">book</i>
-                    <i class="material-icons myicons share">share</i>
-                  </div>
+          <h3>Recomended Courses</h3>
+          <hr>
+          <div class="card-body-wrapper">
+            <div class="card-container">
+              <div class="mycard" *ngFor="let item of items">
+                <div class="card-img">
+                  <div class="overlayt"></div>
+                  <img [src]="item.imageURL">
                 </div>
-  
+                <div class="card-title">
+                  <p>{{item.courseName}}</p>
+                  <i class="material-icons myicons book">book</i>
+                  <i class="material-icons myicons share">share</i>
+                </div>
               </div>
-  
+
             </div>
+
           </div>
+        </div>
       </div>
     </div>
   </div>
-  
+
 </section>

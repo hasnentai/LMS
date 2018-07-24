@@ -1,6 +1,148 @@
 <app-header></app-header>
 <div class="dd-wrapper">
   <div class="img-wrapper">
-    
+
+    <img [src]="wholePageDetail.image" />
+    <div class="overlay">
+    </div>
+  </div>
+  <div class="people-wrap">
+    <div class="people">
+      <a>
+        <img [src]="wholePageDetail.image">
+      </a>
+    </div>
+    <div class="card-container-banner">
+      <p class="title">{{wholePageDetail.title}}</p>
+      <p class="sub-title">
+        <i class="material-icons" style="position: absolute;
+        margin-left: -29px;">business</i> Business Toys Pvt Ltd</p>
+    </div>
+  </div>
+  <div class="button-container">
+    <button class="btn btn-primary" (click)="openModel();">Take this Course for &#x20b9; 200</button>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="filter wrapper rounded filter-section mt-3">
+        <div class="body-section">
+          <h5 class="pt-2 pl-2">Description</h5>
+          <hr>
+          <div class="filter-measures p-4">
+            <ul>
+              <li>
+                {{wholePageDetail.details}}
+              </li>
+              <li>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
+                specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+                essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem
+                Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
+                of Lorem Ipsum.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="filter wrapper rounded filter-section mt-3">
+        <div class="body-section">
+          <h5 class="pt-2 pl-2">About </h5>
+          <hr>
+          <div class="filter-measures p-4">
+            <ul class="list-unstyled">
+              <li>Eligiblity :
+                <i class="material-icons " style="position:absolute">computer</i>
+                <span style="margin-left:30px;">Engineering Studensts</span>
+              </li>
+
+              <hr>
+              <li>Posted On :
+                <i class="material-icons " style="position:absolute">insert_invitation</i>
+                <span style="margin-left:30px;">5 Jul'18, 28 Feb'19, 12:00 AM IST</span>
+              </li>
+              <hr>
+
+              <li>Ratings :
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+              </li>
+              <hr>
+              <li>Total Modules : 5 </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-12">
+      <div class="filter wrapper rounded filter-section mt-3">
+        <div class="body-section">
+          <h5 class="pt-2 pl-2">Recommended Course</h5>
+          <hr>
+          <div class="card-body-wrapper">
+            <div class="card-container">
+              <div class="mycard" *ngFor="let item of items">
+                <div class="card-img">
+                  <div class="overlayt"></div>
+                  <img [src]="item.imageURL">
+                </div>
+                <div class="card-title">
+                  <p>{{item.courseName}}</p>
+                  <i class="material-icons myicons book">book</i>
+                  <i class="material-icons myicons share">share</i>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<div class="overlay-con overlay-wrapper-close">
+  <div class="payment-box justify-content-center">
+    <div class="payment-inner">
+      <div class="row justify-content-center">
+        <div class="col-lg-12">
+          <div class="box-header">
+            <h4 class="p-3" style="background-color:dodgerblue;color:#fff;">Payment Option</h4>
+          </div>
+        </div>
+        <div class="col-lg-12 text-center p-5" >
+          <div class="form-group">
+            <label for="fname">Cupone Code</label>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Enter Code Here" aria-label="Recipient's username" aria-describedby="basic-addon2" name="fname"
+                #fname="ngModel" ngModel required autocomplete="off">
+                <div class="input-group-append">
+                  <span class="input-group-text" id="basic-addon2" style="background-color:dodgerblue;border:none;color:#fff;">Apply</span>
+                </div>
+              </div>
+          </div>
+          <div class="form-group text-center">
+              <label for="fname">OR</label>
+              <br>
+             <button class="btn btn-primary mb-3" style="width: 100%;
+             padding: 10px;">Paytm</button>
+             <br>
+             <button class="btn btn-danger" style="width: 100%;
+             padding: 10px;" (click)="closeModel();">close</button>
+            </div>
+
+        </div>
+
+      </div>
+    </div>
   </div>
 </div>
