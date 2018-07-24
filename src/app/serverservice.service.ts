@@ -6,7 +6,12 @@ import {map} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ServerserviceService {
-  readonly _rootUrl = 'http://192.168.0.8:3000';
+  selectedCourseName;
+  selectedCourseId;
+  slectedCourseDes;
+  selectedCourseImg;
+  selectedCourseIntro;
+  readonly _rootUrl = 'http://192.168.0.7:3000';
   constructor(private http: HttpClient) { }
   postRegisterData(formdata) {
     console.log(formdata);
@@ -15,7 +20,7 @@ export class ServerserviceService {
   }
 
   // tslint:disable-next-line:member-ordering
-  CourseDetailsUrl = 'http://192.168.0.8:3000/api/client/get-courses';
+  CourseDetailsUrl = this._rootUrl + '/api/client/get-courses';
   getcoursecarddetails() {
     return this.http.get(this.CourseDetailsUrl);
   }
@@ -39,5 +44,14 @@ export class ServerserviceService {
   }
   getCourses() {
      return this.http.get(this._rootUrl + '/api/client/get-courses');
+  }
+
+  getCourseDetails() {
+    return this.http.get(this._rootUrl + '/api/client/');
+  }
+
+  getSpecificCourse(id) {
+    console.log(id);
+    return this.http.get(this._rootUrl + '/api/client/course-intro/' + id);
   }
 }
