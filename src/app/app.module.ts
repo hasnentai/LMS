@@ -13,12 +13,13 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
 import { ServerserviceService } from './serverservice.service';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FooterComponent } from './footer/footer.component';
 import { DetailpageComponent } from './detailpage/detailpage.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ModuleintroComponent } from './moduleintro/moduleintro.component';
+import { QuizComponent } from './quiz/quiz.component';
 
 
 
@@ -33,7 +34,8 @@ export const routes: Routes = [
   {path: 'login' , component: LoginComponent},
   {path: 'register' , component: RegisterComponent},
   {path: 'detailpage' , component: DetailpageComponent},
-  {path: 'moduleintro' , component: ModuleintroComponent}
+  {path: 'moduleintro' , component: ModuleintroComponent},
+  {path: 'quiz' , component: QuizComponent}
 ];
 
 
@@ -50,6 +52,7 @@ export const routes: Routes = [
     FooterComponent,
     DetailpageComponent,
     ModuleintroComponent,
+    QuizComponent,
 
   ],
   imports: [
