@@ -177,7 +177,7 @@
         width: 100%;
         margin-top:-85px;
     }
-    .button-container[_ngcontent-c1] {
+    .button-container {
         text-align: center;
         padding: 10px;
         width: 100%;
@@ -187,7 +187,7 @@
         position: fixed;
         background: #007aff;
     }
-    .payment-box[_ngcontent-c1] {
+    .payment-box {
         background-color: #fff;
         width: 90%;
         position: absolute;
@@ -197,7 +197,7 @@
         transform: translate(-50%,-50%);
         border-radius: 5px;
     }
-    .people-wrap[_ngcontent-c1] img[_ngcontent-c1] {
+    .people-wrap img{
         display: block;
         height: 50px;
         width: 50px;
@@ -206,19 +206,28 @@
         object-fit: cover;
         border: 1px solid #fff;
     }
-    .card-container-banner[_ngcontent-c1] .title[_ngcontent-c1] {
+    .card-container-banner .title {
         font-size: 16px;
         padding-left: 20px;
         color: #fff;
         font-weight: 700;
         margin-bottom: 0px;
     }
-    .sub-title[_ngcontent-c1] {
+    .sub-title {
         font-size: 10px;
         font-weight: normal;
         letter-spacing: 5px;
         color: #fff;
         padding-left: 50px;
+    }
+    .people-wrap img {
+        display: block;
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        border: 1px solid #fff;
     }
     
 }

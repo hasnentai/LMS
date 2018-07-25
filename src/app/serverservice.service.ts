@@ -54,4 +54,13 @@ export class ServerserviceService {
     console.log(id);
     return this.http.get(this._rootUrl + '/api/client/course-intro/' + id);
   }
+
+  sendCoupenCode(paymenDetails) {
+    console.log(paymenDetails);
+    return this.http.post(this._rootUrl + '/api/client/pay-via-coupon', paymenDetails);
+  }
+
+  checkCompleted (token , coursename) {
+    return this.http.get(this._rootUrl + '/api/client/course-status/' + token + '/' + coursename);
+  }
 }

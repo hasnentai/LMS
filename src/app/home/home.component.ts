@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
   constructor(public el: ElementRef, public renderer: Renderer2, private serverservice: ServerserviceService, public router: Router) { }
       card_image;
       card_title;
+      flag = 0;
       card_description;
       cards = [];
       categorywisefilters = [
@@ -84,9 +85,11 @@ export class HomeComponent implements OnInit {
     const pageoffsetsize = max - 1200;
     console.log(windowHeight);
     if (window.pageYOffset >= 400 &&  window.pageYOffset <= pageoffsetsize) {
+      this.flag = 1;
       this.content = this.el.nativeElement.getElementsByClassName('filter-section')[0];
       this.renderer.addClass(this.content, 'fixed-side-filter');
-    }  else {
+     } else if (this.flag) {
+      this.flag = 0;
       this.renderer.removeClass(this.content, 'fixed-side-filter');
         }
   }

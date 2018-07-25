@@ -154,6 +154,10 @@ ul{
     margin-right:15px;
     position: relative;
     overflow: hidden;
+    transition: all 0.5 ease;
+}
+mycard:hover{
+    transform: scale(2.0);
 }
 .card-image{
     height:40%;
