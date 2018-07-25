@@ -7,6 +7,8 @@ import { HomeComponent } from './home/home.component';
 import { Routes, RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
+<<<<<<< hasnenlms
+=======
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditinfoComponent } from './editinfo/editinfo.component';
 import { LoginComponent } from './login/login.component';
@@ -36,6 +38,7 @@ export const routes: Routes = [
   {path: 'moduleintro' , component: ModuleintroComponent}
 ];
 
+>>>>>>> master
 
 
 @NgModule({
@@ -43,6 +46,9 @@ export const routes: Routes = [
     AppComponent,
     HomeComponent,
     HeaderComponent,
+<<<<<<< hasnenlms
+    ProfilePageComponent
+=======
     ProfilePageComponent,
     EditinfoComponent,
     LoginComponent,
@@ -51,6 +57,7 @@ export const routes: Routes = [
     DetailpageComponent,
     ModuleintroComponent,
 
+>>>>>>> master
   ],
   imports: [
     BrowserModule,
