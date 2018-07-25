@@ -53,13 +53,13 @@
           <hr>
           <div class="card-body-wrapper">
             <div class="card-container">
-              <div class="mycard" *ngFor="let item of j">
+              <div class="mycard" *ngFor="let item of cards">
                 <div class="card-img">
                   <div class="overlayt"></div>
                   <img [src]="item.imageURL">
                 </div>
                 <div class="card-title">
-                  <p>{{item.courseName}}</p>
+                  <p>{{item.title}}</p>
                   <i class="material-icons myicons book">book</i>
                   <i class="material-icons myicons share">share</i>
                 </div>

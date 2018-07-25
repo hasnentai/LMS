@@ -2,14 +2,14 @@
 <div class="dd-wrapper">
   <div class="img-wrapper">
 
-    <img [src]="wholePageDetail.image" />
+    <img [src]="wholePageDetail.image">
     <div class="overlay">
     </div>
   </div>
   <div class="people-wrap">
     <div class="people">
       <a>
-        <img [src]="wholePageDetail.image">
+        <img src="{{wholePageDetail.image}}">
       </a>
     </div>
     <div class="card-container-banner">
@@ -20,7 +20,8 @@
     </div>
   </div>
   <div class="button-container">
-    <button class="btn btn-primary" (click)="openModel();">Take this Course for &#x20b9; 200</button>
+    <button *ngIf="payment" class="btn btn-primary" (click)="openModel();">Take A Course for 200 Rs</button>
+    <button *ngIf="!payment" class="btn btn-primary">Take A Course</button>
   </div>
 </div>
 <div class="container-fluid">
@@ -123,13 +124,14 @@
           <div class="form-group">
             <label for="fname">Cupone Code</label>
             <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Enter Code Here" aria-label="Recipient's username" aria-describedby="basic-addon2" name="fname"
-                #fname="ngModel" ngModel required autocomplete="off">
+                <input type="text" class="form-control" placeholder="Enter Code Here" aria-label="Recipient's username" aria-describedby="basic-addon2" name="coupon"
+                #fname="ngModel" [(ngModel)]="coupon" required autocomplete="off">
                 <div class="input-group-append">
-                  <span class="input-group-text" id="basic-addon2" style="background-color:dodgerblue;border:none;color:#fff;">Apply</span>
+                  <span class="input-group-text" id="basic-addon2" style="background-color:dodgerblue;border:none;color:#fff;" (click)="applyCode()">Apply</span>
                 </div>
               </div>
           </div>
+          <div *ngIf="!valid" class="text-danger">Please Apply Valid Coupon</div>
           <div class="form-group text-center">
               <label for="fname">OR</label>
               <br>
