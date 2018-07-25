@@ -1,3 +1,101 @@
-<p>
-  profile-page works!
-</p>
+
+<app-header></app-header>
+<section>
+  <div class="banner-wrapper">
+    <div class="overlay">
+      <div class="container">
+        <h4 class="heading">Dashboard</h4>
+      </div>
+    </div>
+    <div class="banner"></div>
+  </div>
+  <div class="container">
+    <div class="body-wrapper mt-4">
+      <div class="filter wrapper rounded filter-section">
+        <div class="body-section" *ngFor="let item of scores">
+          <h3 style="text-transform:capitalize">Scores For {{item.courseName}}</h3>
+          <hr>
+          <div class="card-body-wrapper">
+            <div class="socre-container">
+              <div class="row">
+                <div class="col-sm-12 col-lg-6">
+
+                  <div class="user-avater">
+                    <i class="material-icons  book-user text-left">account_circle</i>
+                    <h4>{{item.fname}} {{item.lname}} </h4>
+                    <h4 class="percent">{{item.totalScore}} %</h4>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-lg-6">
+                  <h3># Top 3 {{item.courseName}}</h3>
+                  <hr>
+                  <div class="list-user-avater" *ngFor="let item of toppers">
+                    <div class="user-avater">
+                      <i class="material-icons  book-user text-left">account_circle</i>
+                      <h4 style="text-transform:capitalize">{{item.fname}}</h4>
+                      <h4 class="percent" style="text-transform:capitalize">{{item.totalScore}}%</h4>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="col-sm-12">
+                  <div class="button-wrapper text-center">
+                    <button class="view-btn">View All</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+        <div class="body-section">
+          <h3>Courses Taken</h3>
+          <hr>
+          <div class="card-body-wrapper">
+            <div class="card-container">
+              <div class="mycard" *ngFor="let item of cards">
+                <div class="card-img">
+                  <div class="overlayt"></div>
+                  <img [src]="item.imageURL">
+                </div>
+                <div class="card-title">
+                  <p>{{item.title}}</p>
+                  <i class="material-icons myicons book">book</i>
+                  <i class="material-icons myicons share">share</i>
+                </div>
+              </div>
+
+
+
+            </div>
+
+          </div>
+        </div>
+        <div class="body-section">
+          <h3>Recomended Courses</h3>
+          <hr>
+          <div class="card-body-wrapper">
+            <div class="card-container">
+              <div class="mycard" *ngFor="let item of items">
+                <div class="card-img">
+                  <div class="overlayt"></div>
+                  <img [src]="item.imageURL">
+                </div>
+                <div class="card-title">
+                  <p>{{item.courseName}}</p>
+                  <i class="material-icons myicons book">book</i>
+                  <i class="material-icons myicons share">share</i>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+

@@ -1,17 +1,64 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+<nav class="navbar navbar-expand-lg navbar-light navbar-fixed-top" style="background-color:#fff;z-index:3">
   <div class="container">
-    <h1 class="navbar-brand header-font">
-      <b>Business Toys</b>
+    <h1 class="navbar-brand header-font" routerLink="/home">
+        <img style=" height:60px;" src="../../assets/logo.png" alt="">
     </h1>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" (click)="toggleState()" aria-controls="navbarSupportedContent"
       aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <i class="large material-icons" style="font-size: 40px;color:#EB4954" >list</i>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <form class="form-inline ml-auto header-icons">
         <i class="large material-icons pl-3">search</i>
-        <i class="large material-icons pl-3">account_circle</i>
+        <i *ngIf="login" class="large material-icons pl-3" (click)="toggleState()" style="font-size: 40px;" >list</i>
+        <button routerLink="/login" *ngIf="!login" class="login-button">Log in</button>
       </form>
     </div>
   </div>
 </nav>
+<div class="meny-back-drop" [@heroState]="anistate" (click)="toggleState()">
+  <div class="menu-container" >
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="logo-container text-center">
+          <img src="../../assets/logo.png" alt="">
+        </div>
+        <div class="profile-info">
+          <div class="user-avater">
+            <i class="material-icons user-avater-icon p-5">account_circle</i>
+          </div>
+          <div class="user-name">
+            <h5>{{userName}}</h5>
+            <p>{{email}}</p>
+          </div>
+        </div>
+        <div class="menu-contianer " >
+          <ul>
+            <li *ngFor="let item of myitem; let i=index" [routerLinkActive]="['active']">
+              <p [routerLink]=item.link>{{item.menu}}</p>
+              <hr>
+            </li>
+            <li *ngIf="userToken === null" routerLink="/login">
+              Log In
+            </li>
+            <li *ngIf="userToken !== null" (click)="logout()" routerLink="/login">
+              Log Out
+            </li>
+            
+            <!-- <li class="active">Home</li>
+            <hr>
+            <li>Edit Info</li>
+            <hr>
+            <li>Courses Taken</li>
+            <hr>
+            <li>Reports</li>
+            <hr>
+            <li>Log Out</li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

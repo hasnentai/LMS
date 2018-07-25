@@ -14,245 +14,148 @@
         <div class="body-section">
           <h3>Filter here</h3>
           <hr>
+          <div class="filter-measures">
+            <ul>
+              <li>
+                <button class="filter-pills filter-pills-button" (click)="clickf(i);" *ngFor="let item of categorywisefilters; let i=index">
+                  <i class=" filter-icons-active large material-icons pl-3">{{item.icon}}</i>
+                  <a class="filter-names">{{item.catname}}</a>
+                </button>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-lg-9 col-sm-1">
+    <div class="col-lg-9 col-sm-12">
       <div class="filter wrapper rounded card-section">
         <div class="body-section text-center">
-          <button class="pills-active">
-            All
-          </button>
-          <button class="pills">
-            Quiz
-          </button>
-          <button class="pills">
-            Competition
-          </button>
-          <button class="pills">
-            Hackathon
-          </button>
+          <div class="pills-scroll">
+            <div class="pills-container">
+              <button class="pills pills-button" (click)="clickp(i);" *ngFor="let item of sectionwisefilters; let i=index">
+                {{item.menu}}
+              </button>
+            </div>
+          </div>
           <hr>
         </div>
         <div class="container-fluid">
-          <div class="main-body-wrapper">
+          <div class="main-body-wrapper" id="targetAll">
             <h3>All</h3>
             <hr>
             <div class="card-outter">
               <div class="card-container">
-                <div class="mycard">
+                <div *ngFor="let card of cards" class="mycard">
+                  <div class="overlaywholecard">
+                    <div class="title-icon-div">
+                      <i class=" title-icons large material-icons pl-3">book</i>
+                      <i class=" title-icons large material-icons pl-3">share</i>
+                    </div>
+                    <button class="overlaywholecard-pills-active" (click)="selectedCourse(card.courseIntro)">View</button>
+                  </div>
                   <div class="card-image">
+                      <div class="overlaycard"></div>
+                    <img [src]="card.imageURL" />
+                    
                   </div>
                   <div class="card-save">
                     <div class="card-title">
-                      <h3>Title Here</h3>
+                      <p class="title-class">{{card.courseName}}</p>
                     </div>
+                    
                   </div>
-                  <div class="card-disc">
-                    this is card body
-                  </div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
-                  </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
-                  </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
-                  </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
-                  </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
-                  </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
+                  <div class="card-description">
+                      {{card.description |  slice:0:100}}...
+                    </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="main-body-wrapper">
-            <h3>Quizes</h3>
+          <div class="main-body-wrapper" id="targetQuiz">
+            <h3>Quiz</h3>
             <hr>
             <div class="card-outter">
               <div class="card-container">
-                <div class="mycard">
+                <div *ngFor="let card of cards" class="mycard">
+                  <div class="overlaywholecard">
+                    <div class="title-icon-div">
+                      <i class=" title-icons large material-icons pl-3">book</i>
+                      <i class=" title-icons large material-icons pl-3">share</i>
+                    </div>
+                    <button routerLink="/detailpage" class="overlaywholecard-pills-active">View</button>
+                  </div>
                   <div class="card-image">
-
+                    <div class="overlaycard"></div>
+                    <img [src]="card.imageURL" />
                   </div>
                   <div class="card-save">
                     <div class="card-title">
-                      <h3>Title Here</h3>
+                      <p class="title-class">{{card.courseName}}</p>
                     </div>
+                    
                   </div>
-                  <div class="card-disc">
-                    this is card body
+                  <div class="card-description">
+                      {{card.description | slice:0:100}}...
                   </div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
-                  </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
-                  </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
-                  </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
-                  </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
-                  </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="main-body-wrapper">
-            <h3>Hackathon</h3>
-            <hr>
-            <div class="card-outter">
-              <div class="card-container">
-                <div class="mycard">
-                  <div class="card-image">
-
-                  </div>
-                  <div class="card-save">
-                    <div class="card-title">
-                      <h3>Title Here</h3>
-                    </div>
-                  </div>
-                  <div class="card-disc">
-                    this is card body
-                  </div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
-                  </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
-                  </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
-                  </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
-                  </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
-                  </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="main-body-wrapper">
+          <div class="main-body-wrapper" id="targetCompetition">
             <h3>Competition</h3>
             <hr>
             <div class="card-outter">
               <div class="card-container">
-                <div class="mycard">
+                <div *ngFor="let card of cards" class="mycard">
+                  <div class="overlaywholecard">
+                    <div class="title-icon-div">
+                      <i class=" title-icons large material-icons pl-3">book</i>
+                      <i class=" title-icons large material-icons pl-3">share</i>
+                    </div>
+                    <button class="overlaywholecard-pills-active">View</button>
+                  </div>
                   <div class="card-image">
+                    <div class="overlaycard"></div>
+                    <img [src]="card.imageURL" />
                   </div>
                   <div class="card-save">
                     <div class="card-title">
-                      <h3>Title Here</h3>
+                      <p class="title-class">{{card.courseName}}</p>
                     </div>
                   </div>
-                  <div class="card-disc">
-                    this is card body
-                  </div>
+                  <div class="card-description">
+                      {{card.description | slice:0:100}}...
+                    </div>
                 </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
+              </div>
+            </div>
+          </div>
+          <div class="main-body-wrapper" id="targetHackathon">
+            <h3>Hackathon</h3>
+            <hr>
+            <div class="card-outter">
+              <div class="card-container">
+                <div *ngFor="let card of cards" class="mycard">
+                  <div class="overlaywholecard">
+                    <div class="title-icon-div">
+                      <i class=" title-icons large material-icons pl-3">book</i>
+                      <i class=" title-icons large material-icons pl-3">share</i>
+                    </div>
+                    <button  class="overlaywholecard-pills-active">View</button>
                   </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
+                  <div class="card-image">
+                    <div class="overlaycard"></div>
+                    <img [src]="card.imageURL" />
                   </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
+                  <div class="card-save">
+                    <div class="card-title">
+                      <p class="title-class">{{card.courseName}}</p>
+                    </div>
+                    
                   </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
+                  <div class="card-description">
+                      {{card.description | slice:0:100}}...
                   </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
-                </div>
-                <div class="mycard">
-                  <div class="cardimg">
-                    hello
-                  </div>
-                  <div class="card-title-container">hii</div>
-                  <div class="card-disc">this is card body</div>
                 </div>
               </div>
             </div>
@@ -262,3 +165,24 @@
     </div>
   </div>
 </div>
+<div class="filter-button-div">
+  <button (click)="openfilter()" class="filter-button">Filter</button>
+</div>
+<div class="filter wrapper rounded filter-section-mobile filter-section-mobile-close">
+    <div class="body-section">
+      <h3 style="display: inline">Filter here</h3>
+      <button (click)="closefilter()" class="pills-active close-filter-button" style="right:2px;position:absolute"> X </button>
+      <hr>
+      <div class="filter-measures">
+        <ul>
+          <li>
+            <button class="filter-pills filter-pills-button-mobile" (click)="clickm(i);" *ngFor="let item of categorywisefilters; let i=index">
+              <i class=" filter-icons-active large material-icons pl-3">{{item.icon}}</i>
+              <a class="filter-names">{{item.catname}}</a>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>

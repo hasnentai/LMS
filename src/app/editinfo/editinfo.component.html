@@ -1,0 +1,162 @@
+<app-header></app-header>
+<section>
+  <div class="banner-wrapper">
+    <div class="overlay">
+      <div class="container">
+        <h4 class="heading">Edit Info</h4>
+      </div>
+    </div>
+    <div class="banner"></div>
+  </div>
+  <div class="container">
+    <div class="body-wrapper mt-4">
+      <div class="filter wrapper rounded filter-section">
+        <div class="body-section">
+          <h3>Update Yor Personal Information Here</h3>
+          <hr>
+          <div class="edit-form p-5">
+            <form (ngSubmit)="Data(allformdata);" #allformdata="ngForm">
+              <div class="row">
+                <div class="col-lg-6 col-sm-12">
+                  <div class="form-group">
+                    <label for="fname">First Name</label>
+                    <input type="text" class="form-control mytxt" id="valfname" aria-describedby="emailHelp" placeholder="First Name" [(ngModel)]="fname"
+                      name="fname" #valfname="ngModel" required autocomplete="off">
+                    <div *ngIf="valfname.touched && !valfname.valid">
+                      <small id="valfname" class="form-text text-danger" *ngIf="valfname.errors.required">First Name is required</small>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="lname">Last Name</label>
+                    <input type="email" class="form-control mytxt" id="vallname" aria-describedby="emailHelp" placeholder="Last Name" [(ngModel)]="lname"
+                      name="lname" #vallname="ngModel" required autocomplete="off">
+                    <div *ngIf="vallname.touched && !vallname.valid">
+                      <small id="vallname" class="form-text text-danger" *ngIf="vallname.errors.required">First Name is required</small>
+                    </div>
+                  </div>
+                  <div class="form-group dobclass">
+                    <label for="dob">Date Of Birth</label>
+                    <!-- <input type="text" class="form-control mytxt" id="course" aria-describedby="emailHelp" placeholder="12-9-1995" [(ngModel)]="dob"
+                        name="dob"> -->
+                    <div class="input-group">
+                      <input [minDate]="minDate" [maxDate]="maxDate" id="course" type="text" aria-describedby="emailHelp" class="form-control mytxt"
+                        placeholder="yyyy-mm-dd" name="dob" ngModel #dob="ngModel" ngbDatepicker #d="ngbDatepicker" required autocomplete="off">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+                          <i class="material-icons">perm_contact_calendar</i>
+                        </button>
+                      </div>
+                    </div>
+                    <div *ngIf="dob.touched && !dob.valid">
+                      <small id="dob" class="form-text text-danger" *ngIf="dob.errors.required">Date of Birth is Required</small>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control mytxt" id="email" aria-describedby="emailHelp" placeholder="Email" readonly [(ngModel)]="email"
+                      name="email">
+                  </div>
+                  <div class="form-group">
+                    <label for="dob">Phone No</label>
+                    <input type="text" class="form-control mytxt" id="valphone" aria-describedby="emailHelp" placeholder="+911234567890" [(ngModel)]="phone"
+                      name="phone" #valphone="ngModel" required autocomplete="off" minlength="10" maxlength="10">
+                    <div *ngIf="valphone.touched && !valphone.valid">
+                      <small id="valphone" class="form-text text-danger" *ngIf="valphone.errors.required">Phone Number is Required</small>
+                      <small id="valphone" class="form-text text-danger" *ngIf="valphone.errors.minlength">Mobile Number should be 10 digit long</small>
+                      <small id="valphone" class="form-text text-danger" *ngIf="valphone.errors.maxlength">Mobile Number should be 10 digit long</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                  <div class="form-group">
+                    <label for="state">State</label>
+                    <select class="form-control mytxt" id="valstate" [(ngModel)]="state" #valstate="ngModel" #valstate="ngModel" name="state"
+                      required autocomplete="off">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                    <div *ngIf="valstate.touched && valstate.valid">
+                      <small id="valstate" class="form-text text-danger" *ngIf="valstate.errors.required">Please Select the State</small>
+                      <!-- <small id="re-password" class="form-text text-danger" *ngIf="email.errors.pattern">Email is Invalid</small> -->
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="city">City</label>
+                    <select class="form-control mytxt" id="valcity" [(ngModel)]="city" #valcity="ngModel" name="city" required autocomplete="off">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                    <div *ngIf="valcity.touched && !valcity.valid">
+                      <small id="valcity" class="form-text text-danger" *ngIf="valcity.errors.required">Please Select the City</small>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="college">College</label>
+                    <select class="form-control mytxt" id="valcollege" [(ngModel)]="college" #valcollege name="college" required autocomplete="off">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                    <div *ngIf="valcollege.touched && !valcollege.valid">
+                      <small id="valcollege" class="form-text text-danger" *ngIf="valcollege.errors.required">Please Select the College</small>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="course">Course</label>
+                    <select class="form-control mytxt" id="valcourse" [(ngModel)]="course" name="course" required autocomplete="off">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                    <div *ngIf="valcollege.touched && !valcollege.valid">
+                      <small id="valcollege" class="form-text text-danger" *ngIf="valcollege.errors.required">Please Select the College</small>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="sem">Sem</label>
+                    <select class="form-control mytxt" id="valsem" [(ngModel)]="sem" name="sem" #valsem="ngModel" required autocomplete="off">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                    <div *ngIf="valsem.touched && !valsem.valid">
+                      <small id="valsem" class="form-text text-danger" *ngIf="valsem.errors.required">Please Select the Sem</small>
+                      <!-- <small id="re-password" class="form-text text-danger" *ngIf="email.errors.pattern">Email is Invalid</small> -->
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="mybutton-wrapper mt-5 text-center">
+                    <input type="hidden" [(ngModel)]="token" name="token">
+                    <input [disabled]="allformdata.invalid" type="submit" class="mysubmit-btn" value="save">
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="message-close mymessage">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="message-continer text-center">
+        {{editResponse}}
+      </div>
+    </div>
+  </div>
+</div>
