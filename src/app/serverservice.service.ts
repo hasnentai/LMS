@@ -11,6 +11,8 @@ export class ServerserviceService {
   slectedCourseDes;
   selectedCourseImg;
   selectedCourseIntro;
+  allmodulesarray;
+  currentModule = 0;
   readonly _rootUrl = 'http://192.168.0.7:3000';
   constructor(private http: HttpClient) { }
   postRegisterData(formdata) {
@@ -62,5 +64,9 @@ export class ServerserviceService {
 
   checkCompleted (token , coursename) {
     return this.http.get(this._rootUrl + '/api/client/course-status/' + token + '/' + coursename);
+  }
+
+  getallModuleDetails (token , courseID) {
+     return this.http.get(this._rootUrl + '/api/client/get-course/' + token + '/' + courseID);
   }
 }

@@ -1,9 +1,6 @@
 import { ServerserviceService } from '../serverservice.service';
-import { Component, OnInit, ElementRef, Renderer2} from '@angular/core';
+import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-
-
-
 
 @Component({
   selector: 'app-detailpage',
@@ -27,37 +24,32 @@ export class DetailpageComponent implements OnInit {
   valid = true;
   courseTakenFlag = 0;
   payment = false;
-
   constructor(public serverservice: ServerserviceService, public el: ElementRef,
     public renderer: Renderer2, public route: ActivatedRoute, public router: Router) { }
-
-
   applyCode() {
     this.userToken = localStorage.getItem('userToken');
-    if ( this.userToken === null ) {
+    if (this.userToken === null) {
       this.router.navigateByUrl('/login');
-    } else  {
+    } else {
       const id = this.wholePageDetail.title;
-     //  console.log(this.coupon);
-        this.paymentDetails = {
-          coupon : this.coupon,
-          course : id,
-          token : this.userToken
-        };
-        console.log(this.paymentDetails);
-        this.serverservice.sendCoupenCode(this.paymentDetails).subscribe((response: any) => {
-          // console.log(response);
-          if (response.message === 'Payment Successfull') {
-            this.router.navigateByUrl('/moduleintro');
-            this.valid = true;
-          } else {
-            this.valid = false;
-          }
-        });
-
+      //  console.log(this.coupon);
+      this.paymentDetails = {
+        coupon: this.coupon,
+        course: id,
+        token: this.userToken
+      };
+      console.log(this.paymentDetails);
+      this.serverservice.sendCoupenCode(this.paymentDetails).subscribe((response: any) => {
+        // console.log(response);
+        if (response.message === 'Payment Successfull') {
+          this.router.navigateByUrl('/moduleintro');
+          this.valid = true;
+        } else {
+          this.valid = false;
+        }
+      });
     }
   }
-
   checkEnrollment(courseData) {
     for (const course of courseData) {
       if (course === this.wholePageDetail.title) {
@@ -67,7 +59,6 @@ export class DetailpageComponent implements OnInit {
         this.serverservice.checkCompleted(this.userToken, this.wholePageDetail.title).subscribe((response: any) => {
           console.log(response);
         });
-
       }
     }
     if (this.courseTakenFlag !== 1) {
@@ -75,7 +66,6 @@ export class DetailpageComponent implements OnInit {
       this.payment = false;
     }
   }
-
 
   openModel() {
     console.log('open');
@@ -90,22 +80,21 @@ export class DetailpageComponent implements OnInit {
     this.renderer.removeClass(this.modelOpacityContaienr, 'overlay-wrapper-open');
   }
 
+  navigatToNxt() {
+    this.router.navigate(['/moduleintro', { id: this.selectedCourseId }]);
+  }
+
   ngOnInit() {
     this.selectedCourseId = this.route.snapshot.params['id'];
     this.serverservice.getSpecificCourse(this.selectedCourseId).subscribe((response: any) => {
       this.wholePageDetail = response;
     });
     this.serverservice.getEditData().subscribe((response: any) => {
-       // console.log(response[0].enrolments);
-      //  this.checkEnrollment(response[0].enrolments);
       for (const userdata of response) {
         this.checkEnrollment(userdata.enrolments);
       }
-
     });
-   //  console.log(this.selectedCourseId);
-    // this.selectedCourseId = this.serverservice.selectedCourseId;
-        this.serverservice.getcoursecarddetails().subscribe((response: any) => {
+    this.serverservice.getcoursecarddetails().subscribe((response: any) => {
       for (const course of response) {
         this.items.push(course);
       }
