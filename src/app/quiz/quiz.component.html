@@ -5,28 +5,19 @@
   </div>
   <div class="quizwrapper">
     <div class="shortdescriptiondiv ">
-      <p class="shortdescription text-center">{{quizdetails[qno].question.qstn}}</p>
+      <p class="shortdescription text-center">{{quizdetails[currentQuestion].question.qstn}}</p>
     </div>
     <div class="row justify-content-center">
       <div class="col-lg-6 col-sm-12 imagecontainer">
         <div>
-          <img class="questionimage" [src]="quizdetails[qno].question.mediaURL" alt="">
+          <img class="questionimage" [src]="quizdetails[currentQuestion].question.mediaURL" alt="">
         </div>
       </div>
       <div class="col-lg-6 col-sm-12">
         <div class="listcontainer">
           <ul class="list-unstyled listclass">
             <li>
-              <div (click)="changequestion();" class="choicebutton text-center" value="1">{{quizdetails[qno].options[0]}}</div>
-            </li>
-            <li>
-              <div (click)="changequestion();" class="choicebuttoncorrect text-center" value="2">{{quizdetails[qno].options[1]}}</div>
-            </li>
-            <li>
-              <div (click)="changequestion();" class="choicebuttonwrong text-center" value="3">{{quizdetails[qno].options[2]}}</div>
-            </li>
-            <li>
-              <div (click)="changequestion();" class="choicebutton text-center" value="4">{{quizdetails[qno].options[3]}}</div>
+              <div (click)="changequestion(i);" *ngFor="let item of quizdetails[currentQuestion].options; let i=index" class="choicebutton text-center" >{{item}}</div>
             </li>
           </ul>
         </div>
