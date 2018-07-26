@@ -9,7 +9,7 @@
   <div class="people-wrap">
     <div class="people">
       <a>
-        <img src="{{wholePageDetail.image}}">
+        <img [src]="wholePageDetail.image">
       </a>
     </div>
     <div class="card-container-banner">
@@ -20,8 +20,8 @@
     </div>
   </div>
   <div class="button-container">
-    <button *ngIf="payment" class="btn btn-primary" (click)="openModel();">Take A Course for 200 Rs</button>
-    <button *ngIf="!payment" class="btn btn-primary">Take A Course</button>
+    <button *ngIf="!payment" class="btn btn-primary" (click)="openModel();">Take A Course for 200 Rs</button>
+    <button *ngIf="payment" class="btn btn-primary" routerLink="/moduleintro">Take A Course</button>
   </div>
 </div>
 <div class="container-fluid">

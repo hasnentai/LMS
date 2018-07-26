@@ -94,6 +94,7 @@ export class DetailpageComponent implements OnInit {
     this.selectedCourseId = this.route.snapshot.params['id'];
     this.serverservice.getSpecificCourse(this.selectedCourseId).subscribe((response: any) => {
       this.wholePageDetail = response;
+      console.log(response);
     });
     this.serverservice.getEditData().subscribe((response: any) => {
        // console.log(response[0].enrolments);

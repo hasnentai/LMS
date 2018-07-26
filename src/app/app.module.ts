@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule , HTTP_INTERCEPTORS} from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Http, HttpModule } from '@angular/http';
@@ -7,8 +7,6 @@ import { HomeComponent } from './home/home.component';
 import { Routes, RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { ProfilePageComponent } from './profile-page/profile-page.component';
-<<<<<<< hasnenlms
-=======
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EditinfoComponent } from './editinfo/editinfo.component';
 import { LoginComponent } from './login/login.component';
@@ -21,6 +19,8 @@ import { FooterComponent } from './footer/footer.component';
 import { DetailpageComponent } from './detailpage/detailpage.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ModuleintroComponent } from './moduleintro/moduleintro.component';
+import { BubblegameComponent } from './bubblegame/bubblegame.component';
+import {AuthService } from './interceptors/auth.service';
 
 
 
@@ -35,10 +35,10 @@ export const routes: Routes = [
   {path: 'login' , component: LoginComponent},
   {path: 'register' , component: RegisterComponent},
   {path: 'detailpage' , component: DetailpageComponent},
-  {path: 'moduleintro' , component: ModuleintroComponent}
+  {path: 'moduleintro' , component: ModuleintroComponent},
+  {path: 'bgame' , component: BubblegameComponent}
 ];
 
->>>>>>> master
 
 
 @NgModule({
@@ -46,9 +46,6 @@ export const routes: Routes = [
     AppComponent,
     HomeComponent,
     HeaderComponent,
-<<<<<<< hasnenlms
-    ProfilePageComponent
-=======
     ProfilePageComponent,
     EditinfoComponent,
     LoginComponent,
@@ -56,8 +53,8 @@ export const routes: Routes = [
     FooterComponent,
     DetailpageComponent,
     ModuleintroComponent,
+    BubblegameComponent,
 
->>>>>>> master
   ],
   imports: [
     BrowserModule,
@@ -72,6 +69,11 @@ export const routes: Routes = [
   ],
   providers: [
     ServerserviceService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthService,
+      multi: true
+  }
   ],
   bootstrap: [AppComponent]
 })
