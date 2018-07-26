@@ -5,28 +5,28 @@
   </div>
   <div class="quizwrapper">
     <div class="shortdescriptiondiv ">
-      <p class="shortdescription text-center">Any relevent question of specific quiz of specific module in the specific course is to be written here</p>
+      <p class="shortdescription text-center">{{quizdetails[qno].question.qstn}}</p>
     </div>
     <div class="row justify-content-center">
       <div class="col-lg-6 col-sm-12 imagecontainer">
         <div>
-          <img class="questionimage" src="../../assets/quizpic.jpg" alt="">
+          <img class="questionimage" [src]="quizdetails[qno].question.mediaURL" alt="">
         </div>
       </div>
       <div class="col-lg-6 col-sm-12">
         <div class="listcontainer">
           <ul class="list-unstyled listclass">
             <li>
-              <div class="choicebutton text-center">Option 1</div>
+              <div (click)="changequestion();" class="choicebutton text-center" value="1">{{quizdetails[qno].options[0]}}</div>
             </li>
             <li>
-              <div class="choicebuttoncorrect text-center">Option 2</div>
+              <div (click)="changequestion();" class="choicebuttoncorrect text-center" value="2">{{quizdetails[qno].options[1]}}</div>
             </li>
             <li>
-              <div class="choicebuttonwrong text-center">Option 3</div>
+              <div (click)="changequestion();" class="choicebuttonwrong text-center" value="3">{{quizdetails[qno].options[2]}}</div>
             </li>
             <li>
-              <div class="choicebutton text-center">Option 4</div>
+              <div (click)="changequestion();" class="choicebutton text-center" value="4">{{quizdetails[qno].options[3]}}</div>
             </li>
           </ul>
         </div>
@@ -34,6 +34,6 @@
     </div>
   </div>
 </div>
-<div class="startbutton text-center">
+<div (click)="changequestion();"class="startbutton text-center">
   Skip
 </div>

@@ -13,7 +13,7 @@ export class ServerserviceService {
   selectedCourseIntro;
   allmodulesarray;
   currentModule = 0;
-  readonly _rootUrl = 'http://192.168.0.7:3000';
+  readonly _rootUrl = 'http://13.232.35.15';
   constructor(private http: HttpClient) { }
   postRegisterData(formdata) {
     console.log(formdata);
@@ -44,6 +44,7 @@ export class ServerserviceService {
   getScore() {
     return this.http.get(this._rootUrl + '/api/client/get-score/' + localStorage.getItem('userToken'));
   }
+
   getCourses() {
      return this.http.get(this._rootUrl + '/api/client/get-courses');
   }
