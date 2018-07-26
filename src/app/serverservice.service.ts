@@ -78,6 +78,6 @@ export class ServerserviceService  implements OnInit {
   }
 
   getallModuleDetails (token , courseID) {
-     return this.http.get(this._rootUrl + '/api/client/get-course/' + token + '/' + courseID);
+     return this.http.get(this._rootUrl + '/api/client/get-course/courseID');
   }
 }
