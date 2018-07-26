@@ -54,19 +54,19 @@
                     <button class="overlaywholecard-pills-active" (click)="selectedCourse(card._id)">View</button>
                   </div>
                   <div class="card-image">
-                      <div class="overlaycard"></div>
+                    <div class="overlaycard"></div>
                     <img [src]="card.imageURL" />
-                    
+
                   </div>
                   <div class="card-save">
                     <div class="card-title">
                       <p class="title-class">{{card.courseName}}</p>
                     </div>
-                    
+
                   </div>
                   <div class="card-description">
-                      {{card.description |  slice:0:100}}...
-                    </div>
+                    {{card.description | slice:0:100}}...
+                  </div>
                 </div>
               </div>
             </div>
@@ -92,10 +92,10 @@
                     <div class="card-title">
                       <p class="title-class">{{card.courseName}}</p>
                     </div>
-                    
+
                   </div>
                   <div class="card-description">
-                      {{card.description | slice:0:100}}...
+                    {{card.description | slice:0:100}}...
                   </div>
                 </div>
               </div>
@@ -124,8 +124,8 @@
                     </div>
                   </div>
                   <div class="card-description">
-                      {{card.description | slice:0:100}}...
-                    </div>
+                    {{card.description | slice:0:100}}...
+                  </div>
                 </div>
               </div>
             </div>
@@ -141,7 +141,7 @@
                       <i class=" title-icons large material-icons pl-3">book</i>
                       <i class=" title-icons large material-icons pl-3">share</i>
                     </div>
-                    <button  class="overlaywholecard-pills-active">View</button>
+                    <button class="overlaywholecard-pills-active">View</button>
                   </div>
                   <div class="card-image">
                     <div class="overlaycard"></div>
@@ -151,10 +151,10 @@
                     <div class="card-title">
                       <p class="title-class">{{card.courseName}}</p>
                     </div>
-                    
+
                   </div>
                   <div class="card-description">
-                      {{card.description | slice:0:100}}...
+                    {{card.description | slice:0:100}}...
                   </div>
                 </div>
               </div>
@@ -169,20 +169,20 @@
   <button (click)="openfilter()" class="filter-button">Filter</button>
 </div>
 <div class="filter wrapper rounded filter-section-mobile filter-section-mobile-close">
-    <div class="body-section">
-      <h3 style="display: inline">Filter here</h3>
-      <button (click)="closefilter()" class="pills-active close-filter-button" style="right:2px;position:absolute"> X </button>
-      <hr>
-      <div class="filter-measures">
-        <ul>
-          <li>
-            <button class="filter-pills filter-pills-button-mobile" (click)="clickm(i);" *ngFor="let item of categorywisefilters; let i=index">
-              <i class=" filter-icons-active large material-icons pl-3">{{item.icon}}</i>
-              <a class="filter-names">{{item.catname}}</a>
-            </button>
-          </li>
-        </ul>
-      </div>
+  <div class="body-section">
+    <h3 style="display: inline">Filter here</h3>
+    <button (click)="closefilter()" class="pills-active close-filter-button" style="right:2px;position:absolute"> X </button>
+    <hr>
+    <div class="filter-measures">
+      <ul>
+        <li>
+          <button class="filter-pills filter-pills-button-mobile" (click)="clickm(i);" *ngFor="let item of categorywisefilters; let i=index">
+            <i class=" filter-icons-active large material-icons pl-3">{{item.icon}}</i>
+            <a class="filter-names">{{item.catname}}</a>
+          </button>
+        </li>
+      </ul>
     </div>
   </div>
-  <app-footer></app-footer>
+</div>
+<app-footer></app-footer>

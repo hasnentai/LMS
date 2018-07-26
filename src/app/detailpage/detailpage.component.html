@@ -1,7 +1,6 @@
 <app-header></app-header>
 <div class="dd-wrapper">
   <div class="img-wrapper">
-
     <img [src]="wholePageDetail.image">
     <div class="overlay">
     </div>
@@ -20,8 +19,10 @@
     </div>
   </div>
   <div class="button-container">
-    <button *ngIf="!payment" class="btn btn-primary" (click)="openModel();">Take A Course for 200 Rs</button>
-    <button *ngIf="payment" class="btn btn-primary" routerLink="/moduleintro">Take A Course</button>
+    <!-- <button *ngIf="!payment" class="btn btn-primary" (click)="openModel();">Take A Course for 200 Rs</button> -->
+    <!-- <button *ngIf="payment" class="btn btn-primary">Take A Course</button> -->
+    <button (click)="navigatToNxt();" class="btn btn-primary">Take A Course</button>
+
   </div>
 </div>
 <div class="container-fluid">

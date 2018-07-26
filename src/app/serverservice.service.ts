@@ -13,6 +13,8 @@ export class ServerserviceService  implements OnInit {
   slectedCourseDes;
   selectedCourseImg;
   selectedCourseIntro;
+  allmodulesarray;
+  currentModule = 0;
   httpOptions;
   userToken;
   readonly _rootUrl = 'http://192.168.0.8:3000';
@@ -52,6 +54,7 @@ export class ServerserviceService  implements OnInit {
   getScore() {
     return this.http.get(this._rootUrl + '/api/client/get-score/');
   }
+
   getCourses() {
      return this.http.get(this._rootUrl + '/api/client/get-courses');
   }
@@ -72,5 +75,9 @@ export class ServerserviceService  implements OnInit {
 
   checkCompleted (token , coursename) {
     return this.http.get(this._rootUrl + '/api/client/course-status/' + coursename);
+  }
+
+  getallModuleDetails (token , courseID) {
+     return this.http.get(this._rootUrl + '/api/client/get-course/' + token + '/' + courseID);
   }
 }

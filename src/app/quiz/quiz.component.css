@@ -1,0 +1,160 @@
+.maincard{
+    background-color:#fff;
+    position : absolute;
+    width:95%;
+    height:80%;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    box-shadow: 0 3px 24px #70707047;
+    border-radius: 5px;
+    overflow: scroll;
+    overflow-x:hidden;
+}
+.quizwrapper{
+    padding:3%;
+    position: relative;
+}
+::-webkit-scrollbar{
+    width:2px;
+}
+.maincardtitlediv{
+    position: sticky;
+    width:100%;
+    top:0;
+}
+.maincardtitle{
+    color:#fff;
+    padding:15px 15px 15px 15px;
+    font-weight:bolder;
+    background:linear-gradient(to left,rgba(236,123,94,0.9),rgba(235,73,84,0.9));
+    margin:0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.shortdescriptiondiv{
+    padding-top:5px;
+}
+.shortdescription{
+    font-weight: 300;
+    color:#000;
+    padding:10px;
+    padding-left:15px;
+    text-align: justify;
+}
+.startbutton{
+    background:linear-gradient(to left,rgba(236,123,94,0.9),rgba(235,73,84,0.9));
+    padding:10px;
+    color:#fff;
+    position: fixed;
+    bottom:0px;
+    font-weight: 700;
+    width:100%;
+    cursor: pointer;
+}
+.spanclass{
+    padding-left: 340px;
+    padding-right: 340px;
+}
+
+
+.questionimage{
+    object-fit: contain;
+    width:100%;
+    height:300px;
+}
+.listcontainer{
+    position: relative;
+    width: 100%;
+    height:100%;
+}
+.listclass{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width:100%;
+}
+.choicebutton{
+    background:transparent;
+    border-radius: 5px;
+    border: 1px solid #000;
+    color:#000;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 10px;
+    margin: 10px;
+}
+.choicebuttoncorrect{
+    background:rgb(71, 193, 56);
+    border-radius: 5px;
+    border: 1px solid rgb(9,121, 24);
+    color:rgb(9,121,24);
+    font-weight: 700;
+    cursor: pointer;
+    padding: 10px;
+    margin: 10px;
+}
+.choicebuttonwrong{
+    background:rgb(255, 71, 71);
+    border-radius: 5px;
+    border: 1px solid rgb(133, 19, 19);
+    color:rgb(133,19,19);
+    font-weight: 700;
+    cursor: pointer;
+    padding: 10px;
+    margin: 10px;
+}
+.imagedisplaynone{
+    display:none;
+}
+.optionsnoimage{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,0%);
+    width:100%;
+}
+@media only screen and (max-width: 990px){
+    .maincard{
+        background-color:#fff;
+        position : absolute;
+        width:100%;
+        height:92%;
+        top:0;
+        left:0;
+        transform: translate(0,0);
+        box-shadow: 0 3px 24px #70707047;
+    }
+    .spanclass{
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+    .maincardtitle{
+        color:#fff;
+        padding:9px 15px 7px 15px;
+        font-size:13px;
+        background:linear-gradient(to left,rgba(236,123,94,0.9),rgba(235,73,84,0.9));
+        margin:0px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    .questionimage{
+        object-fit: contain;
+        width:100%;
+        height:215px;
+    }
+    .listclass{
+        position: absolute;
+        top:0;
+        left:50%;
+        transform: translate(-50%,0);
+    }
+    .choicebutton{
+        font-weight: 500;
+        cursor: pointer;
+        padding: 7px;
+        margin: 10px;
+        font-size:15px;
+    }
+}

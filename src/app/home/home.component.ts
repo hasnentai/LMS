@@ -19,9 +19,6 @@ import { Router } from '@angular/router';
 })
 @Injectable()
 export class HomeComponent implements OnInit {
-
-
-
   constructor(public el: ElementRef, public renderer: Renderer2, private serverservice: ServerserviceService, public router: Router) { }
       card_image;
       card_title;

@@ -1,17 +1,17 @@
 <div class="maincard">
   <div class="maincardtitlediv">
-    <h4 class="maincardtitle">Title here</h4>
+    <h4 class="maincardtitle">{{moduleIntro.title}}</h4>
   </div>
   <div class="maincardimagecontainer">
-    <img class="maincardimage img-responsive" src="../../assets/log-Reg.jpg" alt="">
+    <img class="maincardimage img-responsive" [src]="moduleIntro.image" alt="">
   </div>
   <div class="shortdescriptiondiv">
-    <h5 class="shortdescription">Halleluah halleluah Short description will be shortened here so please read it shortly</h5>
+    <h5 class="shortdescription">{{moduleIntro.description}}</h5>
   </div>
   <div class="detailsdiv">
-    <p class="details">Praesent sed aliquet nibh. In lobortis quam rutrum augue consectetur interdum. Integer et est ut diam hendrerit tempor vel scelerisque nulla. Nunc dignissim lobortis libero eu iaculis. Etiam vel dignissim magna. Sed hendrerit finibus sapien vel dapibus. Praesent mollis nulla aliquet orci elementum placerat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ullamcorper arcu odio, a sagittis nisl luctus sed. Phasellus pulvinar congue eros, sed fringilla mauris hendrerit nec. Phasellus blandit diam non leo volutpat, at vestibulum felis lacinia. Suspendisse potenti. Etiam non diam vitae ex ultricies mollis eu eget turpis. Pellentesque finibus ipsum eros, et hendrerit orci hendrerit quis. Curabitur pretium ante vel libero eleifend, at scelerisque odio ultricies. Aliquam erat volutpat. Nullam euismod volutpat ex ac aliquam. In gravida ullamcorper odio, eget facilisis metus pulvinar vel. Vestibulum ac ipsum erat. In in felis mi. Praesent scelerisque cursus tellus, ut ultrices mi euismod vitae. Vivamus a vestibulum elit. In aliquet vestibulum semper.</p>
+    <p class="details">{{moduleIntro.details}}</p>
   </div>
 </div>
-<div class="startbutton text-center">
+<div (click)="navigatToNxt();" class="startbutton text-center">
   Start Module 
 </div>
