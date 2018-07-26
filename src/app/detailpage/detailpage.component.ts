@@ -1,6 +1,7 @@
 import { ServerserviceService } from '../serverservice.service';
 import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { UserStateService } from '../user-state.service';
 
 @Component({
   selector: 'app-detailpage',
@@ -25,7 +26,8 @@ export class DetailpageComponent implements OnInit {
   courseTakenFlag = 0;
   payment = false;
   constructor(public serverservice: ServerserviceService, public el: ElementRef,
-    public renderer: Renderer2, public route: ActivatedRoute, public router: Router) { }
+    public renderer: Renderer2, public route: ActivatedRoute, public router: Router,
+  private userState: UserStateService) { }
   applyCode() {
     this.userToken = localStorage.getItem('userToken');
     if (this.userToken === null) {
@@ -99,6 +101,9 @@ export class DetailpageComponent implements OnInit {
       for (const course of response) {
         this.items.push(course);
       }
+    });
+    this.serverservice.getallModuleDetails(this.userToken, this.selectedCourseId).subscribe((response: any) => {
+      this.userState.setAllData(response);
     });
   }
 }
