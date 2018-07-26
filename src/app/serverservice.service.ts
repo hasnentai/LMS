@@ -17,7 +17,7 @@ export class ServerserviceService  implements OnInit {
   currentModule = 0;
   httpOptions;
   userToken;
-  readonly _rootUrl = 'http://192.168.0.8:3000';
+  readonly _rootUrl = 'http://13.232.35.15';
   constructor(private http: HttpClient ) { }
   getToken(): string {
     return localStorage.getItem('token');
