@@ -79,25 +79,25 @@
                         <div class="col-lg-6">
                           <div class="form-group">
                             <label for="phno">Phone No</label>
-                            <input type="text" class="form-control mytxt" id="phno" aria-describedby="emailHelp" placeholder="+919898123456" name="myphone"
-                              ngModel #myphone="ngModel" required autocomplete="off" minlength="10" maxlength="10">
-                            <div *ngIf="myphone.touched && !myphone.valid">
-                              <small id="phone" class="form-text text-danger" *ngIf="myphone.errors.required">Phone Number is Required</small>
-                              <small id="phone" class="form-text text-danger" *ngIf="myphone.errors.minlength">Mobile Number should be 10 digit long</small>
-                              <small id="phone" class="form-text text-danger" *ngIf="myphone.errors.maxlength">Mobile Number should be 10 digit long</small>
+                            <input type="text" class="form-control mytxt" id="phno" aria-describedby="emailHelp" placeholder="+919898123456" name="phone"
+                              ngModel #phone="ngModel" required autocomplete="off" minlength="10" maxlength="10">
+                            <div *ngIf="phone.touched && !phone.valid">
+                              <small id="phone" class="form-text text-danger" *ngIf="phone.errors.required">Phone Number is Required</small>
+                              <small id="phone" class="form-text text-danger" *ngIf="phone.errors.minlength">Mobile Number should be 10 digit long</small>
+                              <small id="phone" class="form-text text-danger" *ngIf="phone.errors.maxlength">Mobile Number should be 10 digit long</small>
                             </div>
                           </div>
                           <div class="form-group">
                             <label for="sate">State</label>
-                            <select class="form-control mytxt" id="mystate" name="mystate" ngModel #mystate="ngModel" required autocomplete="off">
+                            <select class="form-control mytxt" id="state" name="state" ngModel #state="ngModel" required autocomplete="off">
                               <option>1</option>
                               <option>2</option>
                               <option>3</option>
                               <option>4</option>
                               <option>5</option>
                             </select>
-                            <div *ngIf="mystate.touched && !mystate.valid">
-                              <small id="state" class="form-text text-danger" *ngIf="mystate.errors.required">Please Select the State</small>
+                            <div *ngIf="state.touched && !state.valid">
+                              <small id="state" class="form-text text-danger" *ngIf="state.errors.required">Please Select the State</small>
                               <!-- <small id="re-password" class="form-text text-danger" *ngIf="email.errors.pattern">Email is Invalid</small> -->
                             </div>
                           </div>
