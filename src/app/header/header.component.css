@@ -24,7 +24,6 @@
     z-index: 9999;
 }
 .menu-container{
-    overflow-y: scroll;
     background-color: white;
     height: 100%;
     position: absolute;
@@ -35,6 +34,11 @@
 }
 .menu-container ul li p:focus{
     outline:none;
+    cursor: pointer;
+}
+
+.menu-container ul li p{
+    cursor: pointer;
 }
 .logo-container img{
     height: 60px;
