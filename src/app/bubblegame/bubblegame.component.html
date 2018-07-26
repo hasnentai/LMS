@@ -1,0 +1,246 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+<style>
+  ul {
+    margin-bottom: 0 !important;
+  }
+  .missed{
+    text-transform: uppercase;
+  }
+  
+
+  .score-board {
+    width: 55%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  }
+
+  ul li i {
+    right: 35px;
+    text-align: right !important;
+    justify-content: stretch;
+    position: absolute;
+  }
+
+  .score-board ul li {
+    font-size: 20px;
+    padding: 13px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .basket {
+    position: relative;
+    background: none;
+    text-align: center;
+    margin-top: -100px
+  }
+
+  .tickes {
+    height: 60px;
+    min-height: 60px;
+    max-height: 60px;
+    z-index: 99;
+  }
+  .bgimg {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    background-image: none !important;
+  }
+
+  button {
+    margin: 20px;
+    height: 350px;
+    width: 350px;
+    z-index: 99;
+    border-radius: 50%;
+  }
+
+  .pl,
+  .bs {
+    height: 130px !important;
+    width: 130px !important;
+    margin: 100px;
+    background-color: #C3E959;
+    font-size: 32px !important;
+    color: #fff !important;
+  }
+
+  @media screen and (max-width: 480px) {
+    .tickes {
+      height: 60px;
+
+      min-height: 60px;
+      max-height: 60px;
+      z-index: 99;
+    }
+    .brand-logo {
+      font-size: 20px;
+    }
+    ul li i {
+      right: 30px;
+      text-align: right !important;
+
+    }
+    .pl,
+    .bs {
+
+      height: 100px !important;
+      width: 100px !important;
+      font-size: 24px !important;
+      color: black !important;
+      margin: 0px !important;
+    }
+    .pl {
+      float: left;
+    }
+    .bs {
+      float: right;
+    }
+    button {
+      margin-top: 20px;
+      margin: 5px;
+      height: 280px;
+      width: 280px;
+      z-index: 99;
+      border-radius: 50%;
+    }
+    .basket {
+      background: none;
+      width: 100%;
+      position: absolute;
+      background: none;
+      text-align: center;
+      /* margin-top: 25%; */
+      bottom: 15%;
+    }
+
+    .score-board ul li {
+      font-size: 15px;
+      padding: 5px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+
+  @media screen and (max-width: 320px) {
+    button {
+      margin: 5px;
+      height: 250px;
+      width: 250px;
+      z-index: 99;
+      border-radius: 50%;
+    }
+    .pl,
+    .bs {
+      height: 70px !important;
+      width: 70px !important;
+    }
+    .score-board ul li {
+      font-size: 12px;
+      padding: 5px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .brand-logo{
+      font-size: 12px;
+    }
+  }
+  .quiz-btn{
+   position: absolute;
+   top: 65%;
+   background: #C4E763;
+   left: 50%;
+   transform: translate(-54%,0);
+   height: 50px;
+   color: #000;
+   border-radius: 0!important;
+ }
+</style>
+<nav style="background-color:#8c8c8c">
+
+  <div class="nav-wrapper">
+    <div href="#" class="brand-logo center">
+      <i class="large material-icons" style="font-size:40px;margin-right:0!important">access_time</i>0:0{{counter}} | {{current_ques}} of {{total_ques}}</div>
+
+  </div>
+</nav>
+<!--<div class="popup">
+      <div class="score-board">
+          <ul>
+            <li style="background-color:#8c8c8c">Shots Pending : <i>{{shots_pending}}</i></li>
+            <li style="background-color:#C3E959">Shots Missed : <i>{{shots_missed}}</i></li>
+            <li style="background-color:#8c8c8c">Right Hits : <i>{{right_hits}}</i></li>
+            <li style="background-color:#C3E959">Wrong Hits : <i>{{wrong_hits}}</i></li>
+            <li style="background-color:#8c8c8c">Current Score  :<i>{{score}}</i></li>
+          </ul>
+        </div>
+  </div>-->
+<div *ngIf="secondPage">
+
+  <div class="popup">
+    <div class="score-board" [ngClass]="{'flash': count != -1}">
+      <ul>
+        <li style="background-color:#C3E959">Shots Missed :
+          <i>{{shots_missed}}</i>
+        </li>
+        <li style="background-color:#8c8c8c">Right Hits :
+          <i>{{right_hits}}</i>
+        </li>
+        <li style="background-color:#C3E959">Wrong Hits :
+          <i>{{wrong_hits}}</i>
+        </li>
+        <li style="background-color:#8c8c8c">Current Score :
+          <i>{{score}}</i>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="text-center">
+    <button class="quiz-btn" (click)="quizPage()">Take Quiz</button>
+</div>
+
+</div>
+<div class="bgimg" style="margin:0 auto;" *ngIf="display">
+
+  <h3 class="score"></h3>
+
+
+  <!-- <p class="text-center" style="padding:2%;margin-left:auto;">3. Paid ₹60,000 cash on the purchase of equipment costing ₹80,000 from Mr X. The remaining amount was recognized as a one
+    year note payable with interest rate of 9%. Equipments</p> -->
+
+  <div id="menu-outer " class="center" style="margin-left:auto">
+    <button dropData=1 type="button" class="btn-floating pulse waves-effect waves-light btn" [ngClass]="{'pulse': count != -1}"
+      style="background-color:#8c8c8c;color:#fff;border:15px solid #C3E959;">{{test}}</button>&nbsp;
+
+    <br>
+    <div class="tickes">
+      <i class="material-icons center" *ngIf="correct" style="color:green;font-size:60px;">check</i>
+      <i class="material-icons center" *ngIf="wrong" style="color:red;font-size:60px;">close</i>
+      <div class="center missed" *ngIf="missed" style="color:green;font-size:60px;">{{answer}}</div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+        <div class="col-md-12 center-text basket">
+
+      <button (click)="personalCredit('pl')" [disabled]="dis" class="pl waves-effect waves-light btn">PL</button>
+      <button (click)="personalDebit('bs') " [disabled]="dis" class="bs waves-effect waves-light btn">BS</button>
+
+    </div>
+
+
+  </div>
+</div>
+

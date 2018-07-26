@@ -34,19 +34,18 @@ export class EditinfoComponent implements OnInit {
     if (this.userToken === null) {
       // this.router.navigateByUrl('/login');
     } else {
-      this.serverservice.getEditData().subscribe((response) => {
-        this.editInfo = response;
-       console.log(response[0].userInfo[0]);
-       this.fname = response[0].userInfo[0].fname;
-       this.lname = response[0].userInfo[0].lname;
-       this.email = response[0].userInfo[0].email;
-       this.state = response[0].userInfo[0].state;
-       this.city = response[0].userInfo[0].city;
-       this.college = response[0].userInfo[0].college;
-       this.sem = response[0].userInfo[0].sem;
-       this.dob = response[0].userInfo[0].dob;
-       this.course = response[0].userInfo[0].course;
-       this.phone = response[0].userInfo[0].phone;
+      this.serverservice.getEditData().subscribe((response: any) => {
+       console.log(response[0]);
+       this.fname = response[0].fname;
+       this.lname = response[0].lname;
+       this.email = response[0].email;
+       this.state = response[0].state;
+       this.city = response[0].city;
+       this.college = response[0].college;
+       this.sem = response[0].sem;
+       this.dob = response[0].dob;
+       this.course = response[0].course;
+       this.phone = response[0].phone;
        this.token =  localStorage.getItem('userToken');
       });
     }

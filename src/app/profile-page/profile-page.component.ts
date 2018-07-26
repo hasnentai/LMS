@@ -10,6 +10,7 @@ import { ServerserviceService } from '../serverservice.service';
 })
 
 
+
 export class ProfilePageComponent  implements OnInit {
   scores = [];
   toppers = [];
@@ -31,6 +32,7 @@ export class ProfilePageComponent  implements OnInit {
       this.router.navigateByUrl('/login');
     } else {
       this.serverservice.getScore().subscribe((response) => {
+        console.log(response);
         this.scores = response[0].scores;
         this.toppers = response[0].toppers;
         // console.log(this.scores);

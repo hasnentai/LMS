@@ -1,11 +1,13 @@
-import { Http, Response } from '@angular/http';
-import { Injectable } from '@angular/core';
+import { Http, Response, RequestOptions } from '@angular/http';
+import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {map} from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class ServerserviceService {
+export class ServerserviceService  implements OnInit {
+
+
   selectedCourseName;
   selectedCourseId;
   slectedCourseDes;
@@ -13,8 +15,17 @@ export class ServerserviceService {
   selectedCourseIntro;
   allmodulesarray;
   currentModule = 0;
-  readonly _rootUrl = 'http://13.232.35.15';
-  constructor(private http: HttpClient) { }
+  httpOptions;
+  userToken;
+  readonly _rootUrl = 'http://192.168.0.8:3000';
+  constructor(private http: HttpClient ) { }
+  getToken(): string {
+    return localStorage.getItem('token');
+}
+  ngOnInit() {
+    this.userToken = localStorage.getItem('userToken');
+    //  const option = new RequestOptions({ headers : headers });
+  }
   postRegisterData(formdata) {
     console.log(formdata);
     return this.http.post(this._rootUrl + '/api/client/register', formdata);
@@ -33,16 +44,15 @@ export class ServerserviceService {
   }
 
   getEditData() {
-    const headers = new HttpHeaders ();
-    // headers.append('x-access-token', localStorage.getItem('userToken'));
-    return this.http.get(this._rootUrl + '/api/client/get-userInfo/' + localStorage.getItem('userToken'));
+    console.log(this.userToken);
+    return this.http.get(this._rootUrl + '/api/client/get-userInfo', );
   }
 
   putEditData(formdata) {
     return this.http.put(this._rootUrl + '/api/client/update', formdata);
   }
   getScore() {
-    return this.http.get(this._rootUrl + '/api/client/get-score/' + localStorage.getItem('userToken'));
+    return this.http.get(this._rootUrl + '/api/client/get-score/');
   }
 
   getCourses() {
@@ -64,7 +74,7 @@ export class ServerserviceService {
   }
 
   checkCompleted (token , coursename) {
-    return this.http.get(this._rootUrl + '/api/client/course-status/' + token + '/' + coursename);
+    return this.http.get(this._rootUrl + '/api/client/course-status/' + coursename);
   }
 
   getallModuleDetails (token , courseID) {

@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule , HTTP_INTERCEPTORS} from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Http, HttpModule } from '@angular/http';
@@ -20,6 +20,8 @@ import { DetailpageComponent } from './detailpage/detailpage.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ModuleintroComponent } from './moduleintro/moduleintro.component';
 import { QuizComponent } from './quiz/quiz.component';
+import { BubblegameComponent } from './bubblegame/bubblegame.component';
+import {AuthService } from './interceptors/auth.service';
 
 
 
@@ -35,7 +37,8 @@ export const routes: Routes = [
   {path: 'register' , component: RegisterComponent},
   {path: 'detailpage' , component: DetailpageComponent},
   {path: 'moduleintro' , component: ModuleintroComponent},
-  {path: 'quiz' , component: QuizComponent}
+  {path: 'quiz' , component: QuizComponent},
+  {path: 'bgame' , component: BubblegameComponent}
 ];
 
 
@@ -53,6 +56,7 @@ export const routes: Routes = [
     DetailpageComponent,
     ModuleintroComponent,
     QuizComponent,
+    BubblegameComponent,
 
   ],
   imports: [
@@ -68,6 +72,11 @@ export const routes: Routes = [
   ],
   providers: [
     ServerserviceService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthService,
+      multi: true
+  }
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,55 @@
+@media only screen and (min-width:300px) and (max-width: 450px){
+    .image1{
+     width:11vw;
+     position:fixed;
+     top:1.5%;
+     left:1.5%;
+     right:auto;
+ }
+ .counter{
+    position:fixed;top:4vw;left:13vw;right:auto;
+ }
+ .score{
+    position:fixed;top:4vw;left:auto;right:2vw;
+ }
+}
+ @media only screen and (min-width:450px) and (max-width: 780px){
+     .image1{
+         width:6vw;
+         position:fixed;
+         top:1.5%;
+         left:1.5%;
+         right:auto;
+     }
+     .counter{
+        
+        position:fixed;top:2.5vw;left:8vw;right:auto;
+     }
+     .score{
+        position:fixed;top:2.5vw;left:auto;right:2vw;
+     }
+ }
+ @media only screen and (min-width:780px) and (max-width: 4000px){
+    .image1{
+        width:6vw;
+        position:fixed;
+        top:1.5%;
+        left:1.5%;
+        right:auto;
+    }
+.counter{
+   
+   position:fixed;top:2.7vw;left:8vw;right:auto;
+}
+.score{
+   position:fixed;top:2.7vw;left:auto;right:2vw;
+}
+}
+.bgimg{
+    background: url("/assets/bgimg.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    overflow-x: hidden;
+}
