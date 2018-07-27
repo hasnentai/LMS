@@ -1,7 +1,21 @@
 <div class="maincard">
   <div class="maincardtitlediv text-center">
-    <h4 class="maincardtitle">Score:60
-      <span class="spanclass">3/5</span>Time:00:00</h4>
+    <h4 class="maincardtitle">Score:{{score}}
+      <span class="spanclass">{{currentQuestion + 1}}/{{noofquestions}}</span>Time:0:{{counter}}</h4>
+    <!-- <div class="container-fluid">
+      
+        <div class="row">
+          <div class="col-sm-4">
+            <h4>Score:{{score}}</h4>
+          </div>
+          <div class="col-sm-4">
+            <h4>{{currentQuestion + 1}}/{{noofquestions}}</h4>
+          </div>
+          <div class="col-sm-4">
+            <h4>Time:0:{{counter}}</h4>
+          </div>
+        </div>
+      </div> -->
   </div>
   <div class="quizwrapper">
     <div class="shortdescriptiondiv ">
@@ -16,8 +30,8 @@
       <div class="col-lg-6 col-sm-12">
         <div class="listcontainer">
           <ul class="list-unstyled listclass">
-            <li>
-              <div (click)="changequestion(i);" *ngFor="let item of quizdetails[currentQuestion].options; let i=index" class="choicebutton text-center" >{{item}}</div>
+            <li *ngFor="let item of quizdetails[currentQuestion].options; let i=index">
+              <div (click)="changequestion(i);" *ngIf="quizdetails[currentQuestion].options[i] !== ''" class="choicebutton text-center">{{item}}</div>
             </li>
           </ul>
         </div>
@@ -25,6 +39,6 @@
     </div>
   </div>
 </div>
-<div (click)="changequestion();"class="startbutton text-center">
+<div (click)="changequestion();" class="startbutton text-center">
   Skip
 </div>

@@ -33,54 +33,62 @@ export class QuizComponent implements OnInit {
   noofquestions: any;
   questionarray: any;
   timer: any;
-  countDownValue = 4;
+  countDownValue = 10;
   counter: any;
+  score = 0;
   correctanswer;
+  optionexists = true;
+  currentOption = 0;
+  buttoncolor = ['', '' , '' , '' ];
 
   changequestion(index) {
     if (this.correctanswer === index + 1) {
       console.log('Correct ' + this.correctanswer);
+      this.currentQuestion++;
+      this.score = this.score + 10;
       this.timer.unsubscribe();
       this.timerfunction();
     } else {
       console.log('Wrong ' + this.correctanswer);
+      this.currentQuestion++;
+      this.score = this.score - 10;
       this.timer.unsubscribe();
       this.timerfunction();
     }
   }
+
   timerfunction() {
     this.timer = timer(1000, 1000);
     this.timer = this.timer.pipe(takeUntil(this.subject)).subscribe(x => {
       if (x <= this.countDownValue) {
-       //  console.log(this.quizdetails[this.currentQuestion].question.qstn);
+        //  console.log(this.quizdetails[this.currentQuestion].question.qstn);
         this.counter = this.countDownValue - x;
         // console.log(this.counter);
         if (this.counter === 0) {
           this.currentQuestion++;
           this.correctanswer = this.quizdetails[this.currentQuestion].correctAns;
-          if ( this.currentQuestion === this.noofquestions) {
+          if (this.currentQuestion === this.noofquestions) {
             this.timer.unsubscribe();
           } else {
             this.timer.unsubscribe();
-          this.imagepresent = this.quizdetails[this.currentQuestion].question.media;
-          // console.log('Image is ' + this.imagepresent);
-          if (this.imagepresent === null) {
-            this.renderer.addClass(this.imagediv, 'imagedisplaynone');
-            this.renderer.removeClass(this.optionsdiv, 'listclass');
-            this.renderer.addClass(this.optionsdiv, 'optionsnoimage');
-          } else {
-            this.renderer.removeClass(this.imagediv, 'imagedisplaynone');
-            this.renderer.addClass(this.optionsdiv, 'listclass');
-            this.renderer.removeClass(this.optionsdiv, 'optionsnoimage');
-          }
-          this.timerfunction();
-         //  console.log('inside');
-
+            this.imagepresent = this.quizdetails[this.currentQuestion].question.media;
+            // console.log('Image is ' + this.imagepresent);
+            if (this.imagepresent === null) {
+              this.renderer.addClass(this.imagediv, 'imagedisplaynone');
+              this.renderer.removeClass(this.optionsdiv, 'listclass');
+              this.renderer.addClass(this.optionsdiv, 'optionsnoimage');
+            } else {
+              this.renderer.removeClass(this.imagediv, 'imagedisplaynone');
+              this.renderer.addClass(this.optionsdiv, 'listclass');
+              this.renderer.removeClass(this.optionsdiv, 'optionsnoimage');
+            }
+            this.timerfunction();
           }
         }
       }
     });
   }
+
   ngOnInit() {
     this.currentQuestion = 0;
     this.userToken = localStorage.getItem('userToken');
@@ -92,7 +100,7 @@ export class QuizComponent implements OnInit {
       // console.log(response);
       this.serverservice.allmodulesarray = response[this.serverservice.currentModule];
       this.quizdetails = this.serverservice.allmodulesarray.quiz;
-      // console.log(this.quizdetails);
+      console.log(this.quizdetails);
       this.noofquestions = this.quizdetails.length;
       // console.log(this.noofquestions);
       this.imagepresent = this.quizdetails[this.currentQuestion].question.media;
@@ -105,8 +113,7 @@ export class QuizComponent implements OnInit {
       }
     });
     this.timerfunction();
-    this.qno = 0;
-   //  console.log(this.imagepresent);
+    //  console.log(this.imagepresent);
 
   }
 }
