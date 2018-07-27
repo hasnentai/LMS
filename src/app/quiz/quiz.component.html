@@ -31,7 +31,7 @@
         <div class="listcontainer">
           <ul class="list-unstyled listclass">
             <li *ngFor="let item of quizdetails[currentQuestion].options; let i=index">
-              <div (click)="changequestion(i);" *ngIf="quizdetails[currentQuestion].options[i] !== ''" class="choicebutton text-center">{{item}}</div>
+              <div (click)="changequestion(i);" *ngIf="quizdetails[currentQuestion].options[i] !== ''" class="choicebutton text-center {{'dynamic'+i}}" id="{{'id'+i}}">{{item}}</div>
             </li>
           </ul>
         </div>

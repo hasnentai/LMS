@@ -22,6 +22,8 @@ export class QuizComponent implements OnInit {
   userToken: string;
   selectedCourseId: any;
   subject = new Subject();
+  correctListItem: any;
+  clickedListItem: any;
 
   constructor(public el: ElementRef, public renderer: Renderer2, public serverservice:
     ServerserviceService, public route: ActivatedRoute, public router: Router) { }
@@ -36,24 +38,39 @@ export class QuizComponent implements OnInit {
   countDownValue = 10;
   counter: any;
   score = 0;
-  correctanswer;
+  correctanswer: any;
   optionexists = true;
   currentOption = 0;
-  buttoncolor = ['', '' , '' , '' ];
+  buttoncolor = ['', '', '', ''];
 
   changequestion(index) {
+    this.clickedListItem = this.el.nativeElement.getElementsByClassName('dynamic' + index)[0];
+    this.correctListItem = this.el.nativeElement.getElementsByClassName('dynamic' + (this.correctanswer - 1))[0];
+
+    console.log(this.clickedListItem);
+    console.log(this.correctListItem);
     if (this.correctanswer === index + 1) {
       console.log('Correct ' + this.correctanswer);
-      this.currentQuestion++;
+      this.renderer.addClass(this.correctListItem, 'choicebuttoncorrect');
       this.score = this.score + 10;
       this.timer.unsubscribe();
-      this.timerfunction();
+      setTimeout(() => {
+        this.currentQuestion++;
+        this.renderer.removeClass(this.correctListItem, 'choicebuttoncorrect');
+        this.timerfunction();
+      }, 1000);
     } else {
       console.log('Wrong ' + this.correctanswer);
-      this.currentQuestion++;
+      this.renderer.addClass(this.correctListItem, 'choicebuttoncorrect');
+      this.renderer.addClass(this.clickedListItem, 'choicebuttonwrong');
       this.score = this.score - 10;
       this.timer.unsubscribe();
-      this.timerfunction();
+      setTimeout(() => {
+        this.renderer.removeClass(this.correctListItem, 'choicebuttoncorrect');
+        this.renderer.removeClass(this.clickedListItem, 'choicebuttonwrong');
+        this.currentQuestion++;
+        this.timerfunction();
+      }, 1000);
     }
   }
 
@@ -72,7 +89,7 @@ export class QuizComponent implements OnInit {
           } else {
             this.timer.unsubscribe();
             this.imagepresent = this.quizdetails[this.currentQuestion].question.media;
-            // console.log('Image is ' + this.imagepresent);
+            console.log('Image is ' + this.imagepresent);
             if (this.imagepresent === null) {
               this.renderer.addClass(this.imagediv, 'imagedisplaynone');
               this.renderer.removeClass(this.optionsdiv, 'listclass');
@@ -115,5 +132,8 @@ export class QuizComponent implements OnInit {
     this.timerfunction();
     //  console.log(this.imagepresent);
 
+  }
+  navigatToNxt() {
+    this.router.navigate(['/quiz', { id: this.selectedCourseId }]);
   }
 }
