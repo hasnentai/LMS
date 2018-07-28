@@ -22,6 +22,8 @@ import { ModuleintroComponent } from './moduleintro/moduleintro.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { BubblegameComponent } from './bubblegame/bubblegame.component';
 import {AuthService } from './interceptors/auth.service';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+
 
 
 
@@ -69,6 +71,7 @@ export const routes: Routes = [
     MatDatepickerModule,
     MatNativeDateModule,
     NgbModule.forRoot(),
+    ScrollToModule.forRoot()
   ],
   providers: [
     ServerserviceService,

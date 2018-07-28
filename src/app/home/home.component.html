@@ -32,7 +32,7 @@
         <div class="body-section text-center">
           <div class="pills-scroll">
             <div class="pills-container">
-              <button class="pills pills-button" (click)="clickp(i);" *ngFor="let item of sectionwisefilters; let i=index">
+              <button [ngx-scroll-to]="item.move" class="pills pills-button" (click)="clickp(i);" *ngFor="let item of sectionwisefilters; let i=index">
                 {{item.menu}}
               </button>
             </div>
@@ -40,7 +40,7 @@
           <hr>
         </div>
         <div class="container-fluid">
-          <div class="main-body-wrapper" id="targetAll">
+          <div class="main-body-wrapper" id="targetAll" #targetAll>
             <h3>All</h3>
             <hr>
             <div class="card-outter">
@@ -76,7 +76,7 @@
             <hr>
             <div class="card-outter">
               <div class="card-container">
-                <div *ngFor="let card of cards" class="mycard">
+                <div *ngFor="let card of cards" class="mycard" #targetQuiz>
                   <div class="overlaywholecard">
                     <div class="title-icon-div">
                       <i class=" title-icons large material-icons pl-3">book</i>
@@ -101,7 +101,7 @@
               </div>
             </div>
           </div>
-          <div class="main-body-wrapper" id="targetCompetition">
+          <div class="main-body-wrapper" id="targetCompetition" #targetCompetition>
             <h3>Competition</h3>
             <hr>
             <div class="card-outter">
@@ -130,7 +130,7 @@
               </div>
             </div>
           </div>
-          <div class="main-body-wrapper" id="targetHackathon">
+          <div class="main-body-wrapper" id="targetHackathon" #targetHackathon>
             <h3>Hackathon</h3>
             <hr>
             <div class="card-outter">
@@ -186,3 +186,8 @@
   </div>
 </div>
 <app-footer></app-footer>
+<div class="scroll-button-div">
+  <button [ngx-scroll-to]="'targetAll'" class="scroll-button">
+    <i class=" title-icons large material-icons ">arrow_drop_up</i>
+  </button>
+</div>
