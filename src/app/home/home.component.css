@@ -291,6 +291,9 @@ mycard:hover{
     background:linear-gradient(to left,rgba(236,123,94,1),rgba(235,73,84,1));
     box-shadow: 0 3px 14px #707070cc;
 }
+.no-scroll-button{
+    display: none;
+}
 
 @media only screen and (max-width: 990px) {
 
