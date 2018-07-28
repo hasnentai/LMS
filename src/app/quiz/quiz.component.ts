@@ -44,12 +44,12 @@ export class QuizComponent implements OnInit {
   buttoncolor = ['', '', '', ''];
 
   changequestion(index) {
+    console.log('dynamic' + index);
     this.clickedListItem = this.el.nativeElement.getElementsByClassName('dynamic' + index)[0];
-    this.correctListItem = this.el.nativeElement.getElementsByClassName('dynamic' + (this.correctanswer - 1))[0];
-
-    console.log(this.clickedListItem);
-    console.log(this.correctListItem);
-    if (this.correctanswer === index + 1) {
+    this.correctanswer = this.quizdetails[this.currentQuestion].correctAns;
+    // console.log(this.correctanswer);
+    // console.log(this.clickedListItem);
+    if (this.correctanswer === (index + 1)) {
       console.log('Correct ' + this.correctanswer);
       this.renderer.addClass(this.correctListItem, 'choicebuttoncorrect');
       this.score = this.score + 10;
@@ -84,12 +84,14 @@ export class QuizComponent implements OnInit {
         if (this.counter === 0) {
           this.currentQuestion++;
           this.correctanswer = this.quizdetails[this.currentQuestion].correctAns;
+          this.correctListItem = this.el.nativeElement.getElementsByClassName('dynamic' + (this.correctanswer - 1))[0];
           if (this.currentQuestion === this.noofquestions) {
             this.timer.unsubscribe();
           } else {
             this.timer.unsubscribe();
             this.imagepresent = this.quizdetails[this.currentQuestion].question.media;
             console.log('Image is ' + this.imagepresent);
+            console.log(this.correctanswer);
             if (this.imagepresent === null) {
               this.renderer.addClass(this.imagediv, 'imagedisplaynone');
               this.renderer.removeClass(this.optionsdiv, 'listclass');
@@ -122,6 +124,7 @@ export class QuizComponent implements OnInit {
       // console.log(this.noofquestions);
       this.imagepresent = this.quizdetails[this.currentQuestion].question.media;
       this.correctanswer = this.quizdetails[this.currentQuestion].correctAns;
+      console.log(this.correctanswer);
       // console.log(this.imagepresent);
       if (this.imagepresent === null) {
         this.renderer.addClass(this.imagediv, 'imagedisplaynone');
