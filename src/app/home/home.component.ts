@@ -55,19 +55,19 @@ export class HomeComponent implements OnInit {
       sectionwisefilters = [
         {
           menu: 'All',
-          move: '#targetAll'
+          move: '#targetAllBottom'
         },
         {
           menu: 'Quiz',
-          move: '#targetQuiz'
+          move: '#targetQuizBottom'
         },
         {
           menu: 'Competition',
-          move: '#targetCompetition'
+          move: '#targetCompetitionBottom'
         },
         {
           menu: 'Hackathon',
-          move: '#targetHackathon'
+          move: '#targetHackathonBottom'
         }
       ];
       filterwindow: any;

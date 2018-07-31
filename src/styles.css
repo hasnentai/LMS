@@ -10,6 +10,7 @@ h1,h2,h3,h4,h5,h6{
 }
 ::-webkit-scrollbar{
     height:10px;
+    width: 5px;
 }
 button{
     cursor: pointer !important;
@@ -19,8 +20,8 @@ button{
     border-radius:10px;
 }
 ::-webkit-scrollbar-thumb{
-    background-color:rgba(201, 196, 196, 0.705);
-    border-radius:10px;
+    background-color:rgba(0, 0, 0, 0.74);
+    border-radius:50px;
 
 }
 textarea:hover, 

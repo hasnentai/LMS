@@ -275,11 +275,12 @@ mycard:hover{
 }
 
 .scroll-button-div{
-    display: block;
     position: fixed;
     bottom:40px;
     right:50px;
     z-index: 3;
+    transform: translateX(0%);
+    transition: 0.2s all ease-in;
 
 }
 .scroll-button{
@@ -292,7 +293,9 @@ mycard:hover{
     box-shadow: 0 3px 14px #707070cc;
 }
 .no-scroll-button{
-    display: none;
+    transform: translateX(300%);
+    transition: 0.2s all ease-in;
+
 }
 
 @media only screen and (max-width: 990px) {
