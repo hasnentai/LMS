@@ -40,7 +40,8 @@
                         name="dob"> -->
                     <div class="input-group">
                       <input [minDate]="minDate" [maxDate]="maxDate" id="valdob" type="text" aria-describedby="emailHelp" class="form-control mytxt"
-                        placeholder="yyyy-mm-dd" name="dob" [(ngModel)]="model" #valdob="ngModel" ngbDatepicker #d="ngbDatepicker" required autocomplete="off">
+                        placeholder="yyyy-mm-dd" name="dob" [(ngModel)]="model" #valdob="ngModel" ngbDatepicker #d="ngbDatepicker"
+                        required autocomplete="off">
                       <div class="input-group-append">
                         <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
                           <i class="material-icons">perm_contact_calendar</i>
@@ -72,11 +73,14 @@
                     <label for="state">State</label>
                     <select class="form-control mytxt" id="valstate" [(ngModel)]="state" #valstate="ngModel" #valstate="ngModel" name="state"
                       required autocomplete="off">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                      <option>Andra Pradesh</option>
+                      <option>Goa</option>
+                      <option>Karnataka</option>
+                      <option>Kerala</option>
+                      <option>Maharshtra</option>
+                      <option>Orissa</option>
+                      <option>Tamil Nadu</option>
+                      <option>Telangana</option>
                     </select>
                     <div *ngIf="valstate.touched && valstate.valid">
                       <small id="valstate" class="form-text text-danger" *ngIf="valstate.errors.required">Please Select the State</small>
@@ -86,11 +90,18 @@
                   <div class="form-group">
                     <label for="city">City</label>
                     <select class="form-control mytxt" id="valcity" [(ngModel)]="city" #valcity="ngModel" name="city" required autocomplete="off">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                      <option>Bengaluru</option>
+                      <option>Bhubaneshwar</option>
+                      <option>Chennai</option>
+                      <option>Hydrabad</option>
+                      <option>Mangaluru</option>
+                      <option>Mumbai</option>
+                      <option>Mysore</option>
+                      <option>Punji</option>
+                      <option>Raichur</option>
+                      <option>Thiruvananta Puram</option>
+                      <option>Tumkur</option>
+                      <option>Vizag</option>
                     </select>
                     <div *ngIf="valcity.touched && !valcity.valid">
                       <small id="valcity" class="form-text text-danger" *ngIf="valcity.errors.required">Please Select the City</small>
@@ -99,11 +110,11 @@
                   <div class="form-group">
                     <label for="college">College</label>
                     <select class="form-control mytxt" id="valcollege" [(ngModel)]="college" #valcollege name="college" required autocomplete="off">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                      <option>Acharya Institute Of Technology</option>
+                      <option>Sri Krishna College Of Engineering</option>
+                      <option>Saptagiri Engineering College</option>
+                      <option>Acharya Institute Of Mnagement Studies</option>
+                      <option>Geetam's University</option>
                     </select>
                     <div *ngIf="valcollege.touched && !valcollege.valid">
                       <small id="valcollege" class="form-text text-danger" *ngIf="valcollege.errors.required">Please Select the College</small>
@@ -112,11 +123,12 @@
                   <div class="form-group">
                     <label for="course">Course</label>
                     <select class="form-control mytxt" id="valcourse" [(ngModel)]="course" name="course" required autocomplete="off">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                      <option>BE/BTech</option>
+                      <option>BBA</option>
+                      <option>MBA</option>
+                      <option>MTech</option>
+                      <option>PGDM</option>
+                      <option>BCA</option>
                     </select>
                     <div *ngIf="valcollege.touched && !valcollege.valid">
                       <small id="valcollege" class="form-text text-danger" *ngIf="valcollege.errors.required">Please Select the College</small>
@@ -130,6 +142,9 @@
                       <option>3</option>
                       <option>4</option>
                       <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
                     </select>
                     <div *ngIf="valsem.touched && !valsem.valid">
                       <small id="valsem" class="form-text text-danger" *ngIf="valsem.errors.required">Please Select the Sem</small>
