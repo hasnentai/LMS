@@ -79,7 +79,7 @@
                         <div class="col-lg-6">
                           <div class="form-group">
                             <label for="phno">Phone No</label>
-                            <input type="text" class="form-control mytxt" id="phno" aria-describedby="emailHelp" placeholder="+919898123456" name="phone"
+                            <input type="text" class="form-control mytxt" id="phno" aria-describedby="emailHelp" placeholder="+91 1234567890" name="phone"
                               ngModel #phone="ngModel" required autocomplete="off" minlength="10" maxlength="10">
                             <div *ngIf="phone.touched && !phone.valid">
                               <small id="phone" class="form-text text-danger" *ngIf="phone.errors.required">Phone Number is Required</small>
