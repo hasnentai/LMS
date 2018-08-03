@@ -12,10 +12,17 @@ export class RegisterComponent implements OnInit {
   minDate = { year: 1990, month: 1, day: 1 };
   maxDate = { year: 2010, month: 12, day: 31 };
   editResponse;
+  city = [];
   userToken = localStorage.getItem('userToken');
   passwordValid = true;
   constructor(private serverservice: ServerserviceService, private router: Router, public el: ElementRef, public renderer: Renderer2) { }
   ngOnInit() {
+    this.serverservice.getAllState().subscribe((response: any) => {
+      for ( let i = 0; i < response.length; i++) {
+        this.city = response[i].name;
+      }
+      console.log(this.city.length);
+    });
     if (this.userToken === null) {
       this.router.navigateByUrl('/Register');
     } else {

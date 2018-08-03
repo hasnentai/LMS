@@ -19,9 +19,10 @@
     </div>
   </div>
   <div class="button-container">
-    <!-- <button *ngIf="!payment" class="btn btn-primary" (click)="openModel();">Take A Course for 200 Rs</button> -->
-    <!-- <button *ngIf="payment" class="btn btn-primary">Take A Course</button> -->
-    <button (click)="navigatToNxt();" class="btn btn-primary">Take A Course</button>
+    <button *ngIf="!payment" class="btn btn-primary" (click)="openModel();">Take A Course for 200 Rs</button>
+    <button *ngIf="payment" class="btn btn-primary" (click)="navigatToNxt();"  [ngStyle]="{'display': disabled ? 'none' : 'block' }">Take A Course</button>
+    <button *ngIf="module_Completed" class="btn btn-primary" (click)="navigatToNxt();">Download Certificate</button>
+    <!-- <a href="http://localhost:4200/moduleintro?ct=0" class="btn btn-primary">Take A Course</a> -->
 
   </div>
 </div>

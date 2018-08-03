@@ -14,7 +14,7 @@ export class ServerserviceService  implements OnInit {
   selectedCourseImg;
   selectedCourseIntro;
   allmodulesarray;
-  currentModule = 0;
+  currentModuleCounter = 0;
   httpOptions;
   userToken;
   readonly _rootUrl = 'http://13.232.35.15';
@@ -22,8 +22,14 @@ export class ServerserviceService  implements OnInit {
   getToken(): string {
     return localStorage.getItem('token');
 }
+  // currentModule () {
+  //   this.currentModuleCounter ++;
+  //   localStorage.setItem('currenModule', this.currentModuleCounter.toString());
+  //   return this.currentModuleCounter;
+  // }
   ngOnInit() {
     this.userToken = localStorage.getItem('userToken');
+    this.currentModuleCounter = Number(localStorage.getItem('currentModuleCounter'));
     //  const option = new RequestOptions({ headers : headers });
   }
   postRegisterData(formdata) {
@@ -79,5 +85,8 @@ export class ServerserviceService  implements OnInit {
 
   getallModuleDetails (token , courseID) {
      return this.http.get(this._rootUrl + '/api/client/get-course/' + courseID);
+  }
+  getAllState() {
+    return this.http.get('../assets/stateandcity.json');
   }
 }

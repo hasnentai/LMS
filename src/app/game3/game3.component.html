@@ -1,0 +1,263 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+    html,
+    body {
+        height: 100% !important;
+    }
+    .btn-disabled{
+    background-color: gray!important;
+    color: #fff;
+  }
+
+    .about-the-game {
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    .material-icons {
+        font-size: 40px !important;
+    }
+
+    .space input[type=text] {
+        background-color: #0277bd !important;
+        color: #fff;
+    }
+
+    .bg {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        padding-top: 100px;
+        padding: 150px;
+    }
+
+    ul {
+        display: block;
+        text-align: center;
+    }
+
+    nav {
+        background: #0277bd !important;
+        position: fixed;
+        box-shadow: none !important;
+        padding: 10px;
+        height: 70px;
+    }
+
+    .question {
+        margin: 30px;
+    }
+
+    .question p {
+        font-size: 24px;
+        text-align: justify;
+    }
+
+    .brand-logo {
+        font-family: 'Press Start 2P',Arial, Helvetica, sans-serifs;
+    }
+
+    .question ul li {
+        display: inline-block !important;
+        margin: 10px;
+    }
+
+    .question ul li input[type=text] {
+        height: 40px;
+        width: 40px;
+        background-color: white;
+        border: none !important;
+        padding: 7px;
+        font-size: 50px;
+        text-align: center;
+        border-radius: 50%;
+    }
+
+    .alpha ul {
+        display: block;
+        text-align: center;
+    }
+
+    .alpha ul li button {
+        height: 50px;
+        width: 50px;
+        border: none;
+        color: #fff;
+        font-size: 25px;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+
+    @media screen and (max-width: 480px) {
+        .material-icons {
+            font-size: 24px !important;
+        }
+        .question p {
+            font-size: 16px;
+        }
+        .alpha {
+            overflow-y: scroll;
+        }
+        .bg {
+
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            padding: 0;
+        }
+        .question ul li input[type=text] {
+            height: 30px;
+            width: 30px;
+            background-color: white;
+            border: none !important;
+            padding: 3px;
+            font-size: 30px;
+            text-align: center;
+        }
+        .question ul li {
+            display: inline-block !important;
+            margin: 7px;
+        }
+        .brand-logo {
+            font-size: 20px;
+        }
+        .bg {
+            padding-top: 70px;
+        }
+    }
+
+    @media screen and (max-width: 360px) {
+        .alpha {
+            overflow-y: scroll;
+        }
+        .bg {
+
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            padding-top: 70px;
+            padding: 0;
+        }
+        .question ul li input[type=text] {
+            height: 30px;
+            width: 30px;
+            background-color: white;
+            border: none !important;
+            padding: 3px;
+            font-size: 30px;
+            text-align: center;
+        }
+        .question ul li {
+            display: inline-block !important;
+            margin: 6px;
+        }
+        .brand-logo {
+            font-size: 20px;
+        }
+    }
+
+    @media screen and (max-width: 320px) {
+        .alpha {
+            overflow-y: scroll;
+        }
+        .question ul li input[type=text] {
+            height: 20px;
+            width: 20px;
+            background-color: white;
+            border: none !important;
+
+            font-size: 20px;
+            text-align: center;
+        }
+        .brand-logo {
+            font-size: 16px;
+        }
+        .alpha ul li button {
+            height: 30px;
+            width: 30px;
+            border: none;
+            color: #fff;
+            font-size: 17px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+        .question ul li {
+            display: inline-block !important;
+            margin: 4px;
+        }
+        .bg {
+            padding-top: 70px;
+        }
+
+    }
+</style>
+
+
+
+<nav class="light-blue darken-3" *ngIf="nav">
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo left light-blue darken-3 ">
+            <i class="material-icons" style="color: pink;">{{currentheart1}}</i>
+            <i class="material-icons" style="color: pink;">{{currentheart2}}</i>
+            <i class="material-icons" style="color: pink;">{{currentheart3}}</i>
+            <i class="material-icons" style="color: pink;">{{currentheart4}}</i>
+        </a>
+        <a href="#" class="brand-logo center  light-blue darken-3">{{quesCounter}}/{{questionSize}}</a>
+        <a href="#" class="brand-logo right  light-blue darken-3">00:{{counter}}</a>
+
+    </div>
+</nav>
+
+<div class="bg light-blue darken-3">
+    <div class="container" *ngIf="second">
+        <div class="row">
+            <div class="col  l12 question">
+                <div class="center">
+                    <p class="">{{currentQuestion}}</p>
+                </div>
+
+                <ul>
+                    <li class="center" *ngFor="let item of currentAnswerChar1; let i = index">
+                        <input *ngIf="item!=' '" type="text" value="{{InflationVal[i]}}" maxlength="1">
+
+                        <div *ngIf="item==' '">
+                            <div class="space">
+                                <input type="text" value="-" maxlength="1" disabled="true">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="alpha" style="height:200px ">
+                    <ul>
+                        <li *ngFor="let item of alpha; let i = index">
+                            <button class="light-blue darken-1" (click)="check(item,item,i,$event)" [id]="'dynamicButton:' + i"
+                                [disabled]="false">{{item}}</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contianer" *ngIf="third">
+        <div class="row">
+            <div class="button center">
+                <button class=" btn-large waves-effect waves-light light-blue darken-2" (click)="quizPage()">
+                    Take Quiz
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+

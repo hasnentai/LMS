@@ -80,7 +80,8 @@ export class HeaderComponent  implements OnInit {
       this.selectedIndex = index;
   }
   logout() {
-      localStorage.removeItem('userToken');
+      localStorage.clear();
+      this.serverservice.currentModuleCounter = 0;
   }
 
   toggleState() {

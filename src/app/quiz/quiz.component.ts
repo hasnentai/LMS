@@ -11,6 +11,7 @@ import {
   HostListener
 } from '@angular/core';
 import { takeUntil } from 'rxjs/internal/operators/takeUntil';
+import { UserStateService } from '../user-state.service';
 
 @Component({
   selector: 'app-quiz',
@@ -18,123 +19,169 @@ import { takeUntil } from 'rxjs/internal/operators/takeUntil';
   styleUrls: ['./quiz.component.css']
 })
 export class QuizComponent implements OnInit {
+  url: string;
+  data;
+  correctList: any;
+  clickedList: any;
+  correctAnswer: any;
+  imageUrl: any;
+  currentQustionMedia: any;
+  currentOption: any;
+  qustionLength;
   quizdetails = [];
   userToken: string;
   selectedCourseId: any;
   subject = new Subject();
-  correctListItem: any;
-  clickedListItem: any;
-
-  constructor(public el: ElementRef, public renderer: Renderer2, public serverservice:
-    ServerserviceService, public route: ActivatedRoute, public router: Router) { }
-  imagepresent: any;
-  qno = 0;
-  currentQuestion;
-  imagediv: any;
-  optionsdiv: any;
-  noofquestions: any;
-  questionarray: any;
-  timer: any;
-  countDownValue = 10;
-  counter: any;
+  couter;
+  countDown = 14;
+  currentModule;
+  questionCounter;
+  quizQustions = [];
+  currentQustion;
+  timer;
+  isimage;
+  disabled = false;
   score = 0;
-  correctanswer: any;
-  optionexists = true;
-  currentOption = 0;
-  buttoncolor = ['', '', '', ''];
 
-  changequestion(index) {
-    console.log('dynamic' + index);
-    this.clickedListItem = this.el.nativeElement.getElementsByClassName('dynamic' + index)[0];
-    this.correctanswer = this.quizdetails[this.currentQuestion].correctAns;
-    // console.log(this.correctanswer);
-    // console.log(this.clickedListItem);
-    if (this.correctanswer === (index + 1)) {
-      console.log('Correct ' + this.correctanswer);
-      this.renderer.addClass(this.correctListItem, 'choicebuttoncorrect');
-      this.score = this.score + 10;
-      this.timer.unsubscribe();
-      setTimeout(() => {
-        this.currentQuestion++;
-        this.renderer.removeClass(this.correctListItem, 'choicebuttoncorrect');
-        this.timerfunction();
-      }, 1000);
+  @HostListener('window:beforeunload', ['$event'])
+  unloadHandler(event: Event) {
+    console.log('Processing beforeunload...');
+    this.captureValues();
+    event.returnValue = false;
+  }
+
+  constructor(
+    public el: ElementRef,
+    public renderer: Renderer2,
+    public serverservice: ServerserviceService,
+    public route: ActivatedRoute,
+    public router: Router,
+    public userState: UserStateService
+  ) {}
+  captureValues() {
+    localStorage.setItem('questionCounter', this.questionCounter);
+  }
+  // nextQuestion Starts Here
+  nextQuestion() {
+    this.questionCounter++;
+    console.log(this.questionCounter);
+    if (this.questionCounter < this.qustionLength) {
+      this.startTimer();
+      this.currentQustion = this.quizQustions[
+        this.questionCounter
+      ].question.qstn;
+      this.currentOption = this.quizQustions[this.questionCounter].options;
+      this.correctAnswer = this.quizQustions[this.questionCounter].correctAns;
+      console.log(this.currentOption);
+      this.currentQustionMedia = this.quizQustions[
+        this.questionCounter
+      ].question.media;
+      if (this.currentQustionMedia === null) {
+        this.isimage = false;
+      } else {
+        this.isimage = true;
+        this.imageUrl = this.quizQustions[
+          this.questionCounter
+        ].question.mediaURL;
+      }
     } else {
-      console.log('Wrong ' + this.correctanswer);
-      this.renderer.addClass(this.correctListItem, 'choicebuttoncorrect');
-      this.renderer.addClass(this.clickedListItem, 'choicebuttonwrong');
-      this.score = this.score - 10;
-      this.timer.unsubscribe();
-      setTimeout(() => {
-        this.renderer.removeClass(this.correctListItem, 'choicebuttoncorrect');
-        this.renderer.removeClass(this.clickedListItem, 'choicebuttonwrong');
-        this.currentQuestion++;
-        this.timerfunction();
-      }, 1000);
+      if (this.serverservice.currentModuleCounter <= this.data.length) {
+        this.serverservice.currentModuleCounter++;
+        this.questionCounter = -1;
+        localStorage.setItem('questionCounter', null);
+
+        console.log(localStorage.getItem('questionCounter'));
+        localStorage.setItem('quizScore', String(this.score));
+        this.router.navigateByUrl('/game?ct=' + this.currentModule);
+        // this.router.navigate(['/moduleintro', { id: localStorage.getItem('courseId') }]);
+        // window.location.href = 'http://192.168.0.18:8080/MyGame';
+      }
+      console.log('Game Over');
     }
   }
 
-  timerfunction() {
-    this.timer = timer(1000, 1000);
+  check(index) {
+    this.clickedList = this.el.nativeElement.getElementsByClassName(
+      'dynamic' + index
+    )[0];
+    this.correctList = this.el.nativeElement.getElementsByClassName(
+      'dynamic' + (this.correctAnswer - 1)
+    )[0];
+    console.log(this.correctList);
+    this.disabled = true;
+    if (this.correctAnswer === index + 1) {
+      this.timer.unsubscribe();
+      this.score = this.score + 10;
+      this.renderer.addClass(this.correctList, 'choicebuttoncorrect');
+      setTimeout(() => {
+        this.renderer.removeClass(this.correctList, 'choicebuttoncorrect');
+        this.disabled = false;
+        this.nextQuestion();
+      }, 1500);
+    } else {
+      this.score = this.score - 10;
+      this.renderer.addClass(this.correctList, 'choicebuttoncorrect');
+      this.renderer.addClass(this.clickedList, 'choicebuttonwrong');
+      this.timer.unsubscribe();
+      setTimeout(() => {
+        this.renderer.removeClass(this.correctList, 'choicebuttoncorrect');
+        this.renderer.removeClass(this.clickedList, 'choicebuttonwrong');
+        this.disabled = false;
+        this.nextQuestion();
+      }, 1500);
+    }
+  }
+  skip() {
+    this.timer.unsubscribe();
+    this.nextQuestion();
+  }
+  // Timer Starts Here
+  startTimer() {
+    this.timer = timer(1, 1000);
     this.timer = this.timer.pipe(takeUntil(this.subject)).subscribe(x => {
-      if (x <= this.countDownValue) {
-        //  console.log(this.quizdetails[this.currentQuestion].question.qstn);
-        this.counter = this.countDownValue - x;
-        // console.log(this.counter);
-        if (this.counter === 0) {
-          this.currentQuestion++;
-          this.correctanswer = this.quizdetails[this.currentQuestion].correctAns;
-          this.correctListItem = this.el.nativeElement.getElementsByClassName('dynamic' + (this.correctanswer - 1))[0];
-          if (this.currentQuestion === this.noofquestions) {
-            this.timer.unsubscribe();
-          } else {
-            this.timer.unsubscribe();
-            this.imagepresent = this.quizdetails[this.currentQuestion].question.media;
-            console.log('Image is ' + this.imagepresent);
-            console.log(this.correctanswer);
-            if (this.imagepresent === null) {
-              this.renderer.addClass(this.imagediv, 'imagedisplaynone');
-              this.renderer.removeClass(this.optionsdiv, 'listclass');
-              this.renderer.addClass(this.optionsdiv, 'optionsnoimage');
-            } else {
-              this.renderer.removeClass(this.imagediv, 'imagedisplaynone');
-              this.renderer.addClass(this.optionsdiv, 'listclass');
-              this.renderer.removeClass(this.optionsdiv, 'optionsnoimage');
-            }
-            this.timerfunction();
-          }
-        }
+      if (x <= this.countDown) {
+        this.couter = this.countDown - x;
+      } else {
+        this.subject.next();
+        this.timer.unsubscribe();
+        this.nextQuestion();
       }
     });
   }
 
   ngOnInit() {
-    this.currentQuestion = 0;
+    this.questionCounter = localStorage.getItem('questionCounter');
+    console.log(localStorage.getItem('questionCounter'));
+    if (this.questionCounter === null) {
+      this.currentQustion = -1;
+    }
     this.userToken = localStorage.getItem('userToken');
     this.selectedCourseId = this.route.snapshot.params['id'];
-    this.imagediv = this.el.nativeElement.getElementsByClassName('imagecontainer')[0];
-    this.optionsdiv = this.el.nativeElement.getElementsByClassName('listclass')[0];
-    // console.log(this.imagediv);
-    this.serverservice.getallModuleDetails(this.userToken, this.selectedCourseId).subscribe((response: any) => {
-      // console.log(response);
-      this.serverservice.allmodulesarray = response[this.serverservice.currentModule];
-      this.quizdetails = this.serverservice.allmodulesarray.quiz;
-      console.log(this.quizdetails);
-      this.noofquestions = this.quizdetails.length;
-      // console.log(this.noofquestions);
-      this.imagepresent = this.quizdetails[this.currentQuestion].question.media;
-      this.correctanswer = this.quizdetails[this.currentQuestion].correctAns;
-      console.log(this.correctanswer);
-      // console.log(this.imagepresent);
-      if (this.imagepresent === null) {
-        this.renderer.addClass(this.imagediv, 'imagedisplaynone');
-        this.renderer.removeClass(this.optionsdiv, 'listclass');
-        this.renderer.addClass(this.optionsdiv, 'optionsnoimage');
-      }
-    });
-    this.timerfunction();
-    //  console.log(this.imagepresent);
+    this.url = window.location.href;
+    this.currentModule = this.url.substring(
+      this.url.indexOf('=') + 1,
+      this.url.length
+    );
+    this.data = this.userState.getAllData();
+    this.quizQustions = this.data[this.currentModule].quiz;
+    this.qustionLength = this.quizQustions.length;
+    console.log(this.quizQustions);
+    this.nextQuestion();
+    // this.serverservice.getallModuleDetails(this.userToken, this.selectedCourseId).subscribe((response: any) => {
+    // console.log(response);
+    // console.log((this.currentModule));
+    // this.quizQustions = response[this.currentModule].quiz;
+    // this.qustionLength = this.quizQustions.length;
+    // console.log((this.quizQustions));
+    // this.nextQuestion();
+    // });
+  }
 
+  // tslint:disable-next-line:use-life-cycle-interface
+  ngOnDestroy() {
+    console.log('Destroyed');
+    localStorage.setItem('questionCounter', this.questionCounter);
+    this.timer.unsubscribe();
   }
   navigatToNxt() {
     this.router.navigate(['/quiz', { id: this.selectedCourseId }]);

@@ -1,44 +1,52 @@
-<div class="maincard">
-  <div class="maincardtitlediv text-center">
-    <h4 class="maincardtitle">Score:{{score}}
-      <span class="spanclass">{{currentQuestion + 1}}/{{noofquestions}}</span>Time:0:{{counter}}</h4>
-    <!-- <div class="container-fluid">
-      
-        <div class="row">
-          <div class="col-sm-4">
-            <h4>Score:{{score}}</h4>
-          </div>
-          <div class="col-sm-4">
-            <h4>{{currentQuestion + 1}}/{{noofquestions}}</h4>
-          </div>
-          <div class="col-sm-4">
-            <h4>Time:0:{{counter}}</h4>
-          </div>
+<div class="quiz-continer">
+  <div class="maincard">
+    <div class="maincardtitle">
+      <div class="row">
+        <div class="col-4">
+          <h4 class="text-left">Score:{{score}}</h4>
         </div>
-      </div> -->
-  </div>
-  <div class="quizwrapper">
-    <div class="shortdescriptiondiv ">
-      <p class="shortdescription text-center">{{quizdetails[currentQuestion].question.qstn}}</p>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-lg-6 col-sm-12 imagecontainer">
-        <div>
-          <img class="questionimage" [src]="quizdetails[currentQuestion].question.mediaURL" alt="">
+        <div class="col-4">
+          <h4 class="text-center">1/10</h4>
         </div>
-      </div>
-      <div class="col-lg-6 col-sm-12">
-        <div class="listcontainer">
-          <ul class="list-unstyled listclass">
-            <li *ngFor="let item of quizdetails[currentQuestion].options; let i=index">
-              <div (click)="changequestion(i);" *ngIf="quizdetails[currentQuestion].options[i] !== ''" class="choicebutton text-center {{'dynamic'+i}}" id="{{'id'+i}}">{{item}}</div>
-            </li>
-          </ul>
+        <div class="col-4">
+          <h4 class="text-right">Timer:0:{{couter}}</h4>
         </div>
       </div>
     </div>
+    <div class="main-card-body">
+      <div class="question-container">
+        <div class="question text-center pt-3">
+          <h6 style="text-transform:capitalize">{{currentQustion}}</h6>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div *ngIf="isimage" class="col-lg-6">
+            <div class="image-container text-center">
+              <img [src]=imageUrl>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="option-container text-center">
+              <ul class="list-unstyled options">
+                <div *ngFor="let item of currentOption; let i=index">
+                  <button *ngIf="item !== '' " (click)="check(i)" class="mylist dynamic{{i}}" [disabled]="disabled">
+                    {{item}}
+                  </button>
+                </div>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="skip" (click)="skip();">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h5 class="text-white p-2">Skip</h5>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-<div (click)="changequestion();" class="startbutton text-center">
-  Skip
 </div>

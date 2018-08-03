@@ -10,6 +10,8 @@ import { UserStateService } from '../user-state.service';
 })
 export class ModuleintroComponent implements OnInit {
 
+  url: string;
+  currentModule: any;
   moduleIntro = [];
   userToken: string;
   selectedCourseId: any;
@@ -25,21 +27,25 @@ export class ModuleintroComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.selectedCourseId = localStorage.getItem('courseId');
+    this.url = window.location.href;
+    this.currentModule = this.url.substring(this.url.indexOf('=') + 1, this.url.length);
+    this.userToken = localStorage.getItem('userToken');
     this.data = this.userState.getAllData();
     this.initializeData(this.data);
     this.userState.test();
-    this.userToken = localStorage.getItem('userToken');
-    this.selectedCourseId = this.route.snapshot.params['id'];
+
+    console.log(this.currentModule);
     // this.serverservice.getallModuleDetails(this.userToken, this.selectedCourseId).subscribe((response: any) => {
     //   console.log(response);
     // });
   }
   initializeData(response) {
-    this.serverservice.allmodulesarray = response[this.serverservice.currentModule];
+    this.serverservice.allmodulesarray = response[this.currentModule];
     this.moduleIntro = this.serverservice.allmodulesarray.intro;
   }
   navigatToNxt() {
-    this.router.navigate(['/quiz', { id: this.selectedCourseId }]);
+    this.router.navigateByUrl('/quiz?ct=' + this.currentModule);
   }
 
 }

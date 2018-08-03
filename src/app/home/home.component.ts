@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
       scrollflag = 0;
       card_description;
       cards = [];
+      loader;
       categorywisefilters = [
         {
           catname: 'No Filter',
@@ -172,17 +173,22 @@ export class HomeComponent implements OnInit {
     this.scrollcontent = this.el.nativeElement.getElementsByClassName('scroll-button-div')[0];
 
     this.renderer.addClass(this.scrollcontent, 'no-scroll-button');
+    this.loader = this.el.nativeElement.getElementsByClassName('outter-preloader')[0];
     this.serverservice.getcoursecarddetails().subscribe((response: any) => {
       for (const course of response) {
         this.cards.push(course);
       }
       console.log(window.pageYOffset + 'kuch bhi');
+      setTimeout(() => {
+        this.renderer.setStyle(this.loader, 'display', 'none');
+      }, 1500);
       console.log(this.cards[0].courseName);
       console.log('cards' + this.cards);
     }) ;
   }
   selectedCourse(intro) {
-     this.router.navigate(['/detailpage', { id: intro, }]);
+    localStorage.setItem('courseId', intro);
+     this.router.navigate(['/detailpage']);
     console.log(intro);
   }
 }
