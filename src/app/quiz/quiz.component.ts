@@ -183,4 +183,7 @@ export class QuizComponent implements OnInit {
     localStorage.setItem('questionCounter', this.questionCounter);
     this.timer.unsubscribe();
   }
+  navigatToNxt() {
+    this.router.navigate(['/quiz', { id: this.selectedCourseId }]);
+  }
 }

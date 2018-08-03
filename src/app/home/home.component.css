@@ -275,6 +275,30 @@ mycard:hover{
     transition: 0.5s all ease-in;
 }
 
+.scroll-button-div{
+    position: fixed;
+    bottom:40px;
+    right:50px;
+    z-index: 3;
+    transform: translateX(0%);
+    transition: 0.2s all ease-in;
+
+}
+.scroll-button{
+    border:0;
+    border-radius:50px;
+    height:60px;
+    width:60px;
+    color:white;
+    background:linear-gradient(to left,rgba(236,123,94,1),rgba(235,73,84,1));
+    box-shadow: 0 3px 14px #707070cc;
+}
+.no-scroll-button{
+    transform: translateX(300%);
+    transition: 0.2s all ease-in;
+
+}
+
 @media only screen and (max-width: 990px) {
 
     .title{
@@ -333,5 +357,8 @@ mycard:hover{
         color:white;
         background:linear-gradient(to left,rgba(236,123,94,1),rgba(235,73,84,1));
         box-shadow: 0 3px 14px #707070cc;
+    }
+    .scroll-button-div{
+        display:none;
     }
 }

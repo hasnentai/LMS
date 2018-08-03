@@ -79,7 +79,7 @@
                         <div class="col-lg-6">
                           <div class="form-group">
                             <label for="phno">Phone No</label>
-                            <input type="text" class="form-control mytxt" id="phno" aria-describedby="emailHelp" placeholder="+919898123456" name="phone"
+                            <input type="text" class="form-control mytxt" id="phno" aria-describedby="emailHelp" placeholder="+91 1234567890" name="phone"
                               ngModel #phone="ngModel" required autocomplete="off" minlength="10" maxlength="10">
                             <div *ngIf="phone.touched && !phone.valid">
                               <small id="phone" class="form-text text-danger" *ngIf="phone.errors.required">Phone Number is Required</small>
@@ -90,11 +90,14 @@
                           <div class="form-group">
                             <label for="sate">State</label>
                             <select class="form-control mytxt" id="state" name="state" ngModel #state="ngModel" required autocomplete="off">
-                              <option>1</option>
-                              <option>2</option>
-                              <option>3</option>
-                              <option>4</option>
-                              <option>5</option>
+                              <option>Andra Pradesh</option>
+                              <option>Goa</option>
+                              <option>Karnataka</option>
+                              <option>Kerala</option>
+                              <option>Maharshtra</option>
+                              <option>Orissa</option>
+                              <option>Tamil Nadu</option>
+                              <option>Telangana</option>
                             </select>
                             <div *ngIf="state.touched && !state.valid">
                               <small id="state" class="form-text text-danger" *ngIf="state.errors.required">Please Select the State</small>
@@ -104,7 +107,18 @@
                           <div class="form-group">
                             <label for="city">City</label>
                             <select class="form-control mytxt" id="city" name="city" ngModel #city="ngModel" required autocomplete="off">
-                              <option >1</option>
+                              <option>Bengaluru</option>
+                              <option>Bhubaneshwar</option>
+                              <option>Chennai</option>
+                              <option>Hydrabad</option>
+                              <option>Mangaluru</option>
+                              <option>Mumbai</option>
+                              <option>Mysore</option>
+                              <option>Punji</option>
+                              <option>Raichur</option>
+                              <option>Thiruvananta Puram</option>
+                              <option>Tumkur</option>
+                              <option>Vizag</option>
                             </select>
                             <div *ngIf="city.touched && !city.valid">
                               <small id="password" class="form-text text-danger" *ngIf="city.errors.required">Please Select the City</small>
@@ -113,11 +127,11 @@
                           <div class="form-group">
                             <label for="college">College</label>
                             <select class="form-control mytxt" id="college" name="college" ngModel #college="ngModel" required autocomplete="off">
-                              <option>1</option>
-                              <option>2</option>
-                              <option>3</option>
-                              <option>4</option>
-                              <option>5</option>
+                              <option>Acharya Institute Of Technology</option>
+                              <option>Sri Krishna College Of Engineering</option>
+                              <option>Saptagiri Engineering College</option>
+                              <option>Acharya Institute Of Mnagement Studies</option>
+                              <option>Geetam's University</option>
                             </select>
                             <div *ngIf="college.touched && !college.valid">
                               <small id="college" class="form-text text-danger" *ngIf="college.errors.required">Please Select the College</small>
@@ -126,11 +140,12 @@
                           <div class="form-group">
                             <label for="course">Course</label>
                             <select class="form-control mytxt" id="course" name="course" ngModel #course="ngModel" autocomplete="off" required autocomplete="off">
-                              <option>1</option>
-                              <option>2</option>
-                              <option>3</option>
-                              <option>4</option>
-                              <option>5</option>
+                              <option>BE/BTech</option>
+                              <option>BBA</option>
+                              <option>MBA</option>
+                              <option>MTech</option>
+                              <option>PGDM</option>
+                              <option>BCA</option>
                             </select>
                             <div *ngIf="course.touched && !course.valid">
                               <small id="course" class="form-text text-danger" *ngIf="course.errors.required">Please Select the Course</small>
@@ -144,6 +159,9 @@
                               <option>3</option>
                               <option>4</option>
                               <option>5</option>
+                              <option>6</option>
+                              <option>7</option>
+                              <option>8</option>
                             </select>
                             <div *ngIf="sem.touched && !sem.valid">
                               <small id="re-password" class="form-text text-danger" *ngIf="sem.errors.required">Please Select the Sem</small>

@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
       card_image;
       card_title;
       flag = 0;
+      scrollflag = 0;
       card_description;
       cards = [];
       loader;
@@ -54,16 +55,20 @@ export class HomeComponent implements OnInit {
       ];
       sectionwisefilters = [
         {
-          menu: 'All'
+          menu: 'All',
+          move: '#targetAllBottom'
         },
         {
-          menu: 'Quiz'
+          menu: 'Quiz',
+          move: '#targetQuizBottom'
         },
         {
-          menu: 'Competition'
+          menu: 'Competition',
+          move: '#targetCompetitionBottom'
         },
         {
-          menu: 'Hackathon'
+          menu: 'Hackathon',
+          move: '#targetHackathonBottom'
         }
       ];
       filterwindow: any;
@@ -73,6 +78,7 @@ export class HomeComponent implements OnInit {
   conten: any;
   allbutn: any;
   currentBtn: any;
+  scrollcontent: any;
 
 
 
@@ -82,6 +88,12 @@ export class HomeComponent implements OnInit {
     const windowHeight = document.documentElement.clientHeight;
     const pageoffsetsize = max - 1200;
     console.log(windowHeight);
+    if (window.pageYOffset <= 300) {
+      this.scrollcontent = this.el.nativeElement.getElementsByClassName('scroll-button-div')[0];
+      this.renderer.addClass(this.scrollcontent, 'no-scroll-button');
+    } else {
+      this.renderer.removeClass(this.scrollcontent, 'no-scroll-button');
+    }
     if (window.pageYOffset >= 400 &&  window.pageYOffset <= pageoffsetsize) {
       this.flag = 1;
       this.content = this.el.nativeElement.getElementsByClassName('filter-section')[0];
@@ -158,11 +170,15 @@ export class HomeComponent implements OnInit {
     this.renderer.addClass(this.conten, 'filter-pills-active');
   }
   ngOnInit() {
+    this.scrollcontent = this.el.nativeElement.getElementsByClassName('scroll-button-div')[0];
+
+    this.renderer.addClass(this.scrollcontent, 'no-scroll-button');
     this.loader = this.el.nativeElement.getElementsByClassName('outter-preloader')[0];
     this.serverservice.getcoursecarddetails().subscribe((response: any) => {
       for (const course of response) {
         this.cards.push(course);
       }
+      console.log(window.pageYOffset + 'kuch bhi');
       setTimeout(() => {
         this.renderer.setStyle(this.loader, 'display', 'none');
       }, 1500);

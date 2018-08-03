@@ -87,7 +87,6 @@ h6{
     padding-right: 340px;
 }
 
-
 .questionimage{
     object-fit: contain;
     width:100%;
@@ -104,6 +103,12 @@ h6{
     left:50%;
     transform: translate(-50%,-50%);
     width:100%;
+}
+.scoreclass{
+    text-align: left;
+}
+.timeclass{
+    text-align: right;
 }
 .choicebutton{
     background:transparent;

@@ -2,7 +2,12 @@
   <div class="maincardtitlediv">
     <h4 class="maincardtitle">{{moduleIntro.title}}</h4>
   </div>
-  <div class="maincardimagecontainer">
+  <!-- <div *ngIf = "videopresent"> -->
+    <video *ngIf = "videopresent" class="maincardimagecontainer" controls>
+      <source class="maincardimage image-responsive" src="../assets/Final Pizza.mov" type="video/mp4"> Your browser does not support the video tag.
+    </video>
+  <!-- </div> -->
+  <div *ngIf = "!videopresent" class="maincardimagecontainer">
     <img class="maincardimage img-responsive" [src]="moduleIntro.image" alt="">
   </div>
   <div class="shortdescriptiondiv">
