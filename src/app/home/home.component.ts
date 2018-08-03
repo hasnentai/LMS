@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
       flag = 0;
       card_description;
       cards = [];
+      loader;
       categorywisefilters = [
         {
           catname: 'No Filter',
@@ -157,16 +158,21 @@ export class HomeComponent implements OnInit {
     this.renderer.addClass(this.conten, 'filter-pills-active');
   }
   ngOnInit() {
+    this.loader = this.el.nativeElement.getElementsByClassName('outter-preloader')[0];
     this.serverservice.getcoursecarddetails().subscribe((response: any) => {
       for (const course of response) {
         this.cards.push(course);
       }
+      setTimeout(() => {
+        this.renderer.setStyle(this.loader, 'display', 'none');
+      }, 1500);
       console.log(this.cards[0].courseName);
       console.log('cards' + this.cards);
     }) ;
   }
   selectedCourse(intro) {
-     this.router.navigate(['/detailpage', { id: intro, }]);
+    localStorage.setItem('courseId', intro);
+     this.router.navigate(['/detailpage']);
     console.log(intro);
   }
 }

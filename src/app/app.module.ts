@@ -22,6 +22,10 @@ import { ModuleintroComponent } from './moduleintro/moduleintro.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { BubblegameComponent } from './bubblegame/bubblegame.component';
 import {AuthService } from './interceptors/auth.service';
+import { Game3Component } from './game3/game3.component';
+import { ScoreDisplayComponent } from './score-display/score-display.component';
+import { PreloaderComponent } from './preloader/preloader.component';
+import { GameComponentComponent } from './game-component/game-component.component';
 
 
 
@@ -38,7 +42,12 @@ export const routes: Routes = [
   {path: 'detailpage' , component: DetailpageComponent},
   {path: 'moduleintro' , component: ModuleintroComponent},
   {path: 'quiz' , component: QuizComponent},
-  {path: 'bgame' , component: BubblegameComponent}
+  {path: 'bgame' , component: BubblegameComponent},
+  {path: 'game3' , component: Game3Component},
+  {path: 'score' , component: ScoreDisplayComponent},
+  {path: 'game' , component: GameComponentComponent},
+
+
 ];
 
 
@@ -57,6 +66,10 @@ export const routes: Routes = [
     ModuleintroComponent,
     QuizComponent,
     BubblegameComponent,
+    Game3Component,
+    ScoreDisplayComponent,
+    PreloaderComponent,
+    GameComponentComponent,
 
   ],
   imports: [

@@ -39,8 +39,8 @@
                     <!-- <input type="text" class="form-control mytxt" id="course" aria-describedby="emailHelp" placeholder="12-9-1995" [(ngModel)]="dob"
                         name="dob"> -->
                     <div class="input-group">
-                      <input [minDate]="minDate" [maxDate]="maxDate" id="course" type="text" aria-describedby="emailHelp" class="form-control mytxt"
-                        placeholder="yyyy-mm-dd" name="dob" ngModel #dob="ngModel" ngbDatepicker #d="ngbDatepicker" required autocomplete="off">
+                      <input [minDate]="minDate" [maxDate]="maxDate" id="dob" type="text" class="form-control mytxt"
+                        placeholder="yyyy-mm-dd" name="dob" ngModel #dob="ngModel" ngbDatepicker #d="ngbDatepicker"  [(ngModel)]="ngbDatepicker" required autocomplete="off">
                       <div class="input-group-append">
                         <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
                           <i class="material-icons">perm_contact_calendar</i>

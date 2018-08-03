@@ -104,11 +104,7 @@
                           <div class="form-group">
                             <label for="city">City</label>
                             <select class="form-control mytxt" id="city" name="city" ngModel #city="ngModel" required autocomplete="off">
-                              <option>1</option>
-                              <option>2</option>
-                              <option>3</option>
-                              <option>4</option>
-                              <option>5</option>
+                              <option >1</option>
                             </select>
                             <div *ngIf="city.touched && !city.valid">
                               <small id="password" class="form-text text-danger" *ngIf="city.errors.required">Please Select the City</small>

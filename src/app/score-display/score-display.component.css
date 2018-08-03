@@ -1,0 +1,49 @@
+body {
+    background-image: url('../../assets/Symbol.png')
+}
+.score-outter{
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.226);
+    border-radius: 5px;
+    margin: 10px;
+}
+.all-outer{
+    height: 100vh;
+    position: relative;
+    background-image: url('../../assets/Symbol.png')
+}
+.progress-bar-outer{
+    width: 100%;
+    height: 25px;
+    background: #e9ecef;
+    border-radius: 3px;
+}
+.module-wrapper{
+    margin: 10px;
+}
+.progress-bar-inner{
+    width: 90%;
+    height: 25px;
+    background: linear-gradient(to  right,rgba(236,123,94,1),rgba(235,73,84,1));
+    border-radius: 3px;
+    color: white;
+    animation: 1.9s ease 0.1s 1 slideInFromLeft;
+}
+.button-certi{
+    background: linear-gradient(to  left,rgba(236,123,94,1),rgba(235,73,84,1));
+    padding: 10px;
+    border-radius: 50px;
+    color: white;
+    border:none;
+    box-shadow: 0 3px 26px rgba(0, 0, 0, 0.226);
+}
+
+@keyframes slideInFromLeft {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 90%;
+    }
+  }

@@ -1,0 +1,28 @@
+
+@media only screen and (min-width:300px) and (max-width:500px)
+{
+    input{
+    width:5vh;
+    height:5vh;
+    font-size:1.6rem;
+    border-color: rgb(0, 0, 0);
+    background-color: peru;
+    margin:1px;
+    }
+    h2{
+        font-size:1.6rem;
+    }
+}
+@media only screen and (min-width:700px) and (max-width:1500px){
+input{
+    width:5vw;
+    height:5vw;
+    font-size:2rem;
+    border-color: rgb(0, 0, 0);
+    background-color: peru;
+    margin: 1px;
+    }
+h2{
+    font-size: 2rem;
+  }
+}
