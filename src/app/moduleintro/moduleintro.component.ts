@@ -14,6 +14,7 @@ export class ModuleintroComponent implements OnInit {
   userToken: string;
   selectedCourseId: any;
   data;
+  videopresent = true;
   userStat = {
     module: -1,
     quiz: -1
