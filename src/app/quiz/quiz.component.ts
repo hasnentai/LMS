@@ -76,7 +76,8 @@ export class QuizComponent implements OnInit {
       this.currentQustionMedia = this.quizQustions[
         this.questionCounter
       ].question.media;
-      if (this.currentQustionMedia === null) {
+      // tslint:disable-next-line:max-line-length
+      if (this.currentQustionMedia === null || this.currentQustionMedia === 'null' || this.currentQustionMedia === 'undefined' || this.currentQustionMedia === 'undefined,null' || this.currentQustionMedia === 'undefined, null') {
         this.isimage = false;
       } else {
         this.isimage = true;
