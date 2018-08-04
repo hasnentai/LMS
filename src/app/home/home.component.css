@@ -6,6 +6,7 @@
     background-repeat:no-repeat;
     background-size: cover;
     position: relative;
+    background-attachment: fixed;
 }
 .header-content{
     position:absolute;
@@ -20,7 +21,7 @@
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 10px;
-    width: 140px;
+    width: 220px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;

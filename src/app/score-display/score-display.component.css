@@ -29,12 +29,11 @@ body {
     margin: 10px;
 }
 .progress-bar-inner{
-    width: 90%;
     height: 25px;
     background: linear-gradient(to  right,rgba(236,123,94,1),rgba(235,73,84,1));
     border-radius: 3px;
     color: white;
-    animation: 1.9s ease 0.1s 1 slideInFromLeft;
+    animation: 1.9s ease 0.1s 1 ;
 }
 .button-certi{
     background: linear-gradient(to  left,rgba(236,123,94,1),rgba(235,73,84,1));

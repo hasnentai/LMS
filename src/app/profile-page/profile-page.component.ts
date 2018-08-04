@@ -33,7 +33,7 @@ export class ProfilePageComponent  implements OnInit {
         this.scores = response[0].scores;
         this.toppers = response[0].toppers;
         // console.log(this.scores);
-       // console.log(response);
+        console.log(response);
         // this.userName = response[0].fname + ' ' + response[0].lname;
         // this.score = response[0].totalScore;
         // this.courseName = response[0].courseName;

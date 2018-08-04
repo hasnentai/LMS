@@ -19,6 +19,8 @@ import { UserStateService } from '../user-state.service';
   styleUrls: ['./quiz.component.css']
 })
 export class QuizComponent implements OnInit {
+  game: boolean;
+  gameURL: any;
   url: string;
   data;
   correctList: any;
@@ -76,8 +78,7 @@ export class QuizComponent implements OnInit {
       this.currentQustionMedia = this.quizQustions[
         this.questionCounter
       ].question.media;
-      // tslint:disable-next-line:max-line-length
-      if (this.currentQustionMedia === null || this.currentQustionMedia === 'null' || this.currentQustionMedia === 'undefined' || this.currentQustionMedia === 'undefined,null' || this.currentQustionMedia === 'undefined, null') {
+      if (this.currentQustionMedia === null || this.currentQustionMedia === 'undefined' || this.currentQustionMedia === 'undefined,null') {
         this.isimage = false;
       } else {
         this.isimage = true;
@@ -93,7 +94,13 @@ export class QuizComponent implements OnInit {
 
         console.log(localStorage.getItem('questionCounter'));
         localStorage.setItem('quizScore', String(this.score));
-        this.router.navigateByUrl('/game?ct=' + this.currentModule);
+       //  this.avgQuizScore = (this.score / this.qustionLength * 10);
+        // localStorage.setItem('avgQuizScore' ,)
+        if (this.game) {
+          this.router.navigateByUrl('/game?ct=' + this.currentModule);
+        } else {
+          this.router.navigateByUrl('/moduleintro?ct=' +  ++ this.currentModule);
+        }
         // this.router.navigate(['/moduleintro', { id: localStorage.getItem('courseId') }]);
         // window.location.href = 'http://192.168.0.18:8080/MyGame';
       }
@@ -165,8 +172,19 @@ export class QuizComponent implements OnInit {
     );
     this.data = this.userState.getAllData();
     this.quizQustions = this.data[this.currentModule].quiz;
+    this.gameURL = this.data[this.currentModule].game;
+    console.log(this.gameURL);
+    if (typeof(this.gameURL) === 'undefined') {
+      this.game = false;
+      console.log('game false');
+    } else {
+      this.game = true;
+      console.log ('game true');
+    }
+    localStorage.setItem('gameURL', this.gameURL);
     this.qustionLength = this.quizQustions.length;
     console.log(this.quizQustions);
+    console.log(this.data);
     this.nextQuestion();
     // this.serverservice.getallModuleDetails(this.userToken, this.selectedCourseId).subscribe((response: any) => {
     // console.log(response);
@@ -182,7 +200,6 @@ export class QuizComponent implements OnInit {
   ngOnDestroy() {
     console.log('Destroyed');
     localStorage.setItem('questionCounter', this.questionCounter);
-    this.timer.unsubscribe();
   }
   navigatToNxt() {
     this.router.navigate(['/quiz', { id: this.selectedCourseId }]);

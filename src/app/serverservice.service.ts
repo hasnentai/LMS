@@ -89,4 +89,7 @@ export class ServerserviceService  implements OnInit {
   getAllState() {
     return this.http.get('../assets/stateandcity.json');
   }
+  getAllScores(courseID) {
+    return this.http.get(this._rootUrl + '/api/client/get-score/' + courseID);
+  }
 }

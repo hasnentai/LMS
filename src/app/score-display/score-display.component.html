@@ -10,9 +10,9 @@
                 <hr>
               </div>
               <div class="container">
-                <div class="totalscorediv text-center">
-                  <h6>Your Total Score Is :</h6>
-                  <h1>76%</h1>
+                <div class="text-center">
+                  <h6>Your Total Score For :{{courseName}}</h6>
+                  <h1>{{totalScore}}%</h1>
                 </div>
               </div>
             </div>
@@ -21,35 +21,11 @@
                 <h3>Module Scores</h3>
                 <hr>
               </div>
-              <div class="module-wrapper">
-                <h6>Module 1</h6>
+              <div class="module-wrapper" *ngFor = "let item of moduleScore; let i = index">
+                <h6>Module {{i+1}}</h6>
                 <div class="progress-bar-outer">
-                  <div class="progress-bar-inner text-center">
-                    90%
-                  </div>
-                </div>
-              </div>
-              <div class="module-wrapper">
-                <h6>Module 1</h6>
-                <div class="progress-bar-outer">
-                  <div class="progress-bar-inner text-center">
-                    90%
-                  </div>
-                </div>
-              </div>
-              <div class="module-wrapper">
-                <h6>Module 1</h6>
-                <div class="progress-bar-outer">
-                  <div class="progress-bar-inner text-center">
-                    90%
-                  </div>
-                </div>
-              </div>
-              <div class="module-wrapper">
-                <h6>Module 1</h6>
-                <div class="progress-bar-outer">
-                  <div class="progress-bar-inner text-center">
-                    90%
+                  <div class="progress-bar-inner text-center"[style.width.%]="item">
+                    {{item}}%
                   </div>
                 </div>
               </div>
