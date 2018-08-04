@@ -3,7 +3,7 @@
 <nav class="navbar navbar-expand-lg navbar-light navbar-fixed-top" style="background-color:#fff;z-index:3">
   <div class="container">
     <h1 class="navbar-brand header-font" routerLink="/home">
-        <img style=" height:60px;" src="../../assets/logo.png" alt="">
+        <img style=" height:60px;cursor:pointer" src="../../assets/logo.png" alt="">
     </h1>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" (click)="toggleState()" aria-controls="navbarSupportedContent"
       aria-expanded="false" aria-label="Toggle navigation">
@@ -12,7 +12,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <form class="form-inline ml-auto header-icons">
         <i class="large material-icons pl-3">search</i>
-        <i *ngIf="login" class="large material-icons pl-3" (click)="toggleState()" style="font-size: 40px;" >list</i>
+        <i *ngIf="login" class="large material-icons pl-3" (click)="toggleState()" style="font-size: 40px;cursor: pointer;" >list</i>
         <button routerLink="/login" *ngIf="!login" class="login-button">Log in</button>
       </form>
     </div>
@@ -40,10 +40,10 @@
               <p [routerLink]=item.link>{{item.menu}}</p>
               <hr>
             </li>
-            <li *ngIf="userToken === null" routerLink="/login">
+            <li *ngIf="userToken === null" routerLink="/login" style="cursor: pointer;">
               Log In
             </li>
-            <li *ngIf="userToken !== null" (click)="logout()" routerLink="/login">
+            <li *ngIf="userToken !== null" (click)="logout()" routerLink="/login" style="cursor: pointer;">
               Log Out
             </li>
             

@@ -21,7 +21,9 @@ export class DetailpageComponent implements OnInit {
   module_Completed = false;
   disabled = false;
   wholePageDetail = {
-    title : ''
+    title : '',
+    image : '',
+    details : ''
   };
   modelOpacityContaienr;
   paymentDetails;
@@ -50,8 +52,9 @@ export class DetailpageComponent implements OnInit {
       this.serverservice.sendCoupenCode(this.paymentDetails).subscribe((response: any) => {
         // console.log(response);
         if (response.message === 'Payment Successfull') {
-          this.router.navigateByUrl('/moduleintro?ct=0');
+          // this.router.navigateByUrl('/moduleintro?ct=0');
           this.valid = true;
+          this.navigatToNxt();
         } else {
           this.valid = false;
         }
@@ -120,6 +123,7 @@ export class DetailpageComponent implements OnInit {
     });
     this.serverservice.getallModuleDetails(this.userToken, this.selectedCourseId).subscribe((response: any) => {
       this.userState.setAllData(response);
+      console.log(response);
       //  localStorage
     });
   }

@@ -10,9 +10,14 @@ import { UserStateService } from '../user-state.service';
 })
 export class ModuleintroComponent implements OnInit {
 
+  totalModules: any;
   url: string;
   currentModule: any;
-  moduleIntro = [];
+  moduleIntro = {
+    title : '',
+    description : '',
+    details : ''
+  };
   userToken: string;
   selectedCourseId: any;
   data;
@@ -41,8 +46,14 @@ export class ModuleintroComponent implements OnInit {
     // });
   }
   initializeData(response) {
-    this.serverservice.allmodulesarray = response[this.currentModule];
-    this.moduleIntro = this.serverservice.allmodulesarray.intro;
+    this.totalModules = response.length;
+    if ( this.currentModule < this.totalModules) {
+      this.serverservice.allmodulesarray = response[this.currentModule];
+      console.log(response.length);
+      this.moduleIntro = this.serverservice.allmodulesarray.intro;
+    } else {
+      this.router.navigateByUrl('/score');
+    }
   }
   navigatToNxt() {
     this.router.navigateByUrl('/quiz?ct=' + this.currentModule);

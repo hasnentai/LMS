@@ -18,9 +18,9 @@
         margin-left: -29px;">business</i> Business Toys Pvt Ltd</p>
     </div>
   </div>
-  <div class="button-container">
+  <div class="button-container text-center">
     <button *ngIf="!payment" class="btn btn-primary" (click)="openModel();">Take A Course for 200 Rs</button>
-    <button *ngIf="payment" class="btn btn-primary" (click)="navigatToNxt();"  [ngStyle]="{'display': disabled ? 'none' : 'block' }">Take A Course</button>
+    <button *ngIf="payment" class="btn btn-primary" (click)="navigatToNxt();"  [ngStyle]="{'display': disabled ? 'none' : 'initial','text-align':'center' }">Take A Course</button>
     <button *ngIf="module_Completed" class="btn btn-primary" (click)="navigatToNxt();">Download Certificate</button>
     <!-- <a href="http://localhost:4200/moduleintro?ct=0" class="btn btn-primary">Take A Course</a> -->
 
@@ -129,7 +129,7 @@
                 <input type="text" class="form-control" placeholder="Enter Code Here" aria-label="Recipient's username" aria-describedby="basic-addon2" name="coupon"
                 #fname="ngModel" [(ngModel)]="coupon" required autocomplete="off">
                 <div class="input-group-append">
-                  <span class="input-group-text" id="basic-addon2" style="background-color:dodgerblue;border:none;color:#fff;" (click)="applyCode()">Apply</span>
+                  <span class="input-group-text" id="basic-addon2" style="background-color:dodgerblue;border:none;color:#fff;cursor: pointer;" (click)="applyCode()">Apply</span>
                 </div>
               </div>
           </div>

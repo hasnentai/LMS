@@ -29,6 +29,8 @@ import { ScoreDisplayComponent } from './score-display/score-display.component';
 import { PreloaderComponent } from './preloader/preloader.component';
 import { GameComponentComponent } from './game-component/game-component.component';
 
+import {enableProdMode} from '@angular/core';
+
 
 
 
@@ -48,8 +50,6 @@ export const routes: Routes = [
   {path: 'game3' , component: Game3Component},
   {path: 'score' , component: ScoreDisplayComponent},
   {path: 'game' , component: GameComponentComponent},
-
-
 ];
 
 

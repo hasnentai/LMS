@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./game-component.component.css']
 })
 export class GameComponentComponent implements OnInit {
+  gameURL: string;
   nativeURL: String;
   currentModule: string;
   courseID: string;
@@ -24,9 +25,10 @@ export class GameComponentComponent implements OnInit {
     this.token = localStorage.getItem('userToken');
     this.score = localStorage.getItem('quizScore');
     this.courseID =  localStorage.getItem('courseId');
+    this.gameURL = localStorage.getItem('gameURL');
     this.nativeURL = window.location.href;
     this.currentModule = this.nativeURL.substring(this.nativeURL.indexOf('=') + 1, this.nativeURL.length);
-    this.url = 'http://localhost:4300/corxy?ct=' + this.currentModule +
+    this.url = this.gameURL + '?ct=' + this.currentModule +
     '&tk=' + this.token + '&id=' + this.courseID + '&score=' + this.score;
     this.url = this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
     console.log(this.url);
