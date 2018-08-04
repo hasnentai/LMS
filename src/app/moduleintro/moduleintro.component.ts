@@ -21,7 +21,7 @@ export class ModuleintroComponent implements OnInit {
   userToken: string;
   selectedCourseId: any;
   data;
-  videopresent = true;
+  videopresent = false;
   userStat = {
     module: -1,
     quiz: -1
@@ -39,6 +39,9 @@ export class ModuleintroComponent implements OnInit {
     this.data = this.userState.getAllData();
     this.initializeData(this.data);
     this.userState.test();
+    if (this.currentModule === 1) {
+      this.videopresent = true;
+    }
 
     console.log(this.currentModule);
     // this.serverservice.getallModuleDetails(this.userToken, this.selectedCourseId).subscribe((response: any) => {

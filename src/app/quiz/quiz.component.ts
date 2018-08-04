@@ -89,7 +89,7 @@ export class QuizComponent implements OnInit {
     } else {
       if (this.serverservice.currentModuleCounter <= this.data.length) {
         this.serverservice.currentModuleCounter++;
-        this.questionCounter = -1;
+        this.questionCounter = -2;
         localStorage.setItem('questionCounter', null);
 
         console.log(localStorage.getItem('questionCounter'));
