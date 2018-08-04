@@ -17,7 +17,7 @@ export class ServerserviceService  implements OnInit {
   currentModuleCounter = 0;
   httpOptions;
   userToken;
-  readonly _rootUrl = 'http://13.232.35.15';
+  readonly _rootUrl = 'https://businesstoys.tech';
   constructor(private http: HttpClient ) { }
   getToken(): string {
     return localStorage.getItem('token');
