@@ -18,6 +18,7 @@ export class ServerserviceService  implements OnInit {
   httpOptions;
   userToken;
   readonly _rootUrl = 'https://businesstoys.tech';
+  readonly _rootURL2 = 'http://192.168.0.2:3000';
   constructor(private http: HttpClient ) { }
   getToken(): string {
     return localStorage.getItem('token');
@@ -91,5 +92,9 @@ export class ServerserviceService  implements OnInit {
   }
   getAllScores(courseID) {
     return this.http.get(this._rootUrl + '/api/client/get-score/' + courseID);
+  }
+  sendModuleData(data) {
+    console.log(data);
+    return this.http.post(this._rootURL2 + '/api/client/post-score', data);
   }
 }

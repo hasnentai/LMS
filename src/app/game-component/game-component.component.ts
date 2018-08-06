@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./game-component.component.css']
 })
 export class GameComponentComponent implements OnInit {
+  quizPercent: string;
+  gamePercent: string;
   gameURL: string;
   nativeURL: String;
   currentModule: string;
@@ -26,10 +28,11 @@ export class GameComponentComponent implements OnInit {
     this.score = localStorage.getItem('quizScore');
     this.courseID =  localStorage.getItem('courseId');
     this.gameURL = localStorage.getItem('gameURL');
+    this.quizPercent = localStorage.getItem('quizPercent');
     this.nativeURL = window.location.href;
     this.currentModule = this.nativeURL.substring(this.nativeURL.indexOf('=') + 1, this.nativeURL.length);
     this.url = this.gameURL + '?ct=' + this.currentModule +
-    '&tk=' + this.token + '&id=' + this.courseID + '&score=' + this.score;
+    '&tk=' + this.token + '&id=' + this.courseID + '&score=' + this.score + '&scorep=' + this.quizPercent ;
     this.url = this.sanitizer.bypassSecurityTrustResourceUrl(this.url);
     console.log(this.url);
   }

@@ -19,6 +19,9 @@ import { UserStateService } from '../user-state.service';
   styleUrls: ['./quiz.component.css']
 })
 export class QuizComponent implements OnInit {
+  nativeURL: string;
+  postData: {};
+  quizPercent: number;
   game: boolean;
   gameURL: any;
   url: string;
@@ -89,17 +92,30 @@ export class QuizComponent implements OnInit {
     } else {
       if (this.serverservice.currentModuleCounter <= this.data.length) {
         this.serverservice.currentModuleCounter++;
-        this.questionCounter = -2;
+        this.questionCounter = -1;
         localStorage.setItem('questionCounter', null);
 
         console.log(localStorage.getItem('questionCounter'));
         localStorage.setItem('quizScore', String(this.score));
+        this.nativeURL = window.location.href;
        //  this.avgQuizScore = (this.score / this.qustionLength * 10);
         // localStorage.setItem('avgQuizScore' ,)
         if (this.game) {
+          this.quizPercent = ((this.score / (this.qustionLength * 10)) * 100);
+          localStorage.setItem('quizPercent',  String(this.quizPercent));
           this.router.navigateByUrl('/game?ct=' + this.currentModule);
         } else {
-          this.router.navigateByUrl('/moduleintro?ct=' +  ++ this.currentModule);
+          this.quizPercent = ((this.score / (this.qustionLength * 10)) * 100);
+          this.postData = {
+            courseID: localStorage.getItem('courseId'),
+            score:  this.quizPercent,
+            module: this.nativeURL.substring(this.nativeURL.indexOf('=') + 1, this.nativeURL.length),
+            token: localStorage.getItem('userToken')
+          };
+          this.serverservice.sendModuleData(this.postData).subscribe((response: any) => {
+            console.log(response);
+          });
+            this.router.navigateByUrl('/moduleintro?ct=' +  ++ this.currentModule);
         }
         // this.router.navigate(['/moduleintro', { id: localStorage.getItem('courseId') }]);
         // window.location.href = 'http://192.168.0.18:8080/MyGame';
