@@ -18,7 +18,7 @@ export class ServerserviceService  implements OnInit {
   httpOptions;
   userToken;
   readonly _rootUrl = 'https://businesstoys.tech';
-  readonly _rootURL2 = 'http://192.168.0.2:3000';
+  readonly _rootURL2 = 'https://businesstoys.tech';
   constructor(private http: HttpClient ) { }
   getToken(): string {
     return localStorage.getItem('token');
